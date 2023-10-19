@@ -131,18 +131,18 @@ const Sidebar = () => {
                   alignItems="center"
                   ml="15px"
                 >
-                  
-                    <Titulo style={{
-                      fontFamily: 'Helvetica',
-                      color: "white",
-                      fontSize: "20px",
-                      fontWeight: 'bold',
 
-                      alignSelf: "center",
-                      width: "100%",
-                      border: "none",
-                    }}> KLINICAL</Titulo>
-                  
+                  <Titulo style={{
+                    fontFamily: 'Helvetica',
+                    color: "white",
+                    fontSize: "20px",
+                    fontWeight: 'bold',
+
+                    alignSelf: "center",
+                    width: "100%",
+                    border: "none",
+                  }}> KLINICAL</Titulo>
+
                   <IconButton onClick={() => setIsCollapsed(!isCollapsed)}
                   >
                     <MenuOutlinedIcon />
@@ -338,24 +338,7 @@ const Sidebar = () => {
     </>;
   } else {
     return <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <div className="container-fluid">
-          <Link to="/" className='nav-link'>Home</Link>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link to="/login" className='nav-link'>Login</Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/registrarse" className='nav-link'>Registrarse</Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+
     </>
   }
 };
