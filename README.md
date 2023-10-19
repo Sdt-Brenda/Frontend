@@ -31,19 +31,21 @@
 
 ## Instalación :inbox_tray::globe_with_meridians::wrench:
 
-El archivo para inicializar la base de datos se encunetra en "database", con el nombre "database.sql". Hacerlo correr en su motor de base de datos. <br/>
+DATABASE:
+Para poder inicializar la base de datos, se requiere un motor de base de datos (MySQL, MariaDB o similares). El archivo para crear la base de datos se encunetra en "database", con el nombre "database.sql". Hacerlo correr en su motor de base de datos. <br/>
 
+BACKEND:
 Para instalar el Backend necesita intalar Node.js, este proyecto esta desarrollado en la versión 18.16 del mismo.<br/>
 Una vez disponga de Node.js en su computadora, debera abrir la carpeta donde tiene el proyecto con su editor de código predilecto.<br/>
 De ser necesario, navegar desde la terminal del mismo hasta la carpeta apropiada e ingresar el comando "npm i" para instalar todas las dependencias del proyecto.
-para inicializar el servidor ingrese el comando "nodemon index.js".<br/>
+Para inicializar el servidor ingrese el comando "nodemon index.js".<br/>
 
 
-PARA EL FRONTEND <br/>
-npm i<br/>
-npm start<br/>
-
----
+FRONTEND: <br/>
+Para instalar el Frontend necesita intalar Node.js, este proyecto esta desarrollado en la versión 18.16 del mismo.<br/>
+Una vez disponga de Node.js en su computadora, debera abrir la carpeta donde tiene el proyecto con su editor de código predilecto.<br/>
+De ser necesario, navegar desde la terminal del mismo hasta la carpeta apropiada e ingresar el comando "npm i" para instalar todas las dependencias del proyecto.
+Para inicializar el proyecto en su navegador ingrese el comando "npm start".<br/>
 
 
 ## Hoja de Ruta :running:
