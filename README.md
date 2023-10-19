@@ -64,9 +64,10 @@ Para inicializar el proyecto en su navegador ingrese el comando "npm start".<br/
 ✅ Realizamos los Merges en conjunto❤️<br/>
 ✅ Testeamos las funcionalidades<br />
 ✅ Corregimos los ultimos detalles ⚗️⚗️⚗️<br />
-✅ Presentamos el proyecto<br />
-
-
+✅ Presentamos el proyecto el 18 de Octubre<br />
+✅ Corregimos los ultimos detalles ⚗️⚗️⚗️<br />
+✅ Exponemos el proyecto el 25 de Octubre<br />
+✅ Corregimos los ultimos detalles ⚗️⚗️⚗️<br />
 
 ---
 
