@@ -186,16 +186,13 @@ export class Estudio extends Component {
     renderAcciones = (rowData) => {
         return (
             <>
-                <Link to={`/usuario/edit/${rowData.Rellenar}`} className="btn btn-secondary">
+                <Link to={`/estudio/edit/${rowData.id_estudio}`} className="btn btn-secondary">
                     <span className="material-symbols-outlined">edit</span>
                 </Link>
-                <Link to={`/usuario/historia_clinica/${rowData.Rellenar}`} className="btn btn-primary">
-                    <span className="material-symbols-outlined">note</span>
+                <Link to={`/estudio/informe/${rowData.id_estudio}`} className="btn btn-primary">
+                    <span className="material-symbols-outlined">article</span>
                 </Link>
-                    <Link to={`/usuario/turno/${rowData.Rellenar}`} className="btn btn-info">
-                        <span className="material-symbols-outlined">calendar_add_on</span>
-                    </Link>
-                <button className="btn btn-danger" onClick={() => this.showModal(rowData.Rellenar)}>
+                <button className="btn btn-danger" onClick={() => this.showModal(rowData.id_estudio)}>
                     <span className="material-symbols-outlined">delete</span>
                 </button>
             </>
@@ -209,6 +206,7 @@ export class Estudio extends Component {
         const dataForDataTable = this.state.estudio.map((estudio, index) => {
 
             return {
+                id_estudio: estudio.id_estudio,
                 codigo: estudio.codigo,
                 fecha: estudio.fecha,
                 horario: estudio.horario,
@@ -221,22 +219,19 @@ export class Estudio extends Component {
                 <div className="card2">
                     <DataTable value={dataForDataTable} removableSort paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} dataKey="id"  filters={this.state.filters} 
                     globalFilterFields={['codigo', 'fecha', 'horario', 'valores_referencia']} header={header} emptyMessage="Nada Encontrado" tableStyle={{ minWidth: '50rem' }}>
-                        <Column field="codigo" header="codigo" sortable style={{ width: '10%' }}></Column>
-                        <Column field="fecha" header="fecha" sortable style={{ width: '10%' }}></Column>
-                        <Column field="horario" header="horario" sortable style={{ width: '10%' }}></Column>
-                        <Column field="valores_referencia" header="valores_referencia" sortable style={{ width: '10%' }}></Column>
-                        <Column field="Acciones" header="Acciones" sortable style={{ width: '10%' }} body={(rowData)  => (
+                        <Column field="codigo" header="codigo" sortable style={{ width: '30%' }}></Column>
+                        <Column field="fecha" header="fecha" sortable style={{ width: '30%' }}></Column>
+                        <Column field="horario" header="horario" sortable style={{ width: '30%' }}></Column>
+                        <Column field="valores_referencia" header="valores_referencia" sortable style={{ width: '30%' }}></Column>
+                        <Column field="Acciones" header="Acciones" sortable style={{ width: '30%' }} body={(rowData)  => (
                             <div className="btn-actions-container">
-                                <Link to={`/usuario/edit/${rowData.Rellenar}`} className="btn btn-secondary">
+                                <Link to={`/estudio/edit/${rowData.id_estudio}`} className="btn btn-secondary">
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>edit</span>
                                 </Link>
-                                <Link to={`/usuario/historia_clinica/${rowData.Rellenar}`} className="btn btn-info">
-                                    <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>event</span>
+                                <Link to={`/estudio/informe/${rowData.id_estudio}`} className="btn btn-primary">
+                                    <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>article</span>
                                 </Link>
-                                <Link to={`/usuario/turno/${rowData.Rellenar}`} className="btn btn-primary">
-                                    <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>note</span>
-                                </Link>
-                                <button className="btn btn-danger" onClick={() => this.showModal(rowData.Rellenar)}>
+                                <button className="btn btn-danger" onClick={() => this.showModal(rowData.id_estudio)}>
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>delete</span>
                                 </button>
                             </div>
