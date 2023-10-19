@@ -3,6 +3,10 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import styles from "./styles/Registrarse.module.css";
+import Titulo from "./components/Titulo";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
 export class InternalRegistrarse extends Component {
     constructor(props) {
         super(props);
@@ -101,103 +105,127 @@ export class InternalRegistrarse extends Component {
 
     render() {
         return (
-            <div className="container">
-                <div className="row">
-                    <div className="col">
-                        <h1>Registrarse como Paciente</h1>
-                        <form onSubmit={this.handleSubmit}>
-                            <div className="form-floating">
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    id='floatingNombre'
-                                    value={this.state.nombre}
-                                    name='nombre'
-                                    onChange={this.handleChange} />
-                                <label htmlFor="floatingNombre">Nombre</label>
-                            </div>
-                            <br />
-                            <div className="form-floating">
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    id='floatingApellido'
-                                    value={this.state.apellido}
-                                    name='apellido'
-                                    onChange={this.handleChange} />
-                                <label htmlFor="floatingApellido">Apellido</label>
-                            </div>
-                            <br />
-                            <div className="form-floating">
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    id='floatingDNI'
-                                    value={this.state.dni}
-                                    name='dni'
-                                    onChange={this.handleChange} />
-                                <label htmlFor="floatingDNI">DNI</label>
-                            </div>
-                            <br />
-                            <div className="form-floating">
-                                <input
-                                    type="date"
-                                    className="form-control"
-                                    id='floatingFecha_Nacimiento'
-                                    value={this.state.fecha_nacimiento}
-                                    name='fecha_nacimiento'
-                                    onChange={this.handleChange} />
-                                <label htmlFor="floatingFecha_Nacimiento">Fecha de Nacimiento</label>
-                            </div>
-                            <br />
-                            <div className="mb-3">
-                                <select
-                                    className="form-select"
-                                    id="genero_id"
-                                    onChange={this.handleChange}
-                                    value={this.state.genero}
-                                    name="genero"
-                                    aria-label="Default select example">
-                                    <option value="" disabled>
-                                        Genero
-                                    </option>
-                                    <option value="1">Femenino</option>
-                                    <option value="2">Masculino</option>
-                                    <option value="3">Otros</option>
-                                </select>
-                            </div>
-                            <br />
-                            <div className="form-floating">
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    id='floatingEmail'
-                                    value={this.state.email}
-                                    name='email'
-                                    onChange={this.handleChange} />
-                                <label htmlFor="floatingEmail">Email</label>
-                            </div>
-                            <br />
-                            <div className="form-floating">
-                                <input
-                                    type="password"
-                                    className="form-control"
-                                    id='floatingPassword'
-                                    value={this.state.password}
-                                    name='password'
-                                    onChange={this.handleChange} />
-                                <label htmlFor="floatingPassword">Password</label>
-                            </div>
-                            <br />
+            <div className={styles.container}>
+
+            <div className={styles.card_register}>
+
+            <a href="/" className={styles.homeButton}>
+                <ArrowBackIcon></ArrowBackIcon>
+            </a>
+
+                <Titulo style={{ fontFamily: 'Helvetica', color: 'black', fontSize: '2rem', fontWeight: 'bold', textAlign: 'left', paddingLeft: '10px', paddingTop: '10px' }}>
+                    Registrate</Titulo>
+                <Titulo style={{ fontFamily: 'Helvetica', color: '#848482', fontSize: '1rem', fontWeight: 'light', textAlign: 'left', paddingLeft: '10px', paddingTop: '0' }}>
+                    Por favor, ingresa tus datos.</Titulo>
+
+                <div className="container">
+
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="form-floating">
                             <input
-                                className='btn btn-primary'
-                                type='submit'
-                                value='Crear'
-                            />
-                        </form>
-                    </div>
+                                type="text"
+                                className="form-control"
+                                id='floatingNombre'
+                                value={this.state.nombre}
+                                name='nombre'
+                                onChange={this.handleChange} />
+                            <label htmlFor="floatingNombre">Nombre</label>
+                        </div>
+
+                        <div className="form-floating">
+                            <input
+                                type="text"
+                                className="form-control"
+                                id='floatingApellido'
+                                value={this.state.apellido}
+                                name='apellido'
+                                onChange={this.handleChange} />
+                            <label htmlFor="floatingApellido">Apellido</label>
+                        </div>
+
+                        <div className="form-floating">
+                            <input
+                                type="text"
+                                className="form-control"
+                                id='floatingDNI'
+                                value={this.state.dni}
+                                name='dni'
+                                onChange={this.handleChange} />
+                            <label htmlFor="floatingDNI">DNI</label>
+                        </div>
+
+                        <div className="form-floating">
+                            <input
+                                type="date"
+                                className="form-control"
+                                id='floatingFecha_Nacimiento'
+                                value={this.state.fecha_nacimiento}
+                                name='fecha_nacimiento'
+                                onChange={this.handleChange} />
+                            <label htmlFor="floatingFecha_Nacimiento">Fecha de Nacimiento</label>
+                        </div>
+
+                        <div className="mb-3">
+                            <select
+                                className="form-select"
+                                id="genero_id"
+                                onChange={this.handleChange}
+                                value={this.state.genero}
+                                name="genero"
+                                aria-label="Default select example">
+                                <option value="" disabled>
+                                    Genero
+                                </option>
+                                <option value="1">Femenino</option>
+                                <option value="2">Masculino</option>
+                                <option value="3">Otros</option>
+                            </select>
+                        </div>
+
+                        <div className="form-floating">
+                            <input
+                                type="text"
+                                className="form-control"
+                                id='floatingEmail'
+                                value={this.state.email}
+                                name='email'
+                                onChange={this.handleChange} />
+                            <label htmlFor="floatingEmail">Email</label>
+                        </div>
+
+                        <div className="form-floating">
+                            <input
+                                type="password"
+                                className="form-control"
+                                id='floatingPassword'
+                                value={this.state.password}
+                                name='password'
+                                onChange={this.handleChange} />
+                            <label htmlFor="floatingPassword">Password</label>
+                        </div>
+
+                        <input
+                            style={{
+                                backgroundColor: "#9653B8",
+                                fontFamily: 'Helvetica',
+                                color: 'white',
+                                fontSize: "20px",
+                                fontWeight: 'black',
+
+                                alignSelf: "center",
+                                width: "100%",
+                                border: "none",
+                            }}
+                            className="btn btn-primary"
+                            type="submit"
+                            value="REGISTRARSE"
+                        />
+                    </form>
+
+
                 </div>
             </div>
+        </div >
         );
     }
 }

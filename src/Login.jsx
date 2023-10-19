@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { Link } from 'react-router-dom'
+//import { Link } from 'react-router-dom'
 import 'react-toastify/dist/ReactToastify.css';
+
+import styles from "./styles/Login.module.css";
+import Titulo from "./components/Titulo";
+import imageK from "./assets/LogFavicon.svg";
 
 function Login() {
     const [dni, setDNI] = useState('');
@@ -87,57 +91,80 @@ function Login() {
     };
 
     return (
-        <div className='container'>
-            <div className='row'>
-                <div className='col'>
-                    <h1>Iniciar Sesión</h1>
-                    <form onSubmit={handleSubmit}>
-                        <div className="form-floating">
-                            <input
-                                type="text"
-                                className="form-control"
-                                id='floatingDNI'
-                                value={dni}
-                                name='dni'
-                                onChange={handleChange}
-                            />
-                            <label htmlFor="floatingDNI">DNI</label>
+
+        <div className={styles.container}>
+            <div className={styles.card_login}>
+                <img className={styles.img} src={imageK} alt="Klinical" />
+                {/*<Titulo style={{ color: 'black', fontSize: '2rem', textAlign: 'left', paddingLeft: '10px' }}>Inicia Sesión</Titulo>*/}
+                <Titulo style={{ color: '#848482', fontSize: '1rem', textAlign: 'left', paddingLeft: '10px', paddingBottom: '10px', fontWeight: 'lighter', fontFamily: 'Helvetica' }}>Por favor, ingresa tus datos.</Titulo>
+
+                <div className='container'>
+                    <div className='row'>
+                        <div className='col'>
+
+                            <form onSubmit={handleSubmit}
+                                style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    gap: "3px",
+                                }}>
+
+                                <div className="form-floating">
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id='floatingDNI'
+                                        value={dni}
+                                        name='dni'
+                                        onChange={handleChange}
+                                    />
+                                    <label htmlFor="floatingDNI">DNI</label>
+                                </div>
+                                <br />
+                                <div className="form-floating">
+                                    <input
+                                        type="password"
+                                        className="form-control"
+                                        id='floatingPassword'
+                                        value={password}
+                                        name='password'
+                                        onChange={handleChange}
+                                    />
+                                    <label htmlFor="floatingPassword">Contraseña</label>
+                                    <Titulo
+                                        style={{ fontFamily: 'Helvetica', fontSize: '1rem', fontWeight: 'lighter', paddingTop: '5px' }}>
+                                        <a href="/" style={{ color: "#9653B8", textDecoration: "none" }}>Olvidaste tu contraseña?</a></Titulo>
+                                </div>
+                                <br />
+                                <input style={{
+                                    backgroundColor: "#9653B8",
+                                    fontFamily: 'Helvetica',
+                                    color: 'white',
+                                    fontSize: "20px",
+
+                                    alignSelf: "center",
+                                    width: "100%",
+                                    border: "none",
+                                }}
+                                    className='btn btn-primary'
+                                    type='submit'
+                                    value='INGRESAR'
+                                />
+                                <Titulo style={{ fontFamily: 'Helvetica', color: '#848482', fontSize: '1rem', fontWeight: 'lighter', paddingTop: '5px' }}>
+                                    Nuevo/a en la plataforma? <a href="/registrarse" style={{ color: "#9653B8", textDecoration: "none" }}>Create una cuenta</a>.
+                                </Titulo>
+                            </form>
                         </div>
-                        <br />
-                        <div className="form-floating">
-                            <input
-                                type="password"
-                                className="form-control"
-                                id='floatingPassword'
-                                value={password}
-                                name='password'
-                                onChange={handleChange}
-                            />
-                            <label htmlFor="floatingPassword">Password</label>
-                        </div>
-                        <br />
-                        <input
-                            className='btn btn-primary'
-                            type='submit'
-                            value='Ingresar'
-                        />
-                    </form>
-                    <Link to="/registrarse" className='nav-link btn btn-info'>¿No tenes cuenta? Registrate</Link>
+                    </div>
                 </div>
+
             </div>
         </div>
+
     );
 }
 
 export default Login;
-
-
-
-
-
-
-
-
 
 //VERSION DE CLASE
 

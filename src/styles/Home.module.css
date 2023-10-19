@@ -1,0 +1,68 @@
+/* LOGOUT */
+
+.container {
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  
+    background-image: url("../assets/BgKlinical_02.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center right;
+  }
+  
+  .text {
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    margin-left: 50px;
+  }
+  
+  .log {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+    margin-left: 50px;
+  }
+  
+  /* LOGIN */
+  
+  .containerX {
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  
+    background-image: url("../assets/BgKlinical_02.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center right;
+  }
+  
+  .textX {
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    margin-right: 20px;
+  }
+  
+  /*.image {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+    margin-left: 50px;
+  }*/
+  
