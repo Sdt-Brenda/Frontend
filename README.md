@@ -21,7 +21,7 @@
 # Tablas de contenido <!-- omit in toc -->
 
 
-- [Instalacion :inbox_tray::globe_with_meridians::wrench:](#Instalacion-inbox_tray-globe-with_meridians-wrench)
+- [Instalación :inbox_tray::globe_with_meridians::wrench:](#Instalacion-inbox_tray-globe-with_meridians-wrench)
 - [Hoja de Ruta :running:](#Hoja-de-Ruta-running)
 - [Capturas del Proyecto](#Capturas-del-Proyecto)
 - [Contribuidores :sparkles:](#Contribuidores-sparkles)
@@ -29,7 +29,7 @@
 
 ---
 
-## Instalacion :inbox_tray::globe_with_meridians::wrench:
+## Instalación :inbox_tray::globe_with_meridians::wrench:
 
 PARA EJECUTAR LA BASE DE DATOS. Y EL BACKEND <br/>
 npm i<br/>
