@@ -78,7 +78,7 @@ C:\Users\Facundo\Desktop\Clases de Silicon Misiones\PROYECTO FINAL\frontend Nach
 ## Capturas del Proyecto
 
 <div align="center">
-    <img src="./klinical2" width="50%" />
+    <img src="./klinical2.png" width="50%" />
 </div>
 
 <div align="center">
