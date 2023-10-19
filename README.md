@@ -31,11 +31,11 @@
 
 ## Instalacion :inbox_tray::globe_with_meridians::wrench:
 
-OBLIGACION CORRER EL SERVIDOR CON XAMPP---- SI NO, NO VA A FUNCAR
+1. OBLIGATORIO: CORRER EL SERVIDOR CON XAMPP---- SI NO, NO VA A FUNCIONAR.
 
-MODIFICAR EL CONFIG.JSON DE LA BASE DE DATOS CON DATOS DEL WORKBENCH
+2. MODIFICAR EL CONFIG.JSON DE LA BASE DE DATOS CON DATOS DEL WORKBENCH.
 
-LUEGO INSERTAR LOS ROLES EN LA BASE DE DATO "ULTRA IMPORTANTE"
+3. LUEGO INSERTAR LOS ROLES EN LA BASE DE DATOS: "ULTRA IMPORTANTE"
 
 INSERT INTO rol (id_rol, nombre_rol)
 VALUES (1, "admin"),(2, "doctor"),(3, "paciente");
@@ -115,4 +115,4 @@ C:\Users\Facundo\Desktop\Clases de Silicon Misiones\PROYECTO FINAL\frontend Nach
 
 ## Licencia :scroll:
 
-Contamos con la licencia de nuestros padres para realizar este proyecto
+Contamos con la licencia de nuestros padres para realizar este proyecto.
