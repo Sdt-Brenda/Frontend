@@ -181,19 +181,16 @@ export class Doctor extends Component {
 
 
 
-renderAcciones = (rowData) => {
+    renderAcciones = (rowData) => {
         return (
             <>
-                <Link to={`/usuario/edit/${rowData.Rellenar}`} className="btn btn-secondary">
+                <Link to={`/doctor/edit/${rowData.id_doctor}`} className="btn btn-secondary">
                     <span className="material-symbols-outlined">edit</span>
                 </Link>
-                <Link to={`/usuario/historia_clinica/${rowData.Rellenar}`} className="btn btn-primary">
-                    <span className="material-symbols-outlined">note</span>
+                <Link to={`/doctor/nuevo_horario/${rowData.id_doctor}`} className="btn btn-info">
+                    <span className="material-symbols-outlined">manage_history</span>
                 </Link>
-                    <Link to={`/usuario/turno/${rowData.Rellenar}`} className="btn btn-info">
-                        <span className="material-symbols-outlined">calendar_add_on</span>
-                    </Link>
-                <button className="btn btn-danger" onClick={() => this.showModal(rowData.Rellenar)}>
+                <button className="btn btn-danger" onClick={() => this.showModal(rowData.id_doctor)}>
                     <span className="material-symbols-outlined">delete</span>
                 </button>
             </>
@@ -215,27 +212,24 @@ renderAcciones = (rowData) => {
         });
 
 
-            return (
-                <>
+        return (
+            <>
 
                 <div className="card2">
-                    <DataTable value={dataForDataTable} removableSort paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} dataKey="id"  filters={this.state.filters} 
-                    globalFilterFields={['id_doctor', 'especialidad', 'dias_trabaja']} header={header} emptyMessage="Nada Encontrado" tableStyle={{ minWidth: '50rem' }}>
-                        <Column field="id_doctor" header="id_doctor" sortable style={{ width: '30%' }}></Column>
-                        <Column field="especialidad" header="especialidad" sortable style={{ width: '30%' }}></Column>
-                        <Column field="dias_trabaja" header="dias_trabaja" sortable style={{ width: '30%' }}></Column>
-                        <Column field="Acciones" header="Acciones" sortable style={{ width: '30%' }} body={(rowData)  => (
+                    <DataTable value={dataForDataTable} removableSort paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} dataKey="id" filters={this.state.filters}
+                        globalFilterFields={['id_doctor', 'especialidad', 'dias_trabaja']} header={header} emptyMessage="Nada Encontrado" tableStyle={{ minWidth: '50rem' }}>
+                        <Column field="id_doctor" header="id_doctor" sortable style={{ width: '40%' }}></Column>
+                        <Column field="especialidad" header="especialidad" sortable style={{ width: '40%' }}></Column>
+                        <Column field="dias_trabaja" header="dias_trabaja" sortable style={{ width: '40%' }}></Column>
+                        <Column field="Acciones" header="Acciones" sortable style={{ width: '40%' }} body={(rowData) => (
                             <div className="btn-actions-container">
-                                <Link to={`/usuario/edit/${rowData.Rellenar}`} className="btn btn-secondary">
+                                <Link to={`/doctor/edit/${rowData.id_doctor}`} className="btn btn-secondary">
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>edit</span>
                                 </Link>
-                                <Link to={`/usuario/historia_clinica/${rowData.Rellenar}`} className="btn btn-info">
-                                    <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>event</span>
+                                <Link to={`/doctor/nuevo_horario/${rowData.id_doctor}`} className="btn btn-info">
+                                    <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>manage_history</span>
                                 </Link>
-                                <Link to={`/usuario/turno/${rowData.Rellenar}`} className="btn btn-primary">
-                                    <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>note</span>
-                                </Link>
-                                <button className="btn btn-danger" onClick={() => this.showModal(rowData.Rellenar)}>
+                                <button className="btn btn-danger" onClick={() => this.showModal(rowData.id_doctor)}>
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>delete</span>
                                 </button>
                             </div>
