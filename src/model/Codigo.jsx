@@ -186,16 +186,10 @@ export class Codigo extends Component {
 renderAcciones = (rowData) => {
         return (
             <>
-                <Link to={`/usuario/edit/${rowData.Rellenar}`} className="btn btn-secondary">
+                <Link to={`/usuario/edit/${rowData.codigo}`} className="btn btn-secondary">
                     <span className="material-symbols-outlined">edit</span>
                 </Link>
-                <Link to={`/usuario/historia_clinica/${rowData.Rellenar}`} className="btn btn-primary">
-                    <span className="material-symbols-outlined">note</span>
-                </Link>
-                    <Link to={`/usuario/turno/${rowData.Rellenar}`} className="btn btn-info">
-                        <span className="material-symbols-outlined">calendar_add_on</span>
-                    </Link>
-                <button className="btn btn-danger" onClick={() => this.showModal(rowData.Rellenar)}>
+                <button className="btn btn-danger" onClick={() => this.showModal(rowData.codigo)}>
                     <span className="material-symbols-outlined">delete</span>
                 </button>
             </>
@@ -226,16 +220,10 @@ renderAcciones = (rowData) => {
                         <Column field="descripcion" header="descripcion" sortable style={{ width: '35%' }}></Column>
                         <Column field="Acciones" header="Acciones" sortable style={{ width: '35%' }} body={(rowData)  => (
                             <div className="btn-actions-container">
-                                <Link to={`/usuario/edit/${rowData.Rellenar}`} className="btn btn-secondary">
+                                <Link to={`/codigo_estudio/edit/${rowData.codigo}`} className="btn btn-secondary">
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>edit</span>
                                 </Link>
-                                <Link to={`/usuario/historia_clinica/${rowData.Rellenar}`} className="btn btn-info">
-                                    <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>event</span>
-                                </Link>
-                                <Link to={`/usuario/turno/${rowData.Rellenar}`} className="btn btn-primary">
-                                    <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>note</span>
-                                </Link>
-                                <button className="btn btn-danger" onClick={() => this.showModal(rowData.Rellenar)}>
+                                <button className="btn btn-danger" onClick={() => this.showModal(rowData.codigo)}>
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>delete</span>
                                 </button>
                             </div>
