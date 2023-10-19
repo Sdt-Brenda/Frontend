@@ -31,10 +31,10 @@
 
 ## Instalación :inbox_tray::globe_with_meridians::wrench:
 
-DATABASE:
+DATABASE:<br/>
 Para poder inicializar la base de datos, se requiere un motor de base de datos (MySQL, MariaDB o similares). El archivo para crear la base de datos se encunetra en "database", con el nombre "database.sql". Hacerlo correr en su motor de base de datos. <br/>
 
-BACKEND:
+BACKEND:<br/>
 Para instalar el Backend necesita intalar Node.js, este proyecto esta desarrollado en la versión 18.16 del mismo.<br/>
 Una vez disponga de Node.js en su computadora, debera abrir la carpeta donde tiene el proyecto con su editor de código predilecto.<br/>
 De ser necesario, navegar desde la terminal del mismo hasta la carpeta apropiada e ingresar el comando "npm i" para instalar todas las dependencias del proyecto.
