@@ -14,7 +14,7 @@ export class Home extends Component {
             return (
                 <div className={styles.containerX}>
                     <div className={styles.textX}>
-                    
+
                         <Titulo style={{ fontFamily: 'Helvetica', color: 'black', fontSize: '4,5rem', fontWeight: 'bold', textAlign: 'center' }}>
                             Tus operaciones tan solo a un click de distancia!
                         </Titulo>
@@ -28,7 +28,7 @@ export class Home extends Component {
                                     fontSize: "20px",
                                     fontWeight: 'black',
 
-                                    width: "100%",                                    
+                                    width: "100%",
                                     border: "none",
                                     marginTop: '25px'
                                 }}
@@ -48,7 +48,7 @@ export class Home extends Component {
                                     fontSize: "20px",
                                     fontWeight: 'black',
 
-                                    width: "100%",                                    
+                                    width: "100%",
                                     border: "none",
                                     marginTop: '25px'
                                 }}
@@ -68,7 +68,7 @@ export class Home extends Component {
                                     fontSize: "20px",
                                     fontWeight: 'black',
 
-                                    width: "100%",                                    
+                                    width: "100%",
                                     border: "none",
                                     marginTop: '25px'
                                 }}
@@ -79,9 +79,9 @@ export class Home extends Component {
 
                         <br />
 
-                        <Titulo style={{ fontFamily: 'Helvetica', color: '#848482', fontSize: '1rem', fontWeight: 'lighter' }}>
-                        Necesitas ayuda? <a href="/registrarse" style={{ color: "#9653B8" }}> Más información. </a>.
-                                    </Titulo>
+                        <Titulo style={{ fontFamily: 'Helvetica', color: '#848482', fontSize: '1rem', fontWeight: 'lighter', textAlign: 'left' }}>
+                            Necesitas ayuda? <a href="/registrarse" style={{ color: "#9653B8" }}> Más información. </a>.
+                        </Titulo>
 
                     </div>
                 </div>
@@ -92,15 +92,15 @@ export class Home extends Component {
                 <div className={styles.container}>
                     <div className={styles.text}>
 
-                        <Titulo style={{ fontFamily: 'Helvetica', color: 'black', fontSize: '4,5rem', fontWeight: 'bold', }}>
+                        <Titulo style={{ fontFamily: 'Helvetica', color: 'black', fontSize: '4,5rem', fontWeight: 'bold', textAlign: 'left' }}>
                             Bienvenido a
                         </Titulo>
 
-                        <Titulo style={{ fontFamily: 'Helvetica', color: 'black', fontSize: '4,5rem', fontWeight: 'bold', }}>
+                        <Titulo style={{ fontFamily: 'Helvetica', color: 'black', fontSize: '4,5rem', fontWeight: 'bold', textAlign: 'left' }}>
                             Klinical!
                         </Titulo>
 
-                        <Titulo style={{ fontFamily: 'Helvetica', color: '#848482', fontSize: '1rem', fontWeight: 'lighter', paddingTop: '50px' }}>
+                        <Titulo style={{ fontFamily: 'Helvetica', color: '#848482', fontSize: '1rem', fontWeight: 'lighter', textAlign: 'left', paddingTop: '50px' }}>
                             KLINICAL te ofrece un sistema integral orientado a clínicas y escalable a la medida de tus necesidades.
                             Que permite la gestión y obtención de turnos por parte de sus usuarios.
                             El Sistema engloba las distintas áreas y especialidades existentes en el establecimiento médico que integre su uso.
@@ -108,12 +108,12 @@ export class Home extends Component {
                             facilitando y acercando la información del establecimiento a los pacientes que la requieran.
                         </Titulo>
 
-                        <Titulo style={{ fontFamily: 'Helvetica', color: '#848482', fontSize: '1rem', fontWeight: 'lighter', paddingTop: '50px' }}>
+                        <Titulo style={{ fontFamily: 'Helvetica', color: '#848482', fontSize: '1rem', fontWeight: 'lighter', textAlign: 'left', paddingTop: '50px' }}>
                             Con KLINICAL, la gestión de turnos y la comunicación entre tu clínica y los pacientes se vuelven más fáciles y accesibles que nunca.
                             Descubre cómo podemos optimizar tu práctica médica y mejorar la experiencia de tus pacientes.
                         </Titulo>
 
-                        <Link to="/Doctores">
+                        <Link to="/Home">
                             <input
                                 style={{
                                     width: "100%",
@@ -127,8 +127,9 @@ export class Home extends Component {
                                 value="Conoce nuestros profesionales"
                             />
                         </Link>
+
                         <br />
-                        <Titulo style={{ fontFamily: 'Helvetica', color: '#848482', fontSize: '1rem', fontWeight: 'lighter' }}>
+                        <Titulo style={{ fontFamily: 'Helvetica', color: '#848482', fontSize: '1rem', fontWeight: 'lighter', textAlign: 'left' }}>
                             Necesitas ayuda? <a href="/" style={{ color: "#9653B8" }}> Más información. </a>
                         </Titulo>
 

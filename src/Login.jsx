@@ -132,7 +132,7 @@ function Login() {
                                     />
                                     <label htmlFor="floatingPassword">Contraseña</label>
                                     <Titulo
-                                        style={{ fontFamily: 'Helvetica', fontSize: '1rem', fontWeight: 'lighter', paddingTop: '5px' }}>
+                                        style={{ fontFamily: 'Helvetica', fontSize: '1rem', fontWeight: 'lighter', textAlign: 'right', paddingTop: '5px' }}>
                                         <a href="/" style={{ color: "#9653B8", textDecoration: "none" }}>Olvidaste tu contraseña?</a></Titulo>
                                 </div>
                                 <br />
