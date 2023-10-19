@@ -4,13 +4,24 @@ import { useNavigate, useParams, Link } from 'react-router-dom/dist';
 import Login from "./Login";
 import Titulo from "./components/Titulo";
 import styles from "./styles/Home.module.css";
+import jwt_decode from 'jwt-decode';
+
+
+
 
 export class Home extends Component {
 
+
+
     render() {
         const token = localStorage.getItem('token'); // <---
+         
 
         if (token) { // <---
+            const decodedToken = jwt_decode(localStorage.getItem('token'));
+            const id_usuario = decodedToken.id_usuario;
+
+
             return (
                 <div className={styles.containerX}>
                     <div className={styles.textX}>
@@ -19,7 +30,7 @@ export class Home extends Component {
                             Tus operaciones tan solo a un click de distancia!
                         </Titulo>
 
-                        <Link to="/">
+                        <Link to={`/usuario/turno/${id_usuario}`}>
                             <input
                                 style={{
                                     backgroundColor: "#9653B8",
@@ -39,7 +50,7 @@ export class Home extends Component {
 
                         <br />
 
-                        <Link to="/">
+                        <Link to={`/estudio/edit/${id_usuario}`}>
                             <input
                                 style={{
                                     backgroundColor: "#9653B8",
@@ -59,7 +70,7 @@ export class Home extends Component {
 
                         <br />
 
-                        <Link to="/">
+                        <Link to={`/paciente/historia_clinica/${id_usuario}`}>
                             <input
                                 style={{
                                     backgroundColor: "#808080",
