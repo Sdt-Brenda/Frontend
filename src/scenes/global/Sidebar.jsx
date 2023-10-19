@@ -4,7 +4,6 @@ import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../theme";
-
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
@@ -188,15 +187,15 @@ const Sidebar = () => {
                   setSelected={setSelected}
                 />
                 <Item
-                  title="Usuarios"
+                  title="Panel de Usuarios"
                   to="/usuario"
                   icon={<PersonOutlinedIcon />}
                   selected={selected}
                   setSelected={setSelected}
                 />
                 <Item
-                  title="Doctores"
-                  to="/doctores"
+                  title="Gestion de Doctores"
+                  to="/doctor"
                   icon={<LocalHospitalIcon />}
                   selected={selected}
                   setSelected={setSelected}
@@ -223,15 +222,8 @@ const Sidebar = () => {
                   setSelected={setSelected}
                 />
                 <Item
-                  title="Historias Clínicas"
-                  to="/historia_clinica"
-                  icon={<AddCircleIcon />}
-                  selected={selected}
-                  setSelected={setSelected}
-                />
-                <Item
-                  title="Estudios"
-                  to="/estudios"
+                  title="Gestionar Estudios"
+                  to="/estudio"
                   icon={<AddCircleIcon />}
                   selected={selected}
                   setSelected={setSelected}
@@ -261,7 +253,7 @@ const Sidebar = () => {
                 />
                 <Item
                   title="Doctores"
-                  to="/doctores"
+                  to="/doctor"
                   icon={<LocalHospitalIcon />}
                   selected={selected}
                   setSelected={setSelected}
@@ -281,15 +273,8 @@ const Sidebar = () => {
                   setSelected={setSelected}
                 />
                 <Item
-                  title="Historias Clínicas"
-                  to="/historia_clinica"
-                  icon={<AddCircleIcon />}
-                  selected={selected}
-                  setSelected={setSelected}
-                />
-                <Item
                   title="Estudios"
-                  to="/estudios"
+                  to="/estudio"
                   icon={<AddCircleIcon />}
                   selected={selected}
                   setSelected={setSelected}
