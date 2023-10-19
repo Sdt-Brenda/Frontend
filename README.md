@@ -31,14 +31,14 @@
 
 ## Instalacion :inbox_tray::globe_with_meridians::wrench:
 
-PARA EJECUTAR LA BASE DE DATOS. Y EL BACKEND
-npm i
-nodemon index.js
+PARA EJECUTAR LA BASE DE DATOS. Y EL BACKEND <br/>
+npm i<br/>
+nodemon index.js<br/>
 
 
-PARA EL FRONTEND 
-npm i
-npm start
+PARA EL FRONTEND <br/>
+npm i<br/>
+npm start<br/>
 
 ---
 
