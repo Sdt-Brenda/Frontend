@@ -197,11 +197,9 @@ export class Usuario extends Component {
                 <Link to={`/usuario/historia_clinica/${rowData.id_usuario}`} className="btn btn-primary">
                     <span className="material-symbols-outlined">note</span>
                 </Link>
-                {(rowData.rol === 2 || rowData.rol === 3) && (
                     <Link to={`/usuario/turno/${rowData.id_usuario}`} className="btn btn-info">
                         <span className="material-symbols-outlined">calendar_add_on</span>
                     </Link>
-                )}
                 <button className="btn btn-danger" onClick={() => this.showModal(rowData.id_usuario)}>
                     <span className="material-symbols-outlined">delete</span>
                 </button>
@@ -272,7 +270,7 @@ export class Usuario extends Component {
                         )} />
                     </DataTable>
                 </div>
-
+                <Link to="/usuario/edit" className="btn btn-info">Nuevo Usuario</Link>
 
                 
                 <Modal show={this.state.modal} onHide={this.closeModal}>
