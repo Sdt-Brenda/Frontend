@@ -170,7 +170,7 @@ clearFilter() {
     renderHeader() {
         return (
             <div className="flex justify-content-between">
-                /*<Button type="button" icon="pi pi-filter-slash" label="Clear" outlined onClick={this.clearFilter} />*/
+                {/* <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined onClick={this.clearFilter} /> */}
                 <span className="p-input-icon-left">
                     <i className="pi pi-search" />
                     <InputText value={this.state.globalFilterValue} onChange={this.onGlobalFilterChange} placeholder="Buscar" />
@@ -180,25 +180,6 @@ clearFilter() {
     }
 
 
-
-renderAcciones = (rowData) => {
-        return (
-            <>
-                <Link to={`/usuario/edit/${rowData.rellenar}`} className="btn btn-secondary">
-                    <span className="material-symbols-outlined">edit</span>
-                </Link>
-                <Link to={`/usuario/historia_clinica/${rowData.rellenar}`} className="btn btn-primary">
-                    <span className="material-symbols-outlined">note</span>
-                </Link>
-                    <Link to={`/usuario/turno/${rowData.rellenar}`} className="btn btn-info">
-                        <span className="material-symbols-outlined">calendar_add_on</span>
-                    </Link>
-                <button className="btn btn-danger" onClick={() => this.showModal(rowData.rellenar)}>
-                    <span className="material-symbols-outlined">delete</span>
-                </button>
-            </>
-        );
-    };
 
 
 
@@ -224,22 +205,6 @@ renderAcciones = (rowData) => {
                         <Column field="codigo" header="codigo" sortable style={{ width: '10%' }}></Column>
                         <Column field="valores_referencia" header="valores_referencia" sortable style={{ width: '10%' }}></Column>
                         <Column field="observaciones" header="observaciones" sortable style={{ width: '10%' }}></Column>
-                        <Column field="Acciones" header="Acciones" sortable style={{ width: '10%' }} body={(rowData)  => (
-                            <div className="btn-actions-container">
-                                <Link to={`/usuario/edit/${rowData.id_paciente}`} className="btn btn-secondary">
-                                    <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>edit</span>
-                                </Link>
-                                <Link to={`/usuario/historia_clinica/${rowData.id_paciente}`} className="btn btn-info">
-                                    <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>event</span>
-                                </Link>
-                                <Link to={`/usuario/turno/${rowData.rellenar}`} className="btn btn-primary">
-                                    <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>note</span>
-                                </Link>
-                                <button className="btn btn-danger" onClick={() => this.showModal(rowData.rellenar)}>
-                                    <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>delete</span>
-                                </button>
-                            </div>
-                        )} />
                     </DataTable>
                 </div>
     
