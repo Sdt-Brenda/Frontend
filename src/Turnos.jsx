@@ -12,9 +12,11 @@ export class Turnos_Internal extends Component {
         }
     }
     
-    componentDidMount() {debugger
-        const { usuario_id, id_usuario } = this.props.params;
-        const url = usuario_id? `http://localhost:8080/api/turno_medico/${id_usuario}`: `http://localhost:8080/api/turno_medico/`;
+    componentDidMount() {
+
+
+        const { usuario_id, id_usuarioP } = this.props.params;
+        const url = usuario_id? `http://localhost:8080/api/turno_medico/${id_usuarioP}`: `http://localhost:8080/api/turno_medico/`;
 
         let parametros = {
             method: 'GET',
@@ -26,7 +28,7 @@ export class Turnos_Internal extends Component {
         fetch(url, parametros)
             .then(res => {
                 return res.json()
-                    .then(body => {debugger
+                    .then(body => {
                         return {
                             status: res.status,
                             ok: res.ok,
@@ -37,9 +39,9 @@ export class Turnos_Internal extends Component {
             }).then(
                 result => {
                     if (result.ok) {
-                        const { id_usuario } = this.props.params;
-                        const filteredTurnos = id_usuario
-                            ? result.body.filter((turno) => turno.id_usuarioD === parseInt(id_usuario))
+                        const { id_usuarioP } = this.props.params;
+                        const filteredTurnos = id_usuarioP
+                            ? result.body.filter((turno) => turno.id_doctor === parseInt(id_usuarioP))
                             : result.body;
                         this.setState({
                             turnos: filteredTurnos,

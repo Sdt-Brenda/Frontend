@@ -76,7 +76,7 @@ function App() {
           <Route path="/usuario" element={userRole === 1 || userRole === 2 ? <Usuario /> : <Navigate to="/" />}/>
           <Route path="/usuario/edit" element={userRole === 1  ? <Usuario_Edit /> : <Navigate to="/" />} />
           <Route path="/usuario/edit/:id_usuario" element={userRole === 1 ? <Usuario_Edit /> : <Navigate to="/" />}/>
-          <Route path="/usuario/turno/:id_usuario" element={userRole === 1 || userRole === 2  ? <Usuario_Turno /> : <Navigate to="/" />} />
+          <Route path="/usuario/turno/:id_usuario" element={userRole === 1 || userRole === 2 || userRole === 3 ? <Usuario_Turno /> : <Navigate to="/" />} />
           
           
           <Route path="/doctor" element={userRole === 1 || userRole === 2 ? <Doctor /> : <Navigate to="/" />} />
@@ -86,7 +86,7 @@ function App() {
           <Route path="/doctor/nuevo_horario/:id_doctor" element={userRole === 1  ? <Horario_Doctor_Edit /> : <Navigate to="/" />} />
           
           
-          <Route path="/paciente" element={userRole === 1 || userRole === 2 || userRole === 3? <Paciente />  : <Navigate to="/" />} />
+          <Route path="/paciente" element={userRole === 1 || userRole === 2 ? <Paciente />  : <Navigate to="/" />} />
           <Route path="/paciente/edit/:id_paciente" element={userRole === 1 || userRole === 3 ? <Paciente_Edit /> : <Navigate to="/" />} />
           <Route path="/paciente/create/:id_usuario" element={userRole === 1 || userRole === 3 ? <Paciente_Create />: <Navigate to="/" />}></Route> {/*Se decidio separar por cuestiones de seguridad*/}
           <Route path="/paciente/estudio/:id_paciente" element={userRole === 1 || userRole === 3 ? <Estudio_Edit />: <Navigate to="/" />}></Route> {/*Se decidio separar por cuestiones de seguridad*/}
@@ -100,8 +100,10 @@ function App() {
           <Route path="/codigo_estudio/edit/:codigo" element={userRole === 1 ? <Codigo_Edit /> : <Navigate to="/" />} />
           
           <Route path="/estudio" element={userRole === 1 || userRole === 2 ? <Estudio /> : <Navigate to="/" />} />
-          <Route path="/estudio/edit/:id_estudio" element={userRole === 1 || userRole === 2 ? <Estudio_Edit /> : <Navigate to="/" />} />
+          <Route path="/estudio/edit/:id_estudio" element={userRole === 1 || userRole === 2 || userRole === 3 ? <Estudio_Edit /> : <Navigate to="/" />} />
           <Route path="/estudio/informe/:id_estudio" element={userRole === 1 || userRole === 2 ? <Informe_Edit /> : <Navigate to="/" />} />
+          <Route path="/estudio/edit/" element={userRole === 1 || userRole === 2 || userRole === 3 ? <Estudio_Edit /> : <Navigate to="/" />} />
+
           
           <Route path="/informe" element={userRole === 1 || userRole === 2 || userRole === 3? <Informe />   : <Navigate to="/" />} />
           <Route path="/informe/edit/:id_informe" element={userRole === 1 || userRole === 2 ? <Informe_Edit /> : <Navigate to="/" />} />

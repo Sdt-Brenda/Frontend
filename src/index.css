@@ -172,3 +172,7 @@ tbody,td,tfoot,th,thead,tr {
 .nav-item-MISDATOS{
   text-align: center ;
 }
+
+ol, ul {
+  padding-left: 0rem;
+}

@@ -228,7 +228,7 @@ renderAcciones = (rowData) => {
             return (
                 <>
                     <div className="card2">
-                    <DataTable value={dataForDataTable} removableSort paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} dataKey="id"  filters={this.state.filters} 
+                    <DataTable value={dataForDataTable} removableSort paginator rows={10} rowsPerPageOptions={[10, 25, 50]} dataKey="id"  filters={this.state.filters} 
                     globalFilterFields={['id_informe', 'observaciones', 'id_estudio']} header={header} emptyMessage="Nada Encontrado" tableStyle={{ minWidth: '50rem' }}>
                         <Column field="id_informe" header="id_informe" sortable style={{ width: '35%' }}></Column>
                         <Column field="observaciones" header="observaciones" sortable style={{ width: '35%' }}></Column>

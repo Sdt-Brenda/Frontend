@@ -93,7 +93,45 @@ export class Home extends Component {
                     if (result.ok) {
                         const id_paciente = result.body[0].id_paciente;
                         const navigate = this.props.navigate;
-                        navigate(`/estudio/edit/${id_paciente}`);
+                        navigate(`/paciente/estudio/${id_paciente}`);
+                    } else {
+                        console.log("error xdxd");
+                    }
+            })})
+                .catch(error => {
+                    console.log('Error in fetch:', error);
+                });
+        }
+    };
+
+    handleCheck2 = () => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            const decodedToken = jwt_decode(token);
+            const id_usuario = decodedToken.id_usuario;
+            let parametros = {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'token': token
+                }
+            };
+            const url = `http://localhost:8080/api/paciente/test/nada/${id_usuario}`;
+            fetch(url, parametros)
+            .then(res => {
+                return res.json()
+                    .then(body => (
+                        {status: res.status,
+                            ok: res.ok,
+                            headers: res.headers,
+                            body: body})
+                    ).then(
+                        result => {
+                    if (result.ok) {
+                        const id_paciente = result.body[0].id_paciente;
+                        const navigate = this.props.navigate;
+                        navigate(`/paciente/historia_clinica/${id_paciente}`);
                     } else {
                         console.log("error xdxd");
                     }
@@ -111,6 +149,7 @@ export class Home extends Component {
         if (token) { // <---
             const decodedToken = jwt_decode(localStorage.getItem('token'));
             const id_usuario = decodedToken.id_usuario;
+            const rol = decodedToken.rol;
 
 
             return (
@@ -158,27 +197,11 @@ export class Home extends Component {
                                 value="Obtener turno para estudio clínico"
                             />
                         </Link>
-                        {/* <Link to={`/estudio/edit/${id_paciente}`}>
-                            <input
-                                style={{
-                                    backgroundColor: "#9653B8",
-                                    fontFamily: 'Helvetica',
-                                    color: 'white',
-                                    fontSize: "20px",
-                                    fontWeight: 'black',
-                                    width: "100%",
-                                    border: "none",
-                                    marginTop: '25px'
-                                }}
-                                className="btn btn-primary"
-                                type="submit"
-                                value="Obtener turno para estudio clínico"
-                            />
-                        </Link> */}
 
                         <br />
 
-                        {/* <Link to={`/paciente/historia_clinica/${id_paciente}`}>
+
+                        <Link to="#" onClick={this.handleCheck2}>
                             <input
                                 style={{
                                     backgroundColor: "#808080",
@@ -194,9 +217,7 @@ export class Home extends Component {
                                 type="submit"
                                 value="Consultar historia clínica"
                             />
-                        </Link> */}
-
-
+                        </Link>
                         <br />
 
                         <Titulo style={{ fontFamily: 'Helvetica', color: '#848482', fontSize: '1rem', fontWeight: 'lighter', textAlign: 'left' }}>
