@@ -109,7 +109,7 @@ export class InternalPacienteEdit extends Component {
                                 progress: undefined,
                                 theme: "light",
                             });
-                            this.props.navigate(`/paciente`);
+                            this.props.navigate(`/`);
                         } else {
                             toast.error(result.body.message, {
                                 position: "bottom-center",
