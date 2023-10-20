@@ -5,17 +5,108 @@ import Login from "./Login";
 import Titulo from "./components/Titulo";
 import styles from "./styles/Home.module.css";
 import jwt_decode from 'jwt-decode';
+import { toast } from 'react-toastify';
 
 
 
 
 export class Home extends Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            pacientes: [],
+            usuarios_P: [],
+            id_paciente: "",
+            id_usuario: "",
+        };
+    }
+
+    componentDidMount = () => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            const decodedToken = jwt_decode(localStorage.getItem('token'));
+            const id_usuario = decodedToken.id_usuario;
+            const rol = decodedToken.rol;
+            if (rol === 3) {
+                let parametros = {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'token': token}};
+                const url = `http://localhost:8080/api/paciente/test/nada/${id_usuario}`;
+                fetch(url, parametros)
+                    .then(res => {
+                        return res.json()
+                            .then(body => (
+                                {status: res.status,
+                                    ok: res.ok,
+                                    headers: res.headers,
+                                    body: body})
+                            ).then(
+                                result => {
+                                    if (result.ok) {
+                                        this.setState({
+                                            usuarios_P: result.body,
+                                        });
+                                        if (result.body.length === 0) {
+                                            const navigate = this.props.navigate;
+                                            navigate(`/paciente/create/${id_usuario}`);
+                                        }
+                                    } else {
+                                    }
+                                });
+                    })
+                    .catch((error) => {
+                        console.log('Error:', error);
+                    });
+            }
+        }
+    };
+
+    handleCheck = () => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            const decodedToken = jwt_decode(token);
+            const id_usuario = decodedToken.id_usuario;
+            let parametros = {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'token': token
+                }
+            };
+            const url = `http://localhost:8080/api/paciente/test/nada/${id_usuario}`;
+            fetch(url, parametros)
+            .then(res => {
+                return res.json()
+                    .then(body => (
+                        {status: res.status,
+                            ok: res.ok,
+                            headers: res.headers,
+                            body: body})
+                    ).then(
+                        result => {
+                    if (result.ok) {
+                        const id_paciente = result.body[0].id_paciente;
+                        const navigate = this.props.navigate;
+                        navigate(`/estudio/edit/${id_paciente}`);
+                    } else {
+                        console.log("error xdxd");
+                    }
+            })})
+                .catch(error => {
+                    console.log('Error in fetch:', error);
+                });
+        }
+    };
 
 
     render() {
         const token = localStorage.getItem('token'); // <---
-         
 
         if (token) { // <---
             const decodedToken = jwt_decode(localStorage.getItem('token'));
@@ -38,7 +129,6 @@ export class Home extends Component {
                                     color: 'white',
                                     fontSize: "20px",
                                     fontWeight: 'black',
-
                                     width: "100%",
                                     border: "none",
                                     marginTop: '25px'
@@ -50,7 +140,8 @@ export class Home extends Component {
 
                         <br />
 
-                        <Link to={`/estudio/edit/${id_usuario}`}>
+
+                        <Link to="#" onClick={this.handleCheck}>
                             <input
                                 style={{
                                     backgroundColor: "#9653B8",
@@ -58,7 +149,6 @@ export class Home extends Component {
                                     color: 'white',
                                     fontSize: "20px",
                                     fontWeight: 'black',
-
                                     width: "100%",
                                     border: "none",
                                     marginTop: '25px'
@@ -66,11 +156,29 @@ export class Home extends Component {
                                 className="btn btn-primary"
                                 type="submit"
                                 value="Obtener turno para estudio clínico"
-                            /> </Link>
+                            />
+                        </Link>
+                        {/* <Link to={`/estudio/edit/${id_paciente}`}>
+                            <input
+                                style={{
+                                    backgroundColor: "#9653B8",
+                                    fontFamily: 'Helvetica',
+                                    color: 'white',
+                                    fontSize: "20px",
+                                    fontWeight: 'black',
+                                    width: "100%",
+                                    border: "none",
+                                    marginTop: '25px'
+                                }}
+                                className="btn btn-primary"
+                                type="submit"
+                                value="Obtener turno para estudio clínico"
+                            />
+                        </Link> */}
 
                         <br />
 
-                        <Link to={`/paciente/historia_clinica/${id_usuario}`}>
+                        {/* <Link to={`/paciente/historia_clinica/${id_paciente}`}>
                             <input
                                 style={{
                                     backgroundColor: "#808080",
@@ -78,7 +186,6 @@ export class Home extends Component {
                                     color: 'white',
                                     fontSize: "20px",
                                     fontWeight: 'black',
-
                                     width: "100%",
                                     border: "none",
                                     marginTop: '25px'
@@ -86,7 +193,9 @@ export class Home extends Component {
                                 className="btn btn-primary"
                                 type="submit"
                                 value="Consultar historia clínica"
-                            /> </Link>
+                            />
+                        </Link> */}
+
 
                         <br />
 
