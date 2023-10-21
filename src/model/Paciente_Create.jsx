@@ -56,8 +56,9 @@ export class InternalPacienteCreate extends Component {
                         progress: undefined,
                         theme: 'light',
                     });
+                    this.props.navigate(`/`);
 
-                    let parametros = {
+                    /*let parametros = {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
@@ -88,8 +89,9 @@ export class InternalPacienteCreate extends Component {
                                     theme: 'light',
                                 });
 
-                                // Add a fetch request to create historia_clinica
-                                debugger
+
+
+
                                 fetch(`http://localhost:8080/api/historia_clinica/${result.body.detail.id_paciente}`, {
                                     method: 'POST',
                                     headers: {
@@ -110,7 +112,7 @@ export class InternalPacienteCreate extends Component {
                                         console.error('Fetch error:', historiaClinicaError);
                                     });
 
-                                this.props.navigate(`/paciente`); // Esto iria a HOME.
+
                             } else {
                                 toast.error(result.body.message, {
                                     position: 'bottom-center',
@@ -123,7 +125,7 @@ export class InternalPacienteCreate extends Component {
                                     theme: 'light',
                                 });
                             }
-                        });
+                        });*/
                 }
             })
             .catch((error) => {
