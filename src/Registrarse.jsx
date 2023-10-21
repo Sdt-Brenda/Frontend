@@ -7,6 +7,12 @@ import styles from "./styles/Registrarse.module.css";
 import Titulo from "./components/Titulo";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import es from 'date-fns/locale/es';
+
+
+
 export class InternalRegistrarse extends Component {
     constructor(props) {
         super(props);
@@ -104,6 +110,15 @@ export class InternalRegistrarse extends Component {
         this.setState({ [event.target.name]: event.target.value });
     };
 
+    handleDateChange = (date) => {
+        this.setState({ fecha_nacimiento: date });
+    };
+
+
+
+
+
+
     render() {
         return (
             <div className={styles.container}>
@@ -156,14 +171,23 @@ export class InternalRegistrarse extends Component {
                             </div>
 
                             <div className="form-floating">
-                                <input
-                                    type="date"
-                                    className="form-control"
-                                    id='floatingFecha_Nacimiento'
-                                    value={this.state.fecha_nacimiento}
-                                    name='fecha_nacimiento'
-                                    onChange={this.handleChange} />
-                                <label htmlFor="floatingFecha_Nacimiento">Fecha de Nacimiento</label>
+                                <div className={styles.date_picker_container}>
+                                    <label>Fecha de Nacimiento</label>
+                                    <DatePicker style={{ width: '400px' }}
+                                        dateFormat="dd/MM/yyyy"
+                                        className="form-control"
+                                        showMonthDropdown
+                                        scrollableMonthDropdown
+                                        showYearDropdown
+                                        scrollableYearDropdown
+                                        yearDropdownItemNumber={150}
+                                        selected={this.state.fecha_nacimiento}
+                                        onChange={this.handleDateChange}
+                                        maxDate={new Date()}
+                                        minDate={new Date('1900-01-01')}
+                                        locale={es}
+                                    />
+                                </div>
                             </div>
 
                             <div className="mb-3">
