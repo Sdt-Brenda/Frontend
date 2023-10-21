@@ -71,7 +71,7 @@ export class InternalRegistrarse extends Component {
                         draggable: true,
                         progress: undefined,
                         theme: 'light',
-                    });  //AGREGADO PERO NO FUNCIONAN 
+                    });
                     fetch(`http://localhost:8080/api/usuario/email/${usuario.email}`, {
                         method: 'GET',
                         headers: {
