@@ -22,6 +22,7 @@ import Paciente_Admin from './Paciente_Admin';
 import Doctor from './model/Doctor'; //VERSION NACHO
 import Doctor_Edit from './model/Doctor_Edit'; //VERSION NACHO
 import Doctores from './Doctores';
+import DoctorPublic from './model/DoctorPublic';
 //import DoctoresEdit from './DoctoresEdit';
 //import Usuario_Historia_Clinica from './model/Usuario_Historia_Clinica';//VERSION NACHO
 import Codigo from './model/Codigo'; //VERSION NACHO
@@ -84,6 +85,7 @@ function App() {
           <Route path="/doctor/edit/:id_doctor" element={userRole === 1 || userRole === 2  ? <Doctor_Edit /> : <Navigate to="/" />} />
           <Route path="/doctor/create/:id_usuario" element={userRole === 1 || userRole === 2  ? <Doctor_Edit /> : <Navigate to="/" />} />
           <Route path="/doctor/nuevo_horario/:id_doctor" element={userRole === 1  ? <Horario_Doctor_Edit /> : <Navigate to="/" />} />
+          <Route path="/doctor/public" element={<DoctorPublic />}/>
           
           
           <Route path="/paciente" element={userRole === 1 || userRole === 2 ? <Paciente />  : <Navigate to="/" />} />

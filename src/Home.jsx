@@ -149,7 +149,6 @@ export class Home extends Component {
         if (token) { // <---
             const decodedToken = jwt_decode(localStorage.getItem('token'));
             const id_usuario = decodedToken.id_usuario;
-            const rol = decodedToken.rol;
 
 
             return (

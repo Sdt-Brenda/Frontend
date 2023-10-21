@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, useParams} from 'react-router-dom';
 import { toast } from 'react-toastify';
-
+import jwt_decode from 'jwt-decode';
 
 
 export class Turnos_Internal extends Component {
@@ -9,15 +9,15 @@ export class Turnos_Internal extends Component {
         super(props);
         this.state = {
             turnos: [],
+            id_usuarioP: "",
         }
     }
     
     componentDidMount() {
-
-
-        const { usuario_id, id_usuarioP } = this.props.params;
-        const url = usuario_id? `http://localhost:8080/api/turno_medico/${id_usuarioP}`: `http://localhost:8080/api/turno_medico/`;
-
+        const decodedToken = jwt_decode(localStorage.getItem('token'));
+        const id_usuario = decodedToken.id_usuario;
+        
+        const url =  `http://localhost:8080/api/turno_medico/datos/${id_usuario}`;
         let parametros = {
             method: 'GET',
             headers: {
@@ -48,16 +48,6 @@ export class Turnos_Internal extends Component {
                         });
 
                     } else {
-                        toast.error(result.body.message, {
-                            position: "bottom-center",
-                            autoClose: 500,
-                            hideProgressBar: false,
-                            closeOnClick: true,
-                            pauseOnHover: true,
-                            draggable: true,
-                            progress: undefined,
-                            theme: "light",
-                        });
                     }
                 }
             ).catch(

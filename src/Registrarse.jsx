@@ -65,33 +65,6 @@ export class InternalRegistrarse extends Component {
                         draggable: true,
                         progress: undefined,
                         theme: 'light',
-                    });  //AGREGADO
-                    fetch(`http://localhost:8080/api/usuario/email/${usuario.email}`, {
-                        method: 'GET',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json',
-                            'token': localStorage.getItem('token')
-                        }
-                    })
-                        .then(res => res.json())
-                        .then(userData => {
-                            this.props.navigate(`/paciente/create/${userData}`);
-                        }
-                        )
-                        .catch(error => {
-                            console.error('Fetch user data error:', error);
-                        });
-                } else {
-                    toast.error(result.body.message, {
-                        position: "bottom-center",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "light",
                     });
                 }
             })
