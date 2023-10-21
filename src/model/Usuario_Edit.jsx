@@ -42,7 +42,7 @@ export class InternalUsuarioEdit extends Component {
                         })
                 }).then(
                     result => {
-                        if (result.ok) {
+                        if (result.ok) {debugger
                             const parsedDate = new Date(result.body.detail.fecha_nacimiento);
                             const formattedDate = `${parsedDate.getFullYear()}-${String(parsedDate.getMonth() + 1).padStart(2, '0')}-${String(parsedDate.getDate()).padStart(2, '0')}`;
 
@@ -59,7 +59,7 @@ export class InternalUsuarioEdit extends Component {
                         } else {
                             toast.error(result.body.message, {
                                 position: "bottom-center",
-                                autoClose: 5000,
+                                autoClose: 500,
                                 hideProgressBar: false,
                                 closeOnClick: true,
                                 pauseOnHover: true,
@@ -116,7 +116,7 @@ export class InternalUsuarioEdit extends Component {
                 if (result.ok) {
                     toast.success(result.body.message, {
                         position: "bottom-center",
-                        autoClose: 5000,
+                        autoClose: 500,
                         hideProgressBar: false,
                         closeOnClick: true,
                         pauseOnHover: true,
@@ -148,7 +148,7 @@ export class InternalUsuarioEdit extends Component {
                 } else {
                     toast.error(result.body.message, {
                         position: "bottom-center",
-                        autoClose: 5000,
+                        autoClose: 500,
                         hideProgressBar: false,
                         closeOnClick: true,
                         pauseOnHover: true,
