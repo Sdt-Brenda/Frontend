@@ -56,7 +56,7 @@ function App() {
   let userRole = null;
   if (token) {
   const decodedToken = jwt_decode(token);
-  userRole = decodedToken.rol;
+  userRole = decodedToken.rol;  
   }
 
   return (
@@ -90,7 +90,7 @@ function App() {
           
           <Route path="/paciente" element={userRole === 1 || userRole === 2 ? <Paciente />  : <Navigate to="/" />} />
           <Route path="/paciente/edit/:id_paciente" element={userRole === 1 || userRole === 3 ? <Paciente_Edit /> : <Navigate to="/" />} />
-          <Route path="/paciente/create/:id_usuario" element={userRole === 1 || userRole === 3 ? <Paciente_Create />: <Navigate to="/" />}></Route> {/*Se decidio separar por cuestiones de seguridad*/}
+          <Route path="/paciente/create/:id_usuario" element={<Paciente_Create />}></Route> {/*Se decidio separar por cuestiones de seguridad*/}
           <Route path="/paciente/estudio/:id_paciente" element={userRole === 1 || userRole === 3 ? <Estudio_Edit />: <Navigate to="/" />}></Route> {/*Se decidio separar por cuestiones de seguridad*/}
           <Route path="/paciente/historia_clinica/:id_paciente" element={userRole === 1 || userRole === 3 ? <Historia_Clinica />: <Navigate to="/" />}></Route> {/*Se decidio separar por cuestiones de seguridad*/}
           
