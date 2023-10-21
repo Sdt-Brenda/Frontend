@@ -2,7 +2,7 @@
 
 ## 🔥🔥🔥Bienvenidos al Trabajo Final del Grupo 1.🔥🔥🔥
 
-### Integrantes: Cena Emiliano,Maciel de Lima Marcos , Staudt Brenda, De Nigris Ignacio.
+### Integrantes: Cena Emiliano, Maciel de Lima Marcos, Staudt Brenda, De Nigris Ignacio.
 
 <br/>
 <div align="center">
@@ -35,15 +35,15 @@ DATABASE:<br/>
 Para poder inicializar la base de datos, se requiere un motor de base de datos (MySQL, MariaDB o similares). El archivo para crear la base de datos se encunetra en "database", con el nombre "database.sql". Hacerlo correr en su motor de base de datos. <br/>
 
 BACKEND:<br/>
-Para instalar el Backend necesita intalar Node.js, este proyecto esta desarrollado en la versión 18.16 del mismo.<br/>
-Una vez disponga de Node.js en su computadora, debera abrir la carpeta donde tiene el proyecto con su editor de código predilecto.<br/>
-De ser necesario, navegar desde la terminal del mismo hasta la carpeta apropiada e ingresar el comando "npm i" para instalar todas las dependencias del proyecto.
+Para instalar el Backend, usted necesita intalar Node.js, este proyecto esta desarrollado en la versión 18.16 del mismo.<br/>
+Una vez disponga de Node.js en su dispositivo. Deberá abrir la carpeta donde tiene el proyecto con su editor de código predilecto.<br/>
+De ser necesario, navegar desde la terminal del mismo hasta la carpeta apropiada e ingresar el comando "npm i" (sin las comillas), para instalar todas las dependencias del proyecto.
 Para inicializar el servidor ingrese el comando "nodemon index.js".<br/>
 
 
 FRONTEND: <br/>
 Para instalar el Frontend necesita intalar Node.js, este proyecto esta desarrollado en la versión 18.16 del mismo.<br/>
-Una vez disponga de Node.js en su computadora, debera abrir la carpeta donde tiene el proyecto con su editor de código predilecto.<br/>
+Una vez disponga de Node.js en su computadora, deberá abrir la carpeta donde tiene el proyecto con su editor de código de su agrado.<br/>
 De ser necesario, navegar desde la terminal del mismo hasta la carpeta apropiada e ingresar el comando "npm i" para instalar todas las dependencias del proyecto.
 Para inicializar el proyecto en su navegador ingrese el comando "npm start".<br/>
 El sistema cuenta con una cuenta "administrador" pre establecida al ser instalado, el "DNI" es "1" y la password es "1234".
