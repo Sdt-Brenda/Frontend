@@ -14,9 +14,13 @@ export class Turnos_Internal extends Component {
     }
     
     componentDidMount() {
-        const decodedToken = jwt_decode(localStorage.getItem('token'));
-        const id_usuario = decodedToken.id_usuario;
-        
+        const token = localStorage.getItem('token');
+        if (token) {
+            const decodedToken = jwt_decode(localStorage.getItem('token'));
+            const id_usuario = decodedToken.id_usuario;
+            const rol = decodedToken.rol;
+            if (rol === 3) {debugger
+
         const url =  `http://localhost:8080/api/turno_medico/datos/${id_usuario}`;
         let parametros = {
             method: 'GET',
@@ -46,14 +50,53 @@ export class Turnos_Internal extends Component {
                         this.setState({
                             turnos: filteredTurnos,
                         });
-
-                    } else {
                     }
                 }
             ).catch(
                 (error) => { console.log(error) }
             );
+        }
+        else {
+            const url =  `http://localhost:8080/api/turno_medico/`;
+            let parametros = {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'token': localStorage.getItem('token')
+                }
+            }
+            fetch(url, parametros)
+                .then(res => {
+                    return res.json()
+                        .then(body => {
+                            return {
+                                status: res.status,
+                                ok: res.ok,
+                                headers: res.headers,
+                                body: body
+                            };
+                        })
+                }).then(
+                    result => {
+                        if (result.ok) {
+                            const { id_usuarioP } = this.props.params;
+                            const filteredTurnos = id_usuarioP
+                                ? result.body.filter((turno) => turno.id_doctor === parseInt(id_usuarioP))
+                                : result.body;
+                            this.setState({
+                                turnos: filteredTurnos,
+                            });
+        
+                        } else {
+                        }
+                    }
+                ).catch(
+                    (error) => { console.log(error) }
+                );
     }
+    }
+}
+
 
     render() {
         const { turnos } = this.state;
