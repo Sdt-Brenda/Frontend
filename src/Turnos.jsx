@@ -19,7 +19,7 @@ export class Turnos_Internal extends Component {
             const decodedToken = jwt_decode(localStorage.getItem('token'));
             const id_usuario = decodedToken.id_usuario;
             const rol = decodedToken.rol;
-            if (rol === 3) {debugger
+            if (rol === 3) {
 
         const url =  `http://localhost:8080/api/turno_medico/datos/${id_usuario}`;
         let parametros = {
