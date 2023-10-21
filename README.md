@@ -46,6 +46,7 @@ Para instalar el Frontend necesita intalar Node.js, este proyecto esta desarroll
 Una vez disponga de Node.js en su computadora, debera abrir la carpeta donde tiene el proyecto con su editor de código predilecto.<br/>
 De ser necesario, navegar desde la terminal del mismo hasta la carpeta apropiada e ingresar el comando "npm i" para instalar todas las dependencias del proyecto.
 Para inicializar el proyecto en su navegador ingrese el comando "npm start".<br/>
+El sistema cuenta con una cuenta "administrador" pre establecida al ser instalado, el "DNI" es "1" y la password es "1234".
 
 
 ## Hoja de Ruta :running:
