@@ -73,8 +73,8 @@ export class Turnos_Internal extends Component {
                                     <p className="card-text">Observaciones: {turnos.observaciones}</p>
                                     <p className="card-text">Usuario Doctor: {turnos.id_doctor}</p>
                                     <p className="card-text">Usuario Paciente: {turnos.id_usuarioP}</p>
-                                    <Link to={`/doctor/edit/${turnos.id_doctor}`} className="btn btn-primary">Ir al Doctor</Link>
-                                    <Link to={`/paciente/edit/${turnos.id_usuarioP}`} className="btn btn-primary">Ir al Paciente</Link>
+                                    {/* <Link to={`/doctor/edit/${turnos.id_doctor}`} className="btn btn-primary">Ir al Doctor</Link>
+                                    <Link to={`/paciente/edit/${turnos.id_usuarioP}`} className="btn btn-primary">Ir al Paciente</Link> */}
                                 </div>
                             </div>
                         ))}

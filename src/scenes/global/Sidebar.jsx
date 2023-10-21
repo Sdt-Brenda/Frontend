@@ -21,6 +21,42 @@ import jwt_decode from 'jwt-decode';
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const [usuarios_P, setUsuarios_P] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const token = localStorage.getItem('token');
+      if (token) {
+        const decodedToken = jwt_decode(token);
+        const id_usuario = decodedToken.id_usuario;
+        const rol = decodedToken.rol;
+        if (rol === 3) {
+          const url = `http://localhost:8080/api/paciente/test/nada/${id_usuario}`;
+          try {
+            const response = await fetch(url, {
+              method: 'GET',
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'token': token,
+              },
+            });
+            if (response.ok) {
+              const result = await response.json();
+              setUsuarios_P(result.body);
+              if (result.body.length === 0) {
+              }
+            }
+          } catch (error) {
+            console.log('Error:', error);
+          }
+        }
+      }
+    };
+
+    fetchData();
+  }, []);
+
 
   return (
     <MenuItem
@@ -71,6 +107,9 @@ const Sidebar = () => {
       window.location.reload();
     }
   }
+
+
+
 
   const IralaURL = url => {
     if (url) {
@@ -304,7 +343,7 @@ const Sidebar = () => {
                 />
                 <Item
                   title="Mi Historia Clínica"
-                  to="/historia_clinica"
+                  to="/paciente/historia_clinica/paciente/P"
                   icon={<AddCircleIcon />}
                   selected={selected}
                   setSelected={setSelected}

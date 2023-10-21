@@ -35,6 +35,7 @@ import Estudio_Edit from './model/Estudio_Edit'; //VERSION NACHO
 //import Estudio from './Estudio';
 //import EstudioEdit from './EstudioEdit';
 import Historia_Clinica from './model/Historia_Clinica'; //VERSION NACHO
+import Historia_ClinicaP from './model/Historia_ClinicaP'; //VERSION NACHO
 import Informe_Edit from './model/Informe_Edit'; //VERSION NACHO
 //import Historial from './Historial';
 //import InformeEdit from './InformeEdit';
@@ -92,7 +93,8 @@ function App() {
           <Route path="/paciente/edit/:id_paciente" element={userRole === 1 || userRole === 3 ? <Paciente_Edit /> : <Navigate to="/" />} />
           <Route path="/paciente/create/:id_usuario" element={<Paciente_Create />}></Route> {/*Se decidio separar por cuestiones de seguridad*/}
           <Route path="/paciente/estudio/:id_paciente" element={userRole === 1 || userRole === 3 ? <Estudio_Edit />: <Navigate to="/" />}></Route> {/*Se decidio separar por cuestiones de seguridad*/}
-          <Route path="/paciente/historia_clinica/:id_paciente" element={userRole === 1 || userRole === 3 ? <Historia_Clinica />: <Navigate to="/" />}></Route> {/*Se decidio separar por cuestiones de seguridad*/}
+          <Route path="/paciente/historia_clinica/:id_paciente" element={userRole === 1 ? <Historia_Clinica />: <Navigate to="/" />}></Route> {/*Se decidio separar por cuestiones de seguridad*/}
+          <Route path="/paciente/historia_clinica/paciente/:id_paciente" element={userRole === 3 ? <Historia_ClinicaP />: <Navigate to="/" />}></Route> {/*Se decidio separar por cuestiones de seguridad*/}
           
           
           <Route path="/turnos" element={userRole === 1 || userRole === 2 || userRole === 3? <Turnos /> : <Navigate to="/" />} />

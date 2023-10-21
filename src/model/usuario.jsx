@@ -77,7 +77,7 @@ export class Usuario extends Component {
                     } else {
                         toast.error(result.body.message, {
                             position: "bottom-center",
-                            autoClose: 5000,
+                            autoClose: 500,
                             hideProgressBar: false,
                             closeOnClick: true,
                             pauseOnHover: true,
@@ -156,7 +156,7 @@ export class Usuario extends Component {
                                 if (result.ok) {
                                     toast.success(result.body.message, {
                                         position: "bottom-center",
-                                        autoClose: 5000,
+                                        autoClose: 500,
                                         hideProgressBar: false,
                                         closeOnClick: true,
                                         pauseOnHover: true,
@@ -169,7 +169,7 @@ export class Usuario extends Component {
                                 } else {
                                     toast.error(result.body.message, {
                                         position: "bottom-center",
-                                        autoClose: 5000,
+                                        autoClose: 500,
                                         hideProgressBar: false,
                                         closeOnClick: true,
                                         pauseOnHover: true,
@@ -241,7 +241,7 @@ export class Usuario extends Component {
         return (
             <>
                 <div className="card2">
-                    <DataTable value={dataForDataTable} removableSort paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} dataKey="id"  filters={this.state.filters} 
+                    <DataTable value={dataForDataTable} removableSort paginator rows={10} rowsPerPageOptions={[10, 25, 50]} dataKey="id"  filters={this.state.filters} 
                     globalFilterFields={['nombre', 'apellido', 'dni', 'formattedDate', 'genero', "email", "rol","id_usuario"]} header={header} emptyMessage="Nada Encontrado" tableStyle={{ minWidth: '50rem' }}>
                         <Column field="nombre" header="Nombre" sortable style={{ width: '10%' }}></Column>
                         <Column field="apellido" header="Apellido" sortable style={{ width: '10%' }}></Column>

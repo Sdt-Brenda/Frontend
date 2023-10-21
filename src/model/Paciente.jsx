@@ -74,7 +74,7 @@ export class Paciente extends Component {
                     } else {
                         toast.error(result.body.message, {
                             position: "bottom-center",
-                            autoClose: 5000,
+                            autoClose: 500,
                             hideProgressBar: false,
                             closeOnClick: true,
                             pauseOnHover: true,
@@ -116,7 +116,7 @@ export class Paciente extends Component {
                                 if (result.ok) {
                                     toast.success(result.body.message, {
                                         position: "bottom-center",
-                                        autoClose: 5000,
+                                        autoClose: 500,
                                         hideProgressBar: false,
                                         closeOnClick: true,
                                         pauseOnHover: true,
@@ -129,7 +129,7 @@ export class Paciente extends Component {
                                 } else {
                                     toast.error(result.body.message, {
                                         position: "bottom-center",
-                                        autoClose: 5000,
+                                        autoClose: 500,
                                         hideProgressBar: false,
                                         closeOnClick: true,
                                         pauseOnHover: true,
@@ -219,6 +219,7 @@ renderAcciones = (rowData) => {
                 provincia: paciente.provincia,
                 localidad: paciente.localidad,
                 direccion: paciente.direccion,
+                id_usuario: paciente.id_usuario
             };
         });
 
@@ -226,8 +227,10 @@ renderAcciones = (rowData) => {
         return (
             <>
                 <div className="card2">
-                    <DataTable value={dataForDataTable} removableSort paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} dataKey="id"  filters={this.state.filters} 
-                    globalFilterFields={['obra_social', 'pais', 'provincia', 'localidad', "direccion"]} header={header} emptyMessage="Nada Encontrado" tableStyle={{ minWidth: '50rem' }}>
+                    <DataTable value={dataForDataTable} removableSort paginator rows={10} rowsPerPageOptions={[10, 25, 50]} dataKey="id"  filters={this.state.filters} 
+                    globalFilterFields={['obra_social', 'pais', 'provincia', 'localidad', "direccion", "id_paciente","id_usuario"]} header={header} emptyMessage="Nada Encontrado" tableStyle={{ minWidth: '50rem' }}>
+                        <Column field="id_paciente" header="Id Paciente" sortable style={{ width: '25%' }}></Column>
+                        <Column field="id_usuario" header="Id Usuario" sortable style={{ width: '25%' }}></Column>
                         <Column field="obra_social" header="obra_social" sortable style={{ width: '25%' }}></Column>
                         <Column field="pais" header="pais" sortable style={{ width: '25%' }}></Column>
                         <Column field="provincia" header="provincia" sortable style={{ width: '25%' }}></Column>

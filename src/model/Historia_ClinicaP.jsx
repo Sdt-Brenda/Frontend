@@ -10,7 +10,9 @@ import { Column } from 'primereact/column';
 import { InputText } from 'primereact/inputtext';
 import { FilterMatchMode } from 'primereact/api';
 
-export class InternalHistoriaClinica extends Component {
+import jwt_decode from 'jwt-decode';
+
+export class InternalHistoriaClinicaP extends Component {
     constructor(props) {
         super(props)
 
@@ -26,47 +28,94 @@ export class InternalHistoriaClinica extends Component {
         this.onGlobalFilterChange = this.onGlobalFilterChange.bind(this);
         this.initFilters = this.initFilters.bind(this);
         this.renderHeader = this.renderHeader.bind(this);
+
+
+        this.closeModal = this.closeModal.bind(this)
+        this.showModal = this.showModal.bind(this)
     }
 
+    closeModal() {
+        this.setState({
+            modal: false,
+            idToDelete: null
+        })
+    }
 
+    showModal(id_paciente) {
+        this.setState({
+            modal: true,
+            idToDelete: id_paciente
+        })
+    }
 
     componentDidMount() {
-        let parametros = {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'token': localStorage.getItem('token')
-            }
-        }
-        fetch(`http://localhost:8080/api/estudio/paciente/${this.props.params.id_paciente}`, parametros)
+
+        const token = localStorage.getItem('token');
+        if (token) {
+            const decodedToken = jwt_decode(token);
+            const id_usuario = decodedToken.id_usuario;
+            let parametros = {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'token': token
+                }
+            };
+            const url = `http://localhost:8080/api/paciente/test/nada/${id_usuario}`;
+            fetch(url, parametros)
             .then(res => {
                 return res.json()
-                    .then(body => {
-                        return {
-                            status: res.status,
+                    .then(body => (
+                        {status: res.status,
                             ok: res.ok,
                             headers: res.headers,
-                            body: body
-                        };
-                    })
-            }).then(
-                result => {
-                    console.log(result.body);
+                            body: body})
+                    ).then(
+                        result => {
                     if (result.ok) {
-                        this.setState({
-                            estudio: result.body
-                        });
-                        this.initFilters();
+                        const id_paciente = result.body[0].id_paciente;
+                        let parametros = {
+                            method: 'GET',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'token': localStorage.getItem('token')
+                            }
+                        }
+                        fetch(`http://localhost:8080/api/estudio/paciente/${id_paciente}`, parametros)
+                            .then(res => {
+                                return res.json()
+                                    .then(body => {
+                                        return {
+                                            status: res.status,
+                                            ok: res.ok,
+                                            headers: res.headers,
+                                            body: body
+                                        };
+                                    })
+                            }).then(
+                                result => {
+                                    console.log(result.body);
+                                    if (result.ok) {
+                                        this.setState({
+                                            estudio: result.body
+                                        });
+                                        this.initFilters();
+                                    } else {
+                                        this.setState({
+                                            mensajeNoValores: "No hay valores para mostrar."
+                                        });
+                                    }
+                                }
+                            )
+                    
+
                     } else {
-                        this.setState({
-                            mensajeNoValores: "No hay valores para mostrar."
-                        });
+                        console.log("error");
                     }
-                }
-            ).catch(
-                (error) => { console.log(error) }
-            );
-    }
+            })})
+        }
+    };
 
 
 
@@ -126,7 +175,7 @@ clearFilter() {
 
             return (<> 
                 <div className="card2">
-                    <DataTable value={dataForDataTable} removableSort paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} dataKey="id"  filters={this.state.filters} 
+                    <DataTable value={dataForDataTable} removableSort paginator rows={10} rowsPerPageOptions={[10, 25, 50]} dataKey="id"  filters={this.state.filters} 
                     globalFilterFields={['nombre', 'codigo', 'valores_referencia', 'observaciones']} header={header} emptyMessage="Nada Encontrado" tableStyle={{ minWidth: '50rem' }}>
                         <Column field="nombre" header="Nombre" sortable style={{ width: '10%' }}></Column>
                         <Column field="codigo" header="codigo" sortable style={{ width: '10%' }}></Column>
@@ -140,14 +189,14 @@ clearFilter() {
 }
 
 
-export default Historia_Clinica
+export default Historia_ClinicaP
 
-export function Historia_Clinica() {
+export function Historia_ClinicaP() {
     const p = useParams();
     const navigate = useNavigate();
     return (
         <>
-            <InternalHistoriaClinica navigate={navigate} params={p} />
+            <InternalHistoriaClinicaP navigate={navigate} params={p} />
         </>
     );
 }

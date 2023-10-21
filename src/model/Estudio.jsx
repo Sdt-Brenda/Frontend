@@ -74,7 +74,7 @@ export class Estudio extends Component {
                     } else {
                         toast.error(result.body.message, {
                             position: "bottom-center",
-                            autoClose: 5000,
+                            autoClose: 500,
                             hideProgressBar: false,
                             closeOnClick: true,
                             pauseOnHover: true,
@@ -115,7 +115,7 @@ export class Estudio extends Component {
                                 if (result.ok) {
                                     toast.success(result.body.message, {
                                         position: "bottom-center",
-                                        autoClose: 5000,
+                                        autoClose: 500,
                                         hideProgressBar: false,
                                         closeOnClick: true,
                                         pauseOnHover: true,
@@ -128,7 +128,7 @@ export class Estudio extends Component {
                                 } else {
                                     toast.error(result.body.message, {
                                         position: "bottom-center",
-                                        autoClose: 5000,
+                                        autoClose: 500,
                                         hideProgressBar: false,
                                         closeOnClick: true,
                                         pauseOnHover: true,
@@ -211,14 +211,16 @@ export class Estudio extends Component {
                 fecha: estudio.fecha,
                 horario: estudio.horario,
                 valores_referencia: estudio.valores_referencia,
+                id_paciente: estudio.id_paciente,
             };
         });
             
             return (
                 <>
                 <div className="card2">
-                    <DataTable value={dataForDataTable} removableSort paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} dataKey="id"  filters={this.state.filters} 
-                    globalFilterFields={['codigo', 'fecha', 'horario', 'valores_referencia']} header={header} emptyMessage="Nada Encontrado" tableStyle={{ minWidth: '50rem' }}>
+                    <DataTable value={dataForDataTable} removableSort paginator rows={10} rowsPerPageOptions={[10, 25, 50]} dataKey="id"  filters={this.state.filters} 
+                    globalFilterFields={['codigo', 'fecha', 'horario', 'valores_referencia', "id_estudio"]} header={header} emptyMessage="Nada Encontrado" tableStyle={{ minWidth: '50rem' }}>
+                        <Column field="id_paciente" header="Id Paciente" sortable style={{ width: '30%' }}></Column>
                         <Column field="codigo" header="codigo" sortable style={{ width: '30%' }}></Column>
                         <Column field="fecha" header="fecha" sortable style={{ width: '30%' }}></Column>
                         <Column field="horario" header="horario" sortable style={{ width: '30%' }}></Column>

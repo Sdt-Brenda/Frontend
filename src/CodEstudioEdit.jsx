@@ -20,7 +20,6 @@ export class CodEstudioE extends Component {
         let codigoEstudio = {
             descripcion: this.state.descripcion,
         }
-debugger
         let parametros = {
             method: 'PUT',
             body: JSON.stringify(codigoEstudio),

@@ -51,7 +51,7 @@ export class Historialxd extends Component {
 
         fetch(`http://localhost:8080/api/historia_clinica`, parametros)
             .then((res) => {
-                return res.json().then((body) => {debugger
+                return res.json().then((body) => {
                     return {
                         status: res.status,
                         ok: res.ok,

@@ -54,7 +54,6 @@ export class DoctoresE extends Component {
 
         fetch(url, parametros)
             .then(res => {
-                debugger
                 console.log('Response:', res);
                 return res.json().then(
                     body => (
@@ -67,7 +66,6 @@ export class DoctoresE extends Component {
                     )
                 ).then(
                     result => {
-                        debugger
                         if (result.ok) {
                             toast.success(result.body.message, {
                                 position: "bottom-center",

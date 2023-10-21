@@ -72,7 +72,7 @@ export class Doctor extends Component {
                     } else {
                         toast.error(result.body.message, {
                             position: "bottom-center",
-                            autoClose: 5000,
+                            autoClose: 500,
                             hideProgressBar: false,
                             closeOnClick: true,
                             pauseOnHover: true,
@@ -113,7 +113,7 @@ export class Doctor extends Component {
                                 if (result.ok) {
                                     toast.success(result.body.message, {
                                         position: "bottom-center",
-                                        autoClose: 5000,
+                                        autoClose: 500,
                                         hideProgressBar: false,
                                         closeOnClick: true,
                                         pauseOnHover: true,
@@ -126,7 +126,7 @@ export class Doctor extends Component {
                                 } else {
                                     toast.error(result.body.message, {
                                         position: "bottom-center",
-                                        autoClose: 5000,
+                                        autoClose: 500,
                                         hideProgressBar: false,
                                         closeOnClick: true,
                                         pauseOnHover: true,
@@ -216,7 +216,7 @@ export class Doctor extends Component {
             <>
 
                 <div className="card2">
-                    <DataTable value={dataForDataTable} removableSort paginator rows={5} rowsPerPageOptions={[5, 10, 25, 50]} dataKey="id" filters={this.state.filters}
+                    <DataTable value={dataForDataTable} removableSort paginator rows={10} rowsPerPageOptions={[10, 25, 50]} dataKey="id" filters={this.state.filters}
                         globalFilterFields={['id_doctor', 'especialidad', 'dias_trabaja']} header={header} emptyMessage="Nada Encontrado" tableStyle={{ minWidth: '50rem' }}>
                         <Column field="id_doctor" header="id_doctor" sortable style={{ width: '40%' }}></Column>
                         <Column field="especialidad" header="especialidad" sortable style={{ width: '40%' }}></Column>

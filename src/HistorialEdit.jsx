@@ -43,7 +43,7 @@ export class HistorialE extends Component {
                         }
                     )
                 ).then(
-                    result => {debugger
+                    result => {
                         if (result.ok) {
                             toast.success(result.body.message, {
                                 position: "bottom-center",

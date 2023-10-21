@@ -131,7 +131,7 @@ export class Home extends Component {
                     if (result.ok) {
                         const id_paciente = result.body[0].id_paciente;
                         const navigate = this.props.navigate;
-                        navigate(`/paciente/historia_clinica/${id_paciente}`);
+                        navigate(`/paciente/historia_clinica/paciente/${id_paciente}`);
                     } else {
                         console.log("error xdxd");
                     }

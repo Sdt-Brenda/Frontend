@@ -42,7 +42,7 @@ export class InternalInformeEdit extends Component {
                         } else {
                             toast.error(result.body.message, {
                                 position: "bottom-center",
-                                autoClose: 5000,
+                                autoClose: 500,
                                 hideProgressBar: false,
                                 closeOnClick: true,
                                 pauseOnHover: true,
@@ -90,7 +90,7 @@ export class InternalInformeEdit extends Component {
                         if (result.ok) {
                             toast.success(result.body.message, {
                                 position: "bottom-center",
-                                autoClose: 5000,
+                                autoClose: 500,
                                 hideProgressBar: false,
                                 closeOnClick: true,
                                 pauseOnHover: true,
@@ -102,7 +102,7 @@ export class InternalInformeEdit extends Component {
                         } else {
                             toast.error(result.body.message, {
                                 position: "bottom-center",
-                                autoClose: 5000,
+                                autoClose: 500,
                                 hideProgressBar: false,
                                 closeOnClick: true,
                                 pauseOnHover: true,
