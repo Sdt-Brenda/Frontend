@@ -42,7 +42,7 @@ export class InternalUsuarioEdit extends Component {
                         })
                 }).then(
                     result => {
-                        if (result.ok) {debugger
+                        if (result.ok) {
                             const parsedDate = new Date(result.body.detail.fecha_nacimiento);
                             const formattedDate = `${parsedDate.getFullYear()}-${String(parsedDate.getMonth() + 1).padStart(2, '0')}-${String(parsedDate.getDate()).padStart(2, '0')}`;
 
@@ -175,6 +175,7 @@ export class InternalUsuarioEdit extends Component {
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-floating">
                                 <input
+                                    required
                                     type="text"
                                     className="form-control"
                                     id='floatingNombre'
@@ -186,6 +187,7 @@ export class InternalUsuarioEdit extends Component {
                             <br />
                             <div className="form-floating">
                                 <input
+                                    required
                                     type="text"
                                     className="form-control"
                                     id='floatingApellido'
@@ -197,6 +199,7 @@ export class InternalUsuarioEdit extends Component {
                             <br />
                             <div className="form-floating">
                                 <input
+                                    required
                                     type="text"
                                     className="form-control"
                                     id='floatingDNI'
@@ -208,6 +211,7 @@ export class InternalUsuarioEdit extends Component {
                             <br />
                             <div className="form-floating">
                                 <input
+                                    required
                                     type="date"
                                     className="form-control"
                                     id='floatingFecha_Nacimiento'
@@ -219,6 +223,7 @@ export class InternalUsuarioEdit extends Component {
                             <br />
                             <div className="mb-3">
                                 <select
+                                    required
                                     className="form-select"
                                     id="genero_id"
                                     onChange={this.handleChange}
@@ -236,6 +241,7 @@ export class InternalUsuarioEdit extends Component {
                             <br />
                             <div className="form-floating">
                                 <input
+                                    required
                                     type="text"
                                     className="form-control"
                                     id='floatingEmail'
@@ -258,6 +264,7 @@ export class InternalUsuarioEdit extends Component {
                             <br />
                             <div className="mb-3">
                                 <select
+                                    required
                                     className="form-select"
                                     id="rol_id"
                                     onChange={this.handleChange}
