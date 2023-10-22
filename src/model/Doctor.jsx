@@ -209,7 +209,8 @@ export class Doctor extends Component {
 
             return {
                 id_doctor: doctor.id_doctor,
-                especialidad: doctor.id_especialidad,
+                nombre : doctor.nombre+ " " + doctor.apellido ,
+                especialidad: doctor.especialidad,
                 dias_trabaja: doctor.dias_trabaja,
             };
         });
@@ -222,6 +223,7 @@ export class Doctor extends Component {
                     <DataTable value={dataForDataTable} removableSort paginator rows={10} rowsPerPageOptions={[10, 25, 50]} dataKey="id" filters={this.state.filters}
                         globalFilterFields={['id_doctor', 'especialidad', 'dias_trabaja']} header={header} emptyMessage="Nada Encontrado" tableStyle={{ minWidth: '50rem' }}>
                         <Column field="id_doctor" header="id_doctor" sortable style={{ width: '40%' }}></Column>
+                        <Column field="nombre" header="Apellido y Nombre" sortable style={{ width: '40%' }}></Column>
                         <Column field="especialidad" header="especialidad" sortable style={{ width: '40%' }}></Column>
                         <Column field="dias_trabaja" header="dias_trabaja" sortable style={{ width: '40%' }}></Column>
                         <Column field="Acciones" header="Acciones" sortable style={{ width: '40%' }} body={(rowData) => (
@@ -240,7 +242,7 @@ export class Doctor extends Component {
                     </DataTable>
                 </div>
 
-
+                <Link to="/usuario/edit" className="btn btn-info">Nuevo Doctor</Link>
 
                 <Modal show={this.state.modal} onHide={this.closeModal}>
                     <Modal.Header closeButton>
