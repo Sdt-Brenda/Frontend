@@ -9,6 +9,9 @@ import { Column } from 'primereact/column';
 import { InputText } from 'primereact/inputtext';
 import { FilterMatchMode } from 'primereact/api';
 
+
+
+
 export class Doctor extends Component {
     constructor(props) {
         super(props)
@@ -184,13 +187,13 @@ export class Doctor extends Component {
     renderAcciones = (rowData) => {
         return (
             <>
-                <Link to={`/doctor/edit/${rowData.id_doctor}`} className="btn btn-secondary">
+                <Link to={`/doctor/edit/${rowData.id_doctor}`}  title="Editar Doctor" className="btn btn-secondary">
                     <span className="material-symbols-outlined">edit</span>
                 </Link>
-                <Link to={`/doctor/nuevo_horario/${rowData.id_doctor}`} className="btn btn-info">
+                <Link to={`/doctor/nuevo_horario/${rowData.id_doctor}`} title="Cambiar Horario de Trabajo" className="btn btn-info">
                     <span className="material-symbols-outlined">manage_history</span>
                 </Link>
-                <button className="btn btn-danger" onClick={() => this.showModal(rowData.id_doctor)}>
+                <button className="btn btn-danger" title="Eliminar Doctor" onClick={() => this.showModal(rowData.id_doctor)}>
                     <span className="material-symbols-outlined">delete</span>
                 </button>
             </>
@@ -206,7 +209,7 @@ export class Doctor extends Component {
 
             return {
                 id_doctor: doctor.id_doctor,
-                especialidad: doctor.especialidad,
+                especialidad: doctor.id_especialidad,
                 dias_trabaja: doctor.dias_trabaja,
             };
         });
@@ -223,13 +226,13 @@ export class Doctor extends Component {
                         <Column field="dias_trabaja" header="dias_trabaja" sortable style={{ width: '40%' }}></Column>
                         <Column field="Acciones" header="Acciones" sortable style={{ width: '40%' }} body={(rowData) => (
                             <div className="btn-actions-container">
-                                <Link to={`/doctor/edit/${rowData.id_doctor}`} className="btn btn-secondary">
+                                <Link to={`/doctor/edit/${rowData.id_doctor}`} title="Editar Doctor" rel="tooltip" className="btn btn-secondary">
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>edit</span>
                                 </Link>
-                                <Link to={`/doctor/nuevo_horario/${rowData.id_doctor}`} className="btn btn-info">
+                                <Link to={`/doctor/nuevo_horario/${rowData.id_doctor}`} title="Cambiar Horario de Trabajo" className="btn btn-info">
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>manage_history</span>
                                 </Link>
-                                <button className="btn btn-danger" onClick={() => this.showModal(rowData.id_doctor)}>
+                                <button className="btn btn-danger" title="Eliminar Doctor" onClick={() => this.showModal(rowData.id_doctor)}>
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>delete</span>
                                 </button>
                             </div>
