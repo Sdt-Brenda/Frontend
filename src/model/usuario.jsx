@@ -191,13 +191,13 @@ export class Usuario extends Component {
     renderAcciones = (rowData) => {
         return (
             <>
-                <Link to={`/usuario/edit/${rowData.id_usuario}`} className="btn btn-secondary">
+                <Link to={`/usuario/edit/${rowData.id_usuario}`} title="Editar Usuario" className="btn btn-secondary">
                     <span className="material-symbols-outlined">edit</span>
                 </Link>
-                    <Link to={`/usuario/turno/${rowData.id_usuario}`} className="btn btn-info">
+                    <Link to={`/usuario/turno/${rowData.id_usuario}`} title="Obtener Turno" className="btn btn-info">
                         <span className="material-symbols-outlined">calendar_add_on</span>
                     </Link>
-                <button className="btn btn-danger" onClick={() => this.showModal(rowData.id_usuario)}>
+                <button className="btn btn-danger" title="Eliminar usuario" onClick={() => this.showModal(rowData.id_usuario)}>
                     <span className="material-symbols-outlined">delete</span>
                 </button>
             </>
@@ -250,13 +250,13 @@ export class Usuario extends Component {
                         <Column field="id_usuario" header="Id" sortable style={{ width: '10%' }}></Column>
                         <Column field="Acciones" header="Acciones" sortable style={{ width: '10%' }} body={(rowData)  => (
                             <div className="btn-actions-container">
-                                <Link to={`/usuario/edit/${rowData.id_usuario}`} className="btn btn-secondary">
+                                <Link to={`/usuario/edit/${rowData.id_usuario}`} title="Editar Usuario" className="btn btn-secondary">
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>edit</span>
                                 </Link>                                
-                                <Link to={`/usuario/turno/${rowData.id_usuario}`} className="btn btn-info">
+                                <Link to={`/usuario/turno/${rowData.id_usuario}`} title="Obtener Turno" className="btn btn-info">
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>calendar_add_on</span>
                                 </Link>
-                                <button className="btn btn-danger" onClick={() => this.showModal(rowData.id_usuario)}>
+                                <button className="btn btn-danger"  title="Eliminar usuario" onClick={() => this.showModal(rowData.id_usuario)}>
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>delete</span>
                                 </button>
                             </div>
