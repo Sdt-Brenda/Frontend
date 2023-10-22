@@ -98,7 +98,7 @@ export class InternalInformeEdit extends Component {
                                 progress: undefined,
                                 theme: "light",
                             });
-                            this.props.navigate("/usuario") //Que vaya a Home quizas? como sea que se llame el Hub de los informees
+                            this.props.navigate("/estudio");
                         } else {
                             toast.error(result.body.message, {
                                 position: "bottom-center",
