@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 
 export class DoctorPublic extends Component {
     constructor(props) {
@@ -10,7 +8,6 @@ export class DoctorPublic extends Component {
 
         this.state = {
             doctor: [],
-            modal: false,
         };
     }
 
@@ -19,7 +16,6 @@ export class DoctorPublic extends Component {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'token': sessionStorage.getItem('token'),
             },
         };
 
