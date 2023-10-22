@@ -186,10 +186,10 @@ export class Codigo extends Component {
 renderAcciones = (rowData) => {
         return (
             <>
-                <Link to={`/usuario/edit/${rowData.codigo}`} className="btn btn-secondary">
+                <Link to={`/usuario/edit/${rowData.codigo}`} title="Editar Estudio" className="btn btn-secondary">
                     <span className="material-symbols-outlined">edit</span>
                 </Link>
-                <button className="btn btn-danger" onClick={() => this.showModal(rowData.codigo)}>
+                <button className="btn btn-danger" title="Eliminar Estudio" onClick={() => this.showModal(rowData.codigo)}>
                     <span className="material-symbols-outlined">delete</span>
                 </button>
             </>
@@ -220,10 +220,10 @@ renderAcciones = (rowData) => {
                         <Column field="descripcion" header="descripcion" sortable style={{ width: '35%' }}></Column>
                         <Column field="Acciones" header="Acciones" sortable style={{ width: '35%' }} body={(rowData)  => (
                             <div className="btn-actions-container">
-                                <Link to={`/codigo_estudio/edit/${rowData.codigo}`} className="btn btn-secondary">
+                                <Link to={`/codigo_estudio/edit/${rowData.codigo}`} title="Editar Estudio" className="btn btn-secondary">
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>edit</span>
                                 </Link>
-                                <button className="btn btn-danger" onClick={() => this.showModal(rowData.codigo)}>
+                                <button className="btn btn-danger" title="Eliminar Estudio" onClick={() => this.showModal(rowData.codigo)}>
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>delete</span>
                                 </button>
                             </div>
