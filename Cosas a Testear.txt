@@ -1,0 +1,199 @@
+Landing page:
+
+-botón "Conoce nuestros profesionales".
+-boton de "Create una cuenta" >>> Formulario Registro.
+-botón "INGRESAR" >>> Home.
+-Mensajes de error, por falta de DNI ó falta de password ó DNI que no corresponda a ningun usuario en la base de datos ó password incorrecta.
+
+Formulario Registro:
+
+-Todos los datos deben ser obligatorios y, al ser enviados, tener el formato que espera la base de datos.
+
+Home (Admin):
+	*Boton del perfil(el de la esquina superior derecha)
+		*Boton "Perfil"
+		*Boton "desconectarse".
+	*Boton "modo día/noche".
+
+
+- botón "Home":
+
+
+- botón "Panel de Usuarios".
+	*"Botón "Nuevo usuario"".
+	*"Barra de busqueda".
+	*"Botones para organizar las columnas".
+	*"Botones para navegar por la tabla".
+	*"Boton para modificar el numbero de filas en tabla".
+	*"Botones para interactuar con los usuarios".
+		*"Editar Usuario". >>> Navegar a /usuario.
+		*"Historia Clínica Usuario". (Casi seguro que este hay que sacarlo de acá, porque funciona con el "id_paciente").
+		*"Sacar turno Usuario. (de ser posible pasarlo a "Sacar turno Paciente" y moverlo a la pantalla de "pacientes").
+		*"Eliminar Usuario" (con el "modal" correspondiente).
+
+- botón "Gestion de Doctores":
+	*"Botón "Nuevo Doctor"".
+	*"Barra de busqueda".
+	*"Botones para organizar las columnas".
+	*"Boton para modificar el numbero de filas en tabla".
+	*"Botones para interactuar con los doctoress".
+		*"Editar Doctor". >>> Navegar /doctor
+		*"Agregar horario Doctor"(este es el parche que debería volar una vez "Doctor_Edit" funcione correctamente).
+		*"Eliminar Doctor" (con el "modal" correspondiente).
+
+- botón "Turnos":
+	*"Barra de busqueda".
+	*"Botones para organizar las columnas".
+	*"Botones para navegar por la tabla".
+	*"Boton para modificar el numbero de filas en tabla".
+	*"Botones para interactuar con los turnos" (Pendiente).
+
+- botón "Cod. Estudios":
+	*"Botón "Nuevo Código".
+	*"Barra de busqueda".
+	*"Botones para organizar las columnas".
+	*"Botones para navegar por la tabla".
+	*"Boton para modificar el numbero de filas en tabla".
+	*"Botones para interactuar con los códigos".
+		*"Editar Doctor". >>> Navegar a /codigo_estudio
+		*"Agregar horario Doctor"(este es el parche que debería volar una vez "Doctor_Edit" funcione correctamente.
+		*"Eliminar Código" (con el "modal" correspondiente).
+
+- botón "Pacientes":
+	*"Botón "Nuevo Paciente".
+	*"Barra de busqueda".
+	*"Botones para organizar las columnas".
+	*"Botones para navegar por la tabla".
+	*"Boton para modificar el numbero de filas en tabla".
+	*"Botones para interactuar con los pacientes".
+		*"Editar Paciente". >> Navegar a /paciente
+		*"Sacar Estudio". >>> "sacar turno estudio".
+		*"Eliminar Paciente" (con el "modal" correspondiente).
+
+- botón "Gestionar Estudios":
+	*"Barra de busqueda".
+	*"Botones para organizar las columnas".
+	*"Botones para navegar por la tabla".
+	*"Boton para modificar el numbero de filas en tabla".
+	*"Botones para interactuar con los estudios".
+		*"Editar Estudios". Navegar a /estudio
+		*"Generar Informe para el Estudio". >>> "editar Informe". >>> Navegar a /informe
+		*"Eliminar Estudio" (con el "modal" correspondiente).
+
+- botón "Informes":
+	*"Barra de busqueda".
+	*"Botones para organizar las columnas".
+	*"Botones para navegar por la tabla".
+	*"Boton para modificar el numbero de filas en tabla".
+	*"Botones para interactuar con los informes".
+		*"Editar informe". >>> "editar Informe". >>>  Navegar a /informe
+		*"Eliminar Informe" (con el "modal" correspondiente).
+
+
+Home (Doctor):
+	*Boton del perfil(el de la esquina superior derecha)
+		*Boton "Perfil"
+		*Boton "desconectarse".
+	*Boton "modo día/noche".
+
+
+- botón "Home":
+
+
+- botón "Panel de Usuarios".
+	*"Botón "Nuevo usuario"".
+	*"Barra de busqueda".
+	*"Botones para organizar las columnas".
+	*"Botones para navegar por la tabla".
+	*"Boton para modificar el numbero de filas en tabla".
+	*"Botones para interactuar con los usuarios".
+		*"Editar Usuario". >>> Navegar a /usuario.
+		*"Historia Clínica Usuario". (Casi seguro que este hay que sacarlo de acá, porque funciona con el "id_paciente").
+		*"Sacar turno Usuario. (de ser posible pasarlo a "Sacar turno Paciente" y moverlo a la pantalla de "pacientes").
+		*"Eliminar Usuario" (con el "modal" correspondiente).
+
+- botón "Gestion de Doctores":
+	*"Botón "Nuevo Doctor"".
+	*"Barra de busqueda".
+	*"Botones para organizar las columnas".
+	*"Boton para modificar el numbero de filas en tabla".
+	*"Botones para interactuar con los doctoress".
+		*"Editar Doctor". >>> Navegar /doctor
+		*"Agregar horario Doctor"(este es el parche que debería volar una vez "Doctor_Edit" funcione correctamente).
+		*"Eliminar Doctor" (con el "modal" correspondiente).
+
+- botón "Turnos":
+	*"Barra de busqueda".
+	*"Botones para organizar las columnas".
+	*"Botones para navegar por la tabla".
+	*"Boton para modificar el numbero de filas en tabla".
+	*"Botones para interactuar con los turnos" (Pendiente).
+
+- botón "Cod. Estudios":
+	*"Botón "Nuevo Código".
+	*"Barra de busqueda".
+	*"Botones para organizar las columnas".
+	*"Botones para navegar por la tabla".
+	*"Boton para modificar el numbero de filas en tabla".
+	*"Botones para interactuar con los códigos".
+		*"Editar Doctor". >>> Navegar a /codigo_estudio
+		*"Agregar horario Doctor"(este es el parche que debería volar una vez "Doctor_Edit" funcione correctamente.
+		*"Eliminar Código" (con el "modal" correspondiente).
+
+- botón "Pacientes":
+	*"Botón "Nuevo Paciente".
+	*"Barra de busqueda".
+	*"Botones para organizar las columnas".
+	*"Botones para navegar por la tabla".
+	*"Boton para modificar el numbero de filas en tabla".
+	*"Botones para interactuar con los pacientes".
+		*"Editar Paciente". >> Navegar a /paciente
+		*"Sacar Estudio". >>> "sacar turno estudio".
+		*"Eliminar Paciente" (con el "modal" correspondiente).
+
+- botón "Gestionar Estudios":
+	*"Barra de busqueda".
+	*"Botones para organizar las columnas".
+	*"Botones para navegar por la tabla".
+	*"Boton para modificar el numbero de filas en tabla".
+	*"Botones para interactuar con los estudios".
+		*"Editar Estudios". Navegar a /estudio
+		*"Generar Informe para el Estudio". >>> "editar Informe". >>> Navegar a /informe
+		*"Eliminar Estudio" (con el "modal" correspondiente).
+
+- botón "Informes":
+	*"Barra de busqueda".
+	*"Botones para organizar las columnas".
+	*"Botones para navegar por la tabla".
+	*"Boton para modificar el numbero de filas en tabla".
+	*"Botones para interactuar con los informes".
+		*"Editar informe". >>> "editar Informe". >>>  Navegar a /informe
+		*"Eliminar Informe" (con el "modal" correspondiente).
+
+Home (Paciente):
+	*Boton del perfil(el de la esquina superior derecha)
+		*Boton "Perfil"
+		*Boton "desconectarse".
+	*Boton "modo día/noche".
+
+
+- botón "Home":
+	*"Botón Obtener turno con un médico" >>> "Turno_Edit" >> Navigate a "/" (Quizas podria navegar a "turnos", habria que testear si no se pisa la ruta con otra cosa).
+	*"Botón Obtener turno para estudio Clínico"  >>> "Estudio_Edit" >> Navigate a "/" (Quizas podria navegar a "estudios(?)", habria que testear si no se pisa la ruta con otra cosa).
+	*"Botón Consultar historia clínica" Navigate a "historia_clinica/paciente/:id_paciente"
+
+
+- botón "Mis Turnos".
+	*Tarjetas con la información de cada estudio.
+
+- botón "Mi Historia Clínica":
+	*"Barra de busqueda".
+	*"Botones para organizar las columnas".
+	*"Boton para modificar el numbero de filas en tabla".
+	*"Lista de estudios medicos ya sea con o sin su respectivo informe".
+
+- botón "Mis Informes":
+	*"Barra de busqueda".
+	*"Botones para organizar las columnas".
+	*"Boton para modificar el numbero de filas en tabla".
+	*"Lista de estudios medicos ya sea con o sin su respectivo informe". (El paciente no deberia poder editar ni eliminar estos).
