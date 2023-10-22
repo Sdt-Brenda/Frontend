@@ -9,11 +9,12 @@ export class InternalDoctorEdit extends Component {
         super(props);
 
         this.state = {
+            id_especialidad: '',
             especialidad: '',
             dias_trabaja: '',
             id_doctor: '',
-            horario: [],
             especialidadOptions: [],
+            selectedOption: '',
             horarioOptions: []
         };
     }
@@ -43,7 +44,7 @@ export class InternalDoctorEdit extends Component {
                     result => {
                         if (result.ok) {
                             this.setState({
-                                especialidad: result.body.detail.especialidad,
+                                id_especialidad: result.body.detail.id_especialidad,
                                 dias_trabaja: result.body.detail.dias_trabajas
                             });
                         } else {
@@ -79,9 +80,9 @@ export class InternalDoctorEdit extends Component {
                 return response.json();
             })
             .then((data) => {
-                const especialidadOptions = data.map((especialidad) => ({
-                    value: especialidad.especialidad,
-                    label: especialidad.especialidad,
+                const especialidadOptions = data.map((row) => ({
+                    value: row.id_especialidad,
+                    label: row.especialidad,
                 }));
                 this.setState({ especialidadOptions });
             })
@@ -90,11 +91,12 @@ export class InternalDoctorEdit extends Component {
             });
     };
 
+
     handleSubmit = (event) => {
         event.preventDefault();
 
         let doctor = {
-            especialidad: this.state.especialidad,
+            id_especialidad: this.state.id_especialidad,
             dias_trabaja: this.state.dias_trabaja
         }
 
@@ -157,7 +159,8 @@ export class InternalDoctorEdit extends Component {
     };
 
     handleEspecialidadChange = (selectedOption) => {
-        this.setState({ especialidad: selectedOption.value });
+        this.setState({ id_especialidad: selectedOption.value });
+        console.log(selectedOption.value);
     };
 
 
@@ -169,11 +172,12 @@ export class InternalDoctorEdit extends Component {
                         <h1>{this.props.params.id_doctor ? `Editar Doctor ${this.props.params.id_doctor}` : "Crear nuevo Doctor"}</h1>
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-floating">
-                                <label></label>
                                 <Select
                                     options={this.state.especialidadOptions}
-                                    value={{ label: this.state.especialidad, value: this.state.especialidad }}
                                     onChange={this.handleEspecialidadChange}
+                                    value={this.state.especialidadOptions.find(
+                                        (option) => option.value === this.state.id_especialidad
+                                    )}
                                 />
                             </div>
                             <br />
