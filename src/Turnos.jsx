@@ -166,7 +166,7 @@ export class Turnos_Internal extends Component {
                                         <p className="card-text">Id del Turno: {turnos.id_turno}</p>
                                         <p className="card-text">Fecha {turnos.fecha.slice(0, -14)}</p>
                                         <p className="card-text">Hora {turnos.horario}</p>
-                                        <p className="card-text">Sintomas: {turnos.sintomas}</p>
+                                        <p className="card-text">Síntomas: {turnos.sintomas}</p>
                                         <p className="card-text">Usuario Doctor: {turnos.id_doctor}</p>
                                         <p className="card-text">Usuario Paciente: {turnos.id_usuarioP}</p>
                                         {/* <Link to={`/doctor/edit/${turnos.id_doctor}`} className="btn btn-primary">Ir al Doctor</Link>
