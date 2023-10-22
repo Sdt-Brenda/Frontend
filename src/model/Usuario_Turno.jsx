@@ -155,10 +155,12 @@ export class InternalUsuarioTurno extends Component {
         this.setState({ [event.target.name]: event.target.value });
     };
 
-    handleEspecialidadSelection = (selectedEspecialidad) => {
-        const especialidadConAcentos = selectedEspecialidad.target.value;
+    handleEspecialidadSelection = (event) => {
+        const especialidadConAcentos = event.target.value;
         const especialidad = quitarAcentos(especialidadConAcentos);
-        this.setState({ selectedEspecialidad: especialidad });
+        this.setState({ selectedEspecialidad: especialidad }); // Asegúrate de que el estado se actualice correctamente
+        // También, puedes agregar un console.log aquí para verificar el valor actual de selectedEspecialidad
+        console.log("selectedEspecialidad:", this.state.selectedEspecialidad);
 
         let parametros2 = {
             method: 'GET',
@@ -269,10 +271,10 @@ export class InternalUsuarioTurno extends Component {
                                     id="especialidad"
                                     onChange={this.handleEspecialidadSelection}
                                     value={this.state.selectedEspecialidad}
-                                    name="especialidad"
+                                    name="selectedEspecialidad" // Debe coincidir con el nombre en el estado
                                     aria-label="Select a specialty"
                                 >
-                                    <option value="" disabled>
+                                    <option value="">
                                         ¿Qué especialidad busca?
                                     </option>
                                     {this.state.especialidadOptions.map((especialidad) => (
@@ -341,11 +343,11 @@ export class InternalUsuarioTurno extends Component {
                                 <input
                                     type="text"
                                     className="form-control"
-                                    id='floatingSintomas'
+                                    id='floatingsintomas'
                                     value={this.state.sintomas}
                                     name='sintomas'
                                     onChange={this.handleChange} />
-                                <label htmlFor="floatingSintomas">Sintomas</label>
+                                <label htmlFor="floatingsintomas">Síntomas</label>
                             </div>
                             <br />
                             <input
