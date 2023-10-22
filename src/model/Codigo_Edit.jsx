@@ -9,7 +9,6 @@ export class InternalCodigoEdit extends Component {
 
         this.state = {
             nombre: '',
-            codigo: '',
             descripcion: ''
         };
     }
@@ -40,7 +39,6 @@ export class InternalCodigoEdit extends Component {
                         if (result.ok) {
                             this.setState({
                                 nombre: result.body.detail.nombre,
-                                codigo: result.body.detail.codigo,
                                 descripcion: result.body.detail.descripcion
                             });
                         } else {
@@ -67,7 +65,6 @@ export class InternalCodigoEdit extends Component {
 
         let codigo_estudio = {
             nombre: this.state.nombre,
-            codigo: this.state.codigo,
             descripcion: this.state.descripcion
         }
 
@@ -145,17 +142,6 @@ export class InternalCodigoEdit extends Component {
                                     name='nombre'
                                     onChange={this.handleChange} />
                                 <label htmlFor="floatingNombre">Nombre</label>
-                            </div>
-                            <br />
-                            <div className="form-floating">
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    id='floatingCodigo'
-                                    value={this.state.codigo}
-                                    name='codigo'
-                                    onChange={this.handleChange} />
-                                <label htmlFor="floatingCodigo">Código</label>
                             </div>
                             <br />
                             <div className="form-floating">
