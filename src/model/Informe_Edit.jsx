@@ -98,7 +98,7 @@ export class InternalInformeEdit extends Component {
                                 progress: undefined,
                                 theme: "light",
                             });
-                            this.props.navigate("/estudio");
+                            this.props.navigate("/informe");
                         } else {
                             toast.error(result.body.message, {
                                 position: "bottom-center",
