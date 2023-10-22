@@ -106,6 +106,7 @@ export class InternalCodigoEdit extends Component {
                         progress: undefined,
                         theme: "light",
                     });
+                    this.props.navigate("/codigo_estudio")
                 } else {
                     toast.error(result.body.message, {
                         position: "bottom-center",
