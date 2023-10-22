@@ -10,6 +10,7 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { InputText } from 'primereact/inputtext';
 import { FilterMatchMode } from 'primereact/api';
+import jwt_decode from 'jwt-decode';
 
 
 
@@ -224,7 +225,9 @@ renderAcciones = (rowData) => {
             };
         });
 
-
+        const decodedToken = jwt_decode(localStorage.getItem('token'));
+        const rol = decodedToken.rol;
+        if (rol === 3) {
             return (
                 <>
                     <div className="card2">
@@ -233,37 +236,61 @@ renderAcciones = (rowData) => {
                         <Column field="id_informe" header="id_informe" sortable style={{ width: '35%' }}></Column>
                         <Column field="observaciones" header="observaciones" sortable style={{ width: '35%' }}></Column>
                         <Column field="id_estudio" header="id_estudio" sortable style={{ width: '35%' }}></Column>
-                        <Column field="Acciones" header="Acciones" sortable style={{ width: '35%' }} body={(rowData)  => (
-                            <div className="btn-actions-container">
-                                <Link to={`/informe/edit/${rowData.id_informe}`} className="btn btn-secondary">
-                                    <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>edit</span>
-                                </Link>
-                                <button className="btn btn-danger" onClick={() => this.showModal(rowData.id_informe)}>
-                                    <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>delete</span>
-                                </button>
-                            </div>
-                        )} />
                     </DataTable>
                 </div>
-
-
-                <Modal show={this.state.modal} onHide={this.closeModal}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Confirmar</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>¿Está seguro que desea eliminar este usuario?</Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="danger" onClick={() => this.handleClickDelete()}>
-                            Eliminar
-                        </Button>
-                        <Button variant="primary" onClick={this.closeModal}>
-                            Cancelar
-                        </Button>
-                    </Modal.Footer>
-                </Modal>
             </>
         );
-    }
+    } else {
+    
+    const header = this.renderHeader();
+    const dataForDataTable = this.state.informe.map((informe, index) => {
+
+        return {
+            id_informe: informe.id_informe,
+            observaciones: informe.observaciones,
+            id_estudio: informe.id_estudio,
+        };
+    });
+    
+    return (
+        <>
+        <div className="card2">
+        <DataTable value={dataForDataTable} removableSort paginator rows={10} rowsPerPageOptions={[10, 25, 50]} dataKey="id"  filters={this.state.filters} 
+        globalFilterFields={['id_informe', 'observaciones', 'id_estudio']} header={header} emptyMessage="Nada Encontrado" tableStyle={{ minWidth: '50rem' }}>
+            <Column field="id_informe" header="id_informe" sortable style={{ width: '35%' }}></Column>
+            <Column field="observaciones" header="observaciones" sortable style={{ width: '35%' }}></Column>
+            <Column field="id_estudio" header="id_estudio" sortable style={{ width: '35%' }}></Column>
+            <Column field="Acciones" header="Acciones" sortable style={{ width: '35%' }} body={(rowData)  => (
+                <div className="btn-actions-container">
+                    <Link to={`/informe/edit/${rowData.id_informe}`} className="btn btn-secondary">
+                        <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>edit</span>
+                    </Link>
+                    <button className="btn btn-danger" onClick={() => this.showModal(rowData.id_informe)}>
+                        <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>delete</span>
+                    </button>
+                </div>
+            )} />
+        </DataTable>
+    </div>
+
+
+    <Modal show={this.state.modal} onHide={this.closeModal}>
+        <Modal.Header closeButton>
+            <Modal.Title>Confirmar</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>¿Está seguro que desea eliminar este usuario?</Modal.Body>
+        <Modal.Footer>
+            <Button variant="danger" onClick={() => this.handleClickDelete()}>
+                Eliminar
+            </Button>
+            <Button variant="primary" onClick={this.closeModal}>
+                Cancelar
+            </Button>
+        </Modal.Footer>
+    </Modal>
+</>
+   ); }
+}
 }
 
 export default Informe
