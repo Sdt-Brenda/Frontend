@@ -9,38 +9,27 @@ import { ColorModeContext, useMode } from "./theme";
 import { ToastContainer } from 'react-toastify';
 import './index.css';
 import Login from './Login';
-import Usuario from './model/usuario'; //VERSION NACHO
-import Usuario_Edit from './model/Usuario_Edit'; //VERSION NACHO
+import Usuario from './model/usuario';
+import Usuario_Edit from './model/Usuario_Edit';
 import Registrarse from './Registrarse';
-import Paciente_Edit from './model/Paciente_Edit'; //VERSION NACHO
-import Paciente from './model/Paciente'; //VERSION NACHO
-import Paciente_Create from './model/Paciente_Create';//VERSION NACHO
+import Paciente_Edit from './model/Paciente_Edit';
+import Paciente from './model/Paciente';
+import Paciente_Create from './model/Paciente_Create';
 import Paciente_Admin from './Paciente_Admin';
-//import Paciente from './Paciente';
-//import PacienteEdit from './PacienteEdit';
-import Doctor from './model/Doctor'; //VERSION NACHO
-import Doctor_Edit from './model/Doctor_Edit'; //VERSION NACHO
+import Doctor from './model/Doctor';
+import Doctor_Edit from './model/Doctor_Edit';
 import Doctores from './Doctores';
 import DoctorPublic from './model/DoctorPublic';
-//import DoctoresEdit from './DoctoresEdit';
-//import Usuario_Historia_Clinica from './model/Usuario_Historia_Clinica';//VERSION NACHO
-import Codigo from './model/Codigo'; //VERSION NACHO
-import Codigo_Edit from './model/Codigo_Edit'; //VERSION NACHO
-import Horario_Doctor_Edit from './model/Horario_Doctor_Edit'; //VERSION NACHO
-//import CodEstudio from './CodEstudio';
-//import CodEstudioEdit from './CodEstudioEdit';
-import Estudio from './model/Estudio'; //VERSION NACHO
-import Estudio_Edit from './model/Estudio_Edit'; //VERSION NACHO
-//import Estudio from './Estudio';
-//import EstudioEdit from './EstudioEdit';
-import Historia_Clinica from './model/Historia_Clinica'; //VERSION NACHO
-import Historia_ClinicaP from './model/Historia_ClinicaP'; //VERSION NACHO
-import Informe_Edit from './model/Informe_Edit'; //VERSION NACHO
-//import Historial from './Historial';
-//import InformeEdit from './InformeEdit';
+import Codigo from './model/Codigo';
+import Codigo_Edit from './model/Codigo_Edit';
+import Horario_Doctor_Edit from './model/Horario_Doctor_Edit';
+import Estudio from './model/Estudio';
+import Estudio_Edit from './model/Estudio_Edit';
+import Historia_Clinica from './model/Historia_Clinica';
+import Historia_ClinicaP from './model/Historia_ClinicaP';
+import Informe_Edit from './model/Informe_Edit';
 
 import Informe from './Informe';
-import HistorialEdit from './HistorialEdit';
 import Turnos from './Turnos';
 
 
@@ -113,7 +102,6 @@ function App() {
               <Route path="/informe/edit/:id_informe" element={userRole === 1 || userRole === 2 ? <Informe_Edit /> : <Navigate to="/" />} />
 
               <Route path="/historia_clinica" element={userRole === 1 || userRole === 2 || userRole === 3 ? <Historia_Clinica /> : <Navigate to="/" />} />
-              <Route path="/historia_clinica/edit/:id_historia_clinica" element={userRole === 1 || userRole === 2 ? <HistorialEdit /> : <Navigate to="/" />} />
 
               <Route path="/paciente_admin" element={userRole === 1 ? <Paciente_Admin /> : <Navigate to="/" />} />
             </Routes>
