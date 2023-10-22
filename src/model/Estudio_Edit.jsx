@@ -146,7 +146,7 @@ export class InternalEstudioEdit extends Component {
                                 progress: undefined,
                                 theme: "light",
                             });
-                            this.props.navigate("/usuario")
+                            this.props.navigate("/estudio")
                         } else {
                             toast.error(result.body.message, {
                                 position: "bottom-center",
