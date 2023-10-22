@@ -166,7 +166,7 @@ export class Turnos_Internal extends Component {
                                         <p className="card-text">Id del Turno: {turnos.id_turno}</p>
                                         <p className="card-text">Fecha {turnos.fecha.slice(0, -14)}</p>
                                         <p className="card-text">Hora {turnos.horario}</p>
-                                        <p className="card-text">Sintomas: {turnos.observaciones}</p>
+                                        <p className="card-text">Sintomas: {turnos.sintomas}</p>
                                         <p className="card-text">Usuario Doctor: {turnos.id_doctor}</p>
                                         <p className="card-text">Usuario Paciente: {turnos.id_usuarioP}</p>
                                         {/* <Link to={`/doctor/edit/${turnos.id_doctor}`} className="btn btn-primary">Ir al Doctor</Link>
@@ -185,7 +185,7 @@ export class Turnos_Internal extends Component {
                     id_turno: turnos.id_turno,
                     fecha: turnos.fecha.slice(0, -14),
                     horario: turnos.horario,
-                    observaciones: turnos.observaciones,
+                    sintomas: turnos.sintomas,
                     id_doctor: turnos.id_doctor,
                     id_usuarioP: turnos.id_usuarioP,
                 };
@@ -195,11 +195,11 @@ export class Turnos_Internal extends Component {
                 <>
                     <div className="card2">
                         <DataTable value={dataForDataTable} removableSort paginator rows={10} rowsPerPageOptions={[10, 25, 50]} dataKey="id" filters={this.state.filters}
-                            globalFilterFields={['id_turno', 'fecha', 'horario', 'observaciones', 'id_doctor', "id_usuarioP"]} header={header} emptyMessage="Nada Encontrado" tableStyle={{ minWidth: '50rem' }}>
+                            globalFilterFields={['id_turno', 'fecha', 'horario', 'sintomas', 'id_doctor', "id_usuarioP"]} header={header} emptyMessage="Nada Encontrado" tableStyle={{ minWidth: '50rem' }}>
                             <Column field="id_turno" header="id_turno" sortable style={{ width: '10%' }}></Column>
                             <Column field="fecha" header="fecha" sortable style={{ width: '10%' }}></Column>
                             <Column field="horario" header="horario" sortable style={{ width: '10%' }}></Column>
-                            <Column field="observaciones" header="Sintomas" sortable style={{ width: '10%' }}></Column>
+                            <Column field="sintomas" header="Sintomas" sortable style={{ width: '10%' }}></Column>
                             <Column field="id_doctor" header="Id Doctor" sortable style={{ width: '10%' }}></Column>
                             <Column field="id_usuarioP" header="Id Usuario" sortable style={{ width: '10%' }}></Column>
                         </DataTable>
