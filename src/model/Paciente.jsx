@@ -187,16 +187,16 @@ export class Paciente extends Component {
 renderAcciones = (rowData) => {
         return (
             <>
-                <Link to={`/paciente/edit/${rowData.id_paciente}`} className="btn btn-secondary">
+                <Link to={`/paciente/edit/${rowData.id_paciente}`} title="Editar Paciente" className="btn btn-secondary">
                     <span className="material-symbols-outlined">edit</span>
                 </Link>
-                <Link to={`/paciente/estudio/${rowData.id_paciente}`} className="btn btn-primary">
+                <Link to={`/paciente/estudio/${rowData.id_paciente}`} title="Crear cita para Estudio" className="btn btn-primary">
                     <span className="material-symbols-outlined">note</span>
                 </Link>
-                    <Link to={`/paciente/historia_clinica/${rowData.id_paciente}`} className="btn btn-info">
+                    <Link to={`/paciente/historia_clinica/${rowData.id_paciente}`} title="Acceder Informe Clinico" className="btn btn-info">
                         <span className="material-symbols-outlined">calendar_add_on</span>
                     </Link>
-                <button className="btn btn-danger" onClick={() => this.showModal(rowData.id_paciente)}>
+                <button className="btn btn-danger" title="Eliminar Paciente" onClick={() => this.showModal(rowData.id_paciente)}>
                     <span className="material-symbols-outlined">delete</span>
                 </button>
             </>
@@ -238,27 +238,24 @@ renderAcciones = (rowData) => {
                         <Column field="direccion" header="direccion" sortable style={{ width: '25%' }}></Column>
                         <Column field="Acciones" header="Acciones" sortable style={{ width: '25%' }} body={(rowData)  => (
                             <div className="btn-actions-container">
-                                <Link to={`/paciente/edit/${rowData.id_paciente}`} className="btn btn-secondary">
+                                <Link to={`/paciente/edit/${rowData.id_paciente}`} title="Editar Paciente" className="btn btn-secondary">
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>edit</span>
                                 </Link>
-                                <Link to={`/paciente/estudio/${rowData.id_paciente}`} className="btn btn-info">
+                                <Link to={`/paciente/estudio/${rowData.id_paciente}`} title="Crear cita para Estudio" className="btn btn-info">
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>event</span>
                                 </Link>
                                 
-                                <Link to={`/paciente/historia_clinica/${rowData.id_paciente}`} className="btn btn-primary">
+                                <Link to={`/paciente/historia_clinica/${rowData.id_paciente}`} title="Acceder Informe Clinico" className="btn btn-primary">
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>note</span>
                                 </Link>
-                                <button className="btn btn-danger" onClick={() => this.showModal(rowData.id_paciente)}>
+                                <button className="btn btn-danger" title="Eliminar Paciente" onClick={() => this.showModal(rowData.id_paciente)}>
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>delete</span>
                                 </button>
                             </div>
                         )} />
                     </DataTable>
                 </div>
-
-
-
-
+                <Link to="/usuario/edit" className="btn btn-info">Nuevo Paciente</Link>
 
                 <Modal show={this.state.modal} onHide={this.closeModal}>
                     <Modal.Header closeButton>
