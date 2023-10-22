@@ -194,9 +194,6 @@ export class Usuario extends Component {
                 <Link to={`/usuario/edit/${rowData.id_usuario}`} className="btn btn-secondary">
                     <span className="material-symbols-outlined">edit</span>
                 </Link>
-                <Link to={`/usuario/historia_clinica/${rowData.id_usuario}`} className="btn btn-primary">
-                    <span className="material-symbols-outlined">note</span>
-                </Link>
                     <Link to={`/usuario/turno/${rowData.id_usuario}`} className="btn btn-info">
                         <span className="material-symbols-outlined">calendar_add_on</span>
                     </Link>
@@ -255,11 +252,7 @@ export class Usuario extends Component {
                             <div className="btn-actions-container">
                                 <Link to={`/usuario/edit/${rowData.id_usuario}`} className="btn btn-secondary">
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>edit</span>
-                                </Link>
-                                <Link to={`/usuario/historia_clinica/${rowData.id_usuario}`} className="btn btn-primary">
-                                    <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>note</span>
-                                </Link>
-                                
+                                </Link>                                
                                 <Link to={`/usuario/turno/${rowData.id_usuario}`} className="btn btn-info">
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>calendar_add_on</span>
                                 </Link>
