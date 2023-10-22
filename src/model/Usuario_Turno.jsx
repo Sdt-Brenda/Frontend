@@ -32,7 +32,7 @@ export class InternalUsuarioTurno extends Component {
             id_doctor: '',
             fecha: '',
             horario: '',
-            observaciones: ''
+            sintomas: ''
         };
     }
     state = {
@@ -95,7 +95,7 @@ export class InternalUsuarioTurno extends Component {
             id_doctor: this.state.selectedDoctorId,
             fecha: this.state.selectedDay,
             horario: this.state.horario,
-            observaciones: this.state.observaciones
+            sintomas: this.state.sintomas
         };
 
         let parametros = {
@@ -198,7 +198,7 @@ export class InternalUsuarioTurno extends Component {
                 'token': localStorage.getItem('token')
             }
         }
-        
+
         if (selectedDoctorId) {
             fetch(`http://localhost:8080/api/doctor/dias/${selectedDoctorId}`, parametros3)
                 .then((response) => {
@@ -233,7 +233,7 @@ export class InternalUsuarioTurno extends Component {
             }
         }
         if (selectedDoctorId && date) {
-            fetch(`http://localhost:8080/api/doctor/horario/${selectedDoctorId}/${date.toISOString()}`,parametros4)
+            fetch(`http://localhost:8080/api/doctor/horario/${selectedDoctorId}/${date.toISOString()}`, parametros4)
                 .then((response) => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
@@ -341,11 +341,11 @@ export class InternalUsuarioTurno extends Component {
                                 <input
                                     type="text"
                                     className="form-control"
-                                    id='floatingObservaciones'
-                                    value={this.state.observaciones}
-                                    name='observaciones'
+                                    id='floatingSintomas'
+                                    value={this.state.sintomas}
+                                    name='sintomas'
                                     onChange={this.handleChange} />
-                                <label htmlFor="floatingObservaciones">Observaciones</label>
+                                <label htmlFor="floatingSintomas">Sintomas</label>
                             </div>
                             <br />
                             <input
