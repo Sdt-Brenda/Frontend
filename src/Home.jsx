@@ -95,7 +95,7 @@ export class Home extends Component {
                         const navigate = this.props.navigate;
                         navigate(`/paciente/estudio/${id_paciente}`);
                     } else {
-                        console.log("error xdxd");
+                        console.log("error");
                     }
             })})
                 .catch(error => {
