@@ -13,6 +13,7 @@ export class InternalDoctorEdit extends Component {
             especialidad: '',
             dias_trabaja: '',
             id_doctor: '',
+            id_horario: '',
             especialidadOptions: [],
             selectedOption: '',
             horarioOptions: []
@@ -89,12 +90,38 @@ export class InternalDoctorEdit extends Component {
             .catch((error) => {
                 console.error('Error fetching especialidad options:', error);
             });
+        let parametrosHorario = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'token': localStorage.getItem('token')
+            }
+        };
+
+        fetch(`http://localhost:8080/api/horario`, parametrosHorario)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+
+            .then((data) => {
+                const horarioOptions = data.map((horario) => ({
+                    value: horario.id_horario,
+                    label: horario.horario,
+                }));
+                this.setState({ horarioOptions });
+            })
+            .catch((error) => {
+                console.error('Error fetching horario options:', error);
+            });
     };
 
 
     handleSubmit = (event) => {
         event.preventDefault();
-
         let doctor = {
             id_especialidad: this.state.id_especialidad,
             dias_trabaja: this.state.dias_trabaja
@@ -111,18 +138,14 @@ export class InternalDoctorEdit extends Component {
         const url = this.props.params.id_doctor ? `http://localhost:8080/api/doctor/${this.props.params.id_doctor}` : `http://localhost:8080/api/doctor/${this.props.params.id_usuario}`
 
         fetch(url, parametros)
-            .then(res => {
-                return res.json().then(
-                    body => (
-                        {
-                            status: res.status,
-                            ok: res.ok,
-                            headers: res.headers,
-                            body: body
-                        }
-                    )
-                ).then(
-                    result => {
+            .then((res) => {
+                return res.json().then((body) => ({
+                    status: res.status,
+                    ok: res.ok,
+                    headers: res.headers,
+                    body: body
+                }))
+                    .then((result) => {
                         if (result.ok) {
                             toast.success(result.body.message, {
                                 position: "bottom-center",
@@ -134,7 +157,98 @@ export class InternalDoctorEdit extends Component {
                                 progress: undefined,
                                 theme: "light",
                             });
-                            this.props.navigate("/doctor")
+                            let parametrosD = {
+                                method: 'GET',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'Accept': 'application/json',
+                                    'token': localStorage.getItem('token')
+                                }
+                            };
+                            fetch(`http://localhost:8080/api/doctor/new/${this.props.params.id_usuario}`, parametrosD) //Acá recupero el ID_DOCTOR para encajarlo en el siguiente post
+                                .then((res) => {
+                                    return res.json().then((body) => ({
+                                        status: res.status,
+                                        ok: res.ok,
+                                        headers: res.headers,
+                                        body: body,
+                                    }));
+                                })
+                                .then((data) => {
+                                    if (data.ok) {
+                                        const idDoctor = data.body[0].id_doctor;
+                                        this.setState({ id_doctor: idDoctor });
+                                        let horarioDoctor = {
+                                            id_horario: this.state.selectedHorarioOption.map(option => option.value),
+                                            id_doctor: idDoctor
+                                        }
+
+                                        let parametrosH = {
+                                            method: 'POST',
+                                            body: JSON.stringify(horarioDoctor),
+                                            headers: {
+                                                'Content-Type': 'application/json',
+                                                'token': localStorage.getItem('token')
+                                            }
+                                        }
+                                        fetch(`http://localhost:8080/api/horario_doctor/`, parametrosH)
+                                            .then(res => {
+                                                return res.json().then(
+                                                    body => (
+                                                        {
+                                                            status: res.status,
+                                                            ok: res.ok,
+                                                            headers: res.headers,
+                                                            body: body
+                                                        }
+                                                    )
+                                                ).then(
+                                                    result => {
+                                                        if (result.ok) {
+                                                            toast.success(result.body.message, {
+                                                                position: "bottom-center",
+                                                                autoClose: 5000,
+                                                                hideProgressBar: false,
+                                                                closeOnClick: true,
+                                                                pauseOnHover: true,
+                                                                draggable: true,
+                                                                progress: undefined,
+                                                                theme: "light",
+                                                            });
+                                                        } else {
+                                                            toast.error(result.body.message, {
+                                                                position: "bottom-center",
+                                                                autoClose: 5000,
+                                                                hideProgressBar: false,
+                                                                closeOnClick: true,
+                                                                pauseOnHover: true,
+                                                                draggable: true,
+                                                                progress: undefined,
+                                                                theme: "light",
+                                                            });
+                                                        }
+                                                    });
+                                            })
+                                            .catch((error) => {
+                                                console.log('Error:', error);
+                                            });
+                                        this.props.navigate("/doctor")
+                                    } else {
+                                        toast.error(data.body.message, {
+                                            position: "bottom-center",
+                                            autoClose: 5000,
+                                            hideProgressBar: false,
+                                            closeOnClick: true,
+                                            pauseOnHover: true,
+                                            draggable: true,
+                                            progress: undefined,
+                                            theme: "light",
+                                        });
+                                    }
+                                })
+                                .catch(error => {
+                                    console.error('Error:', error);
+                                });
                         } else {
                             toast.error(result.body.message, {
                                 position: "bottom-center",
@@ -160,8 +274,13 @@ export class InternalDoctorEdit extends Component {
 
     handleEspecialidadChange = (selectedOption) => {
         this.setState({ id_especialidad: selectedOption.value });
-        console.log(selectedOption.value);
     };
+
+    handleHorarioChange = (selectedOptions) => {
+        this.setState({ selectedHorarioOption: selectedOptions });
+        console.log(selectedOptions);
+    };
+
 
 
     render() {
@@ -190,6 +309,16 @@ export class InternalDoctorEdit extends Component {
                                     name='dias_trabaja'
                                     onChange={this.handleChange} />
                                 <label htmlFor="floatingDias_Trabaja">Días de Atención</label>
+                            </div>
+                            <br />
+                            <div className="form-floating">
+                                <label htmlFor="floatingHorario"></label>
+                                <Select
+                                    options={this.state.horarioOptions}
+                                    value={this.state.selectedHorarioOption}
+                                    onChange={this.handleHorarioChange}
+                                    isMulti
+                                />
                             </div>
                             <br />
                             <input
