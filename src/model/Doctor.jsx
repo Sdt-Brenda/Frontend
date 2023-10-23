@@ -190,9 +190,6 @@ export class Doctor extends Component {
                 <Link to={`/doctor/edit/${rowData.id_doctor}`}  title="Editar Doctor" className="btn btn-secondary">
                     <span className="material-symbols-outlined">edit</span>
                 </Link>
-                <Link to={`/doctor/nuevo_horario/${rowData.id_doctor}`} title="Cambiar Horario de Trabajo" className="btn btn-info">
-                    <span className="material-symbols-outlined">manage_history</span>
-                </Link>
                 <button className="btn btn-danger" title="Eliminar Doctor" onClick={() => this.showModal(rowData.id_doctor)}>
                     <span className="material-symbols-outlined">delete</span>
                 </button>
@@ -226,13 +223,10 @@ export class Doctor extends Component {
                         <Column field="nombre" header="Apellido y Nombre" sortable style={{ width: '40%' }}></Column>
                         <Column field="especialidad" header="especialidad" sortable style={{ width: '40%' }}></Column>
                         <Column field="dias_trabaja" header="dias_trabaja" sortable style={{ width: '40%' }}></Column>
-                        <Column field="Acciones" header="Acciones" sortable style={{ width: '40%' }} body={(rowData) => (
+                        <Column field="Acciones" header=""  style={{ width: '40%' }} body={(rowData) => (
                             <div className="btn-actions-container">
                                 <Link to={`/doctor/edit/${rowData.id_doctor}`} title="Editar Doctor" rel="tooltip" className="btn btn-secondary">
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>edit</span>
-                                </Link>
-                                <Link to={`/doctor/nuevo_horario/${rowData.id_doctor}`} title="Cambiar Horario de Trabajo" className="btn btn-info">
-                                    <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>manage_history</span>
                                 </Link>
                                 <button className="btn btn-danger" title="Eliminar Doctor" onClick={() => this.showModal(rowData.id_doctor)}>
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>delete</span>
@@ -242,7 +236,7 @@ export class Doctor extends Component {
                     </DataTable>
                 </div>
 
-                <Link to="/usuario/edit" className="btn btn-info">Nuevo Doctor</Link>
+                <Link to="/doctores" className="btn btn-info">Especialidades</Link>
 
                 <Modal show={this.state.modal} onHide={this.closeModal}>
                     <Modal.Header closeButton>
