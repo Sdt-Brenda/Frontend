@@ -25,7 +25,7 @@ export class InternalEditTurno extends Component {
             id_doctor: '',
             fecha: '',
             horario: '',
-            observaciones: ''
+            sintomas: ''
         };
     }
 
@@ -85,7 +85,7 @@ export class InternalEditTurno extends Component {
             id_doctor: this.state.selectedDoctorId,
             fecha: this.state.selectedDay,
             horario: this.state.horario,
-            observaciones: this.state.observaciones
+            sintomas: this.state.sintomas
         };
 
         let parametros = {
