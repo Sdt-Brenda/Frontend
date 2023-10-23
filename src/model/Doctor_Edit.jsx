@@ -20,6 +20,17 @@ export class InternalDoctorEdit extends Component {
         };
     }
 
+    toastConfig = {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+    };
+
     componentDidMount() {
         if (this.props.params.id_doctor) {
             let parametros = {
@@ -30,7 +41,7 @@ export class InternalDoctorEdit extends Component {
                     'token': localStorage.getItem('token')
                 }
             }
-            fetch(`http://localhost:8080/api/doctor/edit/${this.props.params.id_doctor}`, parametros)
+            fetch(`http://localhost:8080/api/doctor/edit/${this.props.params.id_doctor}`, parametros) // Este GET no esta trayendo la información sobre los horarios, habria que actualizar la query en el backend.
                 .then(res => {
                     return res.json()
                         .then(body => {
@@ -49,16 +60,7 @@ export class InternalDoctorEdit extends Component {
                                 dias_trabaja: result.body.detail.dias_trabajas
                             });
                         } else {
-                            toast.error(result.body.message, {
-                                position: "bottom-center",
-                                autoClose: 500,
-                                hideProgressBar: false,
-                                closeOnClick: true,
-                                pauseOnHover: true,
-                                draggable: true,
-                                progress: undefined,
-                                theme: "light",
-                            });
+                            toast.error(result.body.message, this.toastConfig);
                         }
                     })
                 .catch(error => {
@@ -146,18 +148,9 @@ export class InternalDoctorEdit extends Component {
                     body: body
                 }))
                     .then((result) => {
-                        if (result.ok) {
-                            toast.success(result.body.message, {
-                                position: "bottom-center",
-                                autoClose: 500,
-                                hideProgressBar: false,
-                                closeOnClick: true,
-                                pauseOnHover: true,
-                                draggable: true,
-                                progress: undefined,
-                                theme: "light",
-                            });
-                            let parametrosD = {
+                        if (result.ok && !this.props.params.id_doctor) {
+                            toast.success(result.body.message, this.toastConfig);
+                            let parametrosD = { //Acá iria el condicional
                                 method: 'GET',
                                 headers: {
                                     'Content-Type': 'application/json',
@@ -165,7 +158,7 @@ export class InternalDoctorEdit extends Component {
                                     'token': localStorage.getItem('token')
                                 }
                             };
-                            fetch(`http://localhost:8080/api/doctor/new/${this.props.params.id_usuario}`, parametrosD) //Acá recupero el ID_DOCTOR para encajarlo en el siguiente post
+                            fetch(`http://localhost:8080/api/doctor/new/${this.props.params.id_usuario}`, parametrosD) //Acá recupero el ID_DOCTOR.
                                 .then((res) => {
                                     return res.json().then((body) => ({
                                         status: res.status,
@@ -191,6 +184,7 @@ export class InternalDoctorEdit extends Component {
                                                 'token': localStorage.getItem('token')
                                             }
                                         }
+
                                         fetch(`http://localhost:8080/api/horario_doctor/`, parametrosH)
                                             .then(res => {
                                                 return res.json().then(
@@ -205,27 +199,9 @@ export class InternalDoctorEdit extends Component {
                                                 ).then(
                                                     result => {
                                                         if (result.ok) {
-                                                            toast.success(result.body.message, {
-                                                                position: "bottom-center",
-                                                                autoClose: 5000,
-                                                                hideProgressBar: false,
-                                                                closeOnClick: true,
-                                                                pauseOnHover: true,
-                                                                draggable: true,
-                                                                progress: undefined,
-                                                                theme: "light",
-                                                            });
+                                                            toast.success(result.body.message, this.toastConfig);
                                                         } else {
-                                                            toast.error(result.body.message, {
-                                                                position: "bottom-center",
-                                                                autoClose: 5000,
-                                                                hideProgressBar: false,
-                                                                closeOnClick: true,
-                                                                pauseOnHover: true,
-                                                                draggable: true,
-                                                                progress: undefined,
-                                                                theme: "light",
-                                                            });
+                                                            toast.error(result.body.message, this.toastConfig);
                                                         }
                                                     });
                                             })
@@ -234,39 +210,59 @@ export class InternalDoctorEdit extends Component {
                                             });
                                         this.props.navigate("/doctor")
                                     } else {
-                                        toast.error(data.body.message, {
-                                            position: "bottom-center",
-                                            autoClose: 5000,
-                                            hideProgressBar: false,
-                                            closeOnClick: true,
-                                            pauseOnHover: true,
-                                            draggable: true,
-                                            progress: undefined,
-                                            theme: "light",
-                                        });
+                                        toast.error(data.body.message, this.toastConfig);
                                     }
                                 })
                                 .catch(error => {
                                     console.error('Error:', error);
                                 });
                         } else {
-                            toast.error(result.body.message, {
-                                position: "bottom-center",
-                                autoClose: 500,
-                                hideProgressBar: false,
-                                closeOnClick: true,
-                                pauseOnHover: true,
-                                draggable: true,
-                                progress: undefined,
-                                theme: "light",
-                            });
+                            let horarioDoctor = {
+                                id_horario: this.state.selectedHorarioOption.map(option => option.value)
+                            }
+                            debugger
+                            let parametrosH = {
+                                method: 'PUT',
+                                body: JSON.stringify(horarioDoctor),
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'token': localStorage.getItem('token')
+                                }
+                            }
+
+                            fetch(`http://localhost:8080/api/horario_doctor/${this.props.params.id_doctor}`, parametrosH)
+                                .then(res => {
+                                    return res.json().then(
+                                        body => (
+                                            {
+                                                status: res.status,
+                                                ok: res.ok,
+                                                headers: res.headers,
+                                                body: body
+                                            }
+                                        )
+                                    ).then(
+                                        result => {
+                                            if (result.ok) {
+                                                toast.success(result.body.message, this.toastConfig);
+                                                this.props.navigate("/doctor")
+                                            } else {
+                                                toast.error(result.body.message, this.toastConfig);
+                                            }
+                                        });
+                                })
+                                .catch((error) => {
+                                    console.log('Error:', error);
+                                });
                         }
                     });
             })
             .catch((error) => {
                 console.log('Error:', error);
             });
-    };
+    }
+
+
 
     handleChange = (event) => {
         this.setState({ [event.target.name]: event.target.value });
