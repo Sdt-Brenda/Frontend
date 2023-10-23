@@ -36,6 +36,8 @@ import Turnos from './Turnos';
 import jwt_decode from 'jwt-decode';
 import Home from "./Home";
 import Turno_Edit from "./model/Turno_Edit";
+import Calendario from "./Calendario";
+
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -76,6 +78,7 @@ function App() {
               <Route path="/doctor/create/:id_usuario" element={userRole === 1 || userRole === 2 ? <Doctor_Edit /> : <Navigate to="/" />} />
               <Route path="/doctor/nuevo_horario/:id_doctor" element={userRole === 1 ? <Horario_Doctor_Edit /> : <Navigate to="/" />} />
               <Route path="/doctor/public" element={<DoctorPublic />} />
+              <Route path="/calendario" element={<Calendario />} />
 
 
               <Route path="/paciente" element={userRole === 1 || userRole === 2 ? <Paciente /> : <Navigate to="/" />} />

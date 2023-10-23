@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import es from 'date-fns/locale/es';
+
 
 export class Doctores extends Component {
   constructor(props) {
@@ -14,15 +14,47 @@ export class Doctores extends Component {
     this.state = {
       especialidadD: [],
       selectedEspecialidad: '',
+      id_especialidad: "",
+      especialidadOptions: [],
+      dias_trabaja: "",
     }
   }
 
+  componentDidMount() {
+        let parametros = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'token': localStorage.getItem('token')
+            }
+        }
+    fetch(`http://localhost:8080/api/especialidad`, parametros)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then((data) => {
+            const especialidadOptions = data.map((row) => ({
+                value: row.id_especialidad,
+                label: row.especialidad,
+            }));
+            this.setState({ especialidadOptions });
+        })
+        .catch((error) => {
+            console.error('Error fetching especialidad options:', error);
+        });
+};
+
+
+  
 
 
   handleEspecialidadSelection = (selectedEspecialidad) => {
     const especialidad = selectedEspecialidad.target.value;
     this.setState({ selectedEspecialidad: especialidad });   
-
     const selectedValue = selectedEspecialidad.target.value;
     if (!this.state.firstOptionDisabled) {
       this.setState({ firstOptionDisabled: true });
@@ -79,25 +111,31 @@ export class Doctores extends Component {
   };
 
   render() {
-    const { especialidadD } = this.state;
+    const { especialidadD, especialidadOptions } = this.state;
     
     return (
       <>
 
-      <div className="mb-3">
-        <h2>Seleccione una especialidad para seguir</h2>
-            <select
-              className="form-select"
-              id="especialidad"
-              onChange={this.handleEspecialidadSelection}
-              value={this.state.selectedEspecialidad}
-              name="especialidad"
-              aria-label="Select a specialty">
-              <option value="" disabled={this.state.firstOptionDisabled}>¿Qué especialidad busca?</option>
-              <option value="neurologia">Neurología</option>
-              <option value="cardiologia">Cardiología</option>
-            </select>
-          </div>
+<div className="mb-3">
+          <h2>Seleccione una especialidad para seguir</h2>
+          <select
+            className="form-select"
+            id="especialidad"
+            onChange={this.handleEspecialidadSelection}
+            value={this.state.selectedEspecialidad}
+            name="especialidad"
+            aria-label="Select a specialty"
+          >
+            <option value="" disabled={this.state.firstOptionDisabled}>
+              ¿Qué especialidad busca?
+            </option>
+            {especialidadOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
           <div className="doctores-container">
           {especialidadD.map(doctor => (
             <div className="card" key={doctor.id_doctor}>

@@ -186,6 +186,7 @@ export class Turnos_Internal extends Component {
 
             return (
                 <>
+                                <Link to="/calendario" className="btn btn-info">Ir al Calendario</Link>
                     <div className="card2">
                         <DataTable value={dataForDataTable} removableSort paginator rows={10} rowsPerPageOptions={[10, 25, 50]} dataKey="id" filters={this.state.filters}
                             globalFilterFields={['id_turno', 'fecha', 'horario', 'sintomas', 'id_doctor', "id_usuarioP"]} header={header} emptyMessage="Nada Encontrado" tableStyle={{ minWidth: '50rem' }}>
