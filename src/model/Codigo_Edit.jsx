@@ -39,6 +39,7 @@ export class InternalCodigoEdit extends Component {
                         if (result.ok) {
                             this.setState({
                                 nombre: result.body.detail.nombre,
+                                codigo: result.body.detail.codigo,
                                 descripcion: result.body.detail.descripcion
                             });
                         } else {
