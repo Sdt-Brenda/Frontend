@@ -190,6 +190,9 @@ renderAcciones = (rowData) => {
                 <Link to={`/paciente/edit/${rowData.id_paciente}`} title="Editar Paciente" className="btn btn-secondary">
                     <span className="material-symbols-outlined">edit</span>
                 </Link>
+                <Link to={`/usuario/turno/${rowData.id_usuario}`} title="Obtener Turno" className="btn btn-info">
+                        <span className="material-symbols-outlined">calendar_add_on</span>
+                    </Link>
                 <Link to={`/paciente/estudio/${rowData.id_paciente}`} title="Crear cita para Estudio" className="btn btn-primary">
                     <span className="material-symbols-outlined">note</span>
                 </Link>
@@ -236,15 +239,17 @@ renderAcciones = (rowData) => {
                         <Column field="provincia" header="provincia" sortable style={{ width: '25%' }}></Column>
                         <Column field="localidad" header="localidad" sortable style={{ width: '25%' }}></Column>
                         <Column field="direccion" header="direccion" sortable style={{ width: '25%' }}></Column>
-                        <Column field="Acciones" header="Acciones" sortable style={{ width: '25%' }} body={(rowData)  => (
+                        <Column field="Acciones" header="" style={{ width: '25%' }} body={(rowData)  => (
                             <div className="btn-actions-container">
                                 <Link to={`/paciente/edit/${rowData.id_paciente}`} title="Editar Paciente" className="btn btn-secondary">
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>edit</span>
                                 </Link>
+                                <Link to={`/usuario/turno/${rowData.id_usuario}`} title="Obtener Turno" className="btn btn-info">
+                                    <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>calendar_add_on</span>
+                                </Link>
                                 <Link to={`/paciente/estudio/${rowData.id_paciente}`} title="Crear cita para Estudio" className="btn btn-info">
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>event</span>
                                 </Link>
-                                
                                 <Link to={`/paciente/historia_clinica/${rowData.id_paciente}`} title="Acceder Informe Clinico" className="btn btn-primary">
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>note</span>
                                 </Link>
