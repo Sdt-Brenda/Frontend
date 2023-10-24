@@ -208,7 +208,7 @@ export class Estudio extends Component {
             return {
                 id_estudio: estudio.id_estudio,
                 codigo: estudio.codigo,
-                fecha: estudio.fecha,
+                fecha: estudio.fecha.slice(0, -14),
                 horario: estudio.horario,
                 valores_referencia: estudio.valores_referencia,
                 id_paciente: estudio.id_paciente,
@@ -225,7 +225,7 @@ export class Estudio extends Component {
                         <Column field="fecha" header="fecha" sortable style={{ width: '30%' }}></Column>
                         <Column field="horario" header="horario" sortable style={{ width: '30%' }}></Column>
                         <Column field="valores_referencia" header="valores_referencia" sortable style={{ width: '30%' }}></Column>
-                        <Column field="Acciones" header="Acciones" sortable style={{ width: '30%' }} body={(rowData)  => (
+                        <Column field="Acciones" header=""  style={{ width: '30%' }} body={(rowData)  => (
                             <div className="btn-actions-container">
                                 <Link to={`/estudio/edit/${rowData.id_estudio}`} className="btn btn-secondary">
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>edit</span>
