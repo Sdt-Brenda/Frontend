@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
 
 export class InternalDoctorEdit extends Component {
     constructor(props) {
@@ -280,6 +281,7 @@ export class InternalDoctorEdit extends Component {
 
 
     render() {
+        const animatedComponents = makeAnimated();
         return (
             <div className='container'>
                 <div className='row'>
@@ -314,6 +316,8 @@ export class InternalDoctorEdit extends Component {
                                     value={this.state.selectedHorarioOption}
                                     onChange={this.handleHorarioChange}
                                     isMulti
+                                    components={animatedComponents}
+                                    closeMenuOnSelect={false}
                                 />
                             </div>
                             <br />

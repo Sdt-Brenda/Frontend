@@ -25,7 +25,7 @@ export class InternalEditTurno extends Component {
             id_doctor: '',
             fecha: '',
             horario: '',
-            sintomas: ''
+            observaciones: ''
         };
     }
 
@@ -61,7 +61,7 @@ export class InternalEditTurno extends Component {
                 'token': localStorage.getItem('token')
             }
         }
-        fetch(`http://localhost:8080/api/especialidad`, parametros)
+        fetch(`http://localhost:8080/api/especialidad/disponible`, parametros)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -85,7 +85,7 @@ export class InternalEditTurno extends Component {
             id_doctor: this.state.selectedDoctorId,
             fecha: this.state.selectedDay,
             horario: this.state.horario,
-            sintomas: this.state.sintomas
+            observaciones: this.state.observaciones
         };
 
         let parametros = {
@@ -121,7 +121,7 @@ export class InternalEditTurno extends Component {
                                 progress: undefined,
                                 theme: "light",
                             });
-                            this.props.navigate("/usuario")
+                            this.props.navigate("/turnos")
                         } else {
                             toast.error(result.body.message, {
                                 position: "bottom-center",
