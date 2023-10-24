@@ -194,12 +194,10 @@ export class Usuario extends Component {
                 <Link to={`/usuario/edit/${rowData.id_usuario}`} title="Editar Usuario" className="btn btn-secondary">
                     <span className="material-symbols-outlined">edit</span>
                 </Link>
-                    <Link to={`/usuario/turno/${rowData.id_usuario}`} title="Obtener Turno" className="btn btn-info">
-                        <span className="material-symbols-outlined">calendar_add_on</span>
-                    </Link>
                 <button className="btn btn-danger" title="Eliminar usuario" onClick={() => this.showModal(rowData.id_usuario)}>
                     <span className="material-symbols-outlined">delete</span>
                 </button>
+                <Link to="/usuario/edit" className="btn btn-info">+</Link>
             </>
         );
     };
@@ -236,26 +234,23 @@ export class Usuario extends Component {
 
         });
         return (
-            <>
+            <>                <Link to="/usuario/edit" className="material-symbols-outlined">add</Link>
                 <div className="card2">
                     <DataTable value={dataForDataTable} removableSort paginator rows={10} rowsPerPageOptions={[10, 25, 50]} dataKey="id"  filters={this.state.filters} 
-                    globalFilterFields={['nombre', 'apellido', 'dni', 'formattedDate', 'genero', "email", "rol","id_usuario"]} header={header} emptyMessage="Nada Encontrado" tableStyle={{ minWidth: '50rem' }}>
-                        <Column field="nombre" header="Nombre" sortable style={{ width: '10%' }}></Column>
-                        <Column field="apellido" header="Apellido" sortable style={{ width: '10%' }}></Column>
-                        <Column field="dni" header="Dni" sortable style={{ width: '10%' }}></Column>
-                        <Column field="formattedDate" header="Fecha de Nacimiento" sortable style={{ width: '10%' }}></Column>
-                        <Column field="genero" header="Genero" sortable style={{ width: '10%' }}></Column>
-                        <Column field="email" header="Email" sortable style={{ width: '10%' }}></Column>
-                        <Column field="rol" header="Rol" sortable style={{ width: '10%' }}></Column>
-                        <Column field="id_usuario" header="Id" sortable style={{ width: '10%' }}></Column>
-                        <Column field="Acciones" header="Acciones" sortable style={{ width: '10%' }} body={(rowData)  => (
+                    globalFilterFields={['nombre', 'apellido', 'dni', 'formattedDate', 'genero', "email", "rol","id_usuario"]} header={header}  emptyMessage="Nada Encontrado" tableStyle={{ minWidth: '50rem' }}>
+                        <Column field="nombre" header="Nombre" sortable style={{ width: '15%' }}></Column>
+                        <Column field="apellido" header="Apellido" sortable style={{ width: '15%' }}></Column>
+                        <Column field="dni" header="Dni" sortable style={{ width: '15%' }}></Column>
+                        <Column field="formattedDate" header="Fecha de Nacimiento" sortable style={{ width: '15%' }}></Column>
+                        <Column field="genero" header="Genero" sortable style={{ width: '15%' }}></Column>
+                        <Column field="email" header="Email" sortable style={{ width: '15%' }}></Column>
+                        <Column field="rol" header="Rol" sortable style={{ width: '15%' }}></Column>
+                        <Column field="id_usuario" header="Id" sortable style={{ width: '15%' }}></Column>
+                        <Column field="Acciones" header="" style={{ width: '15%' }} body={(rowData)  => (
                             <div className="btn-actions-container">
                                 <Link to={`/usuario/edit/${rowData.id_usuario}`} title="Editar Usuario" className="btn btn-secondary">
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>edit</span>
                                 </Link>                                
-                                <Link to={`/usuario/turno/${rowData.id_usuario}`} title="Obtener Turno" className="btn btn-info">
-                                    <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>calendar_add_on</span>
-                                </Link>
                                 <button className="btn btn-danger"  title="Eliminar usuario" onClick={() => this.showModal(rowData.id_usuario)}>
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>delete</span>
                                 </button>
@@ -263,7 +258,7 @@ export class Usuario extends Component {
                         )} />
                     </DataTable>
                 </div>
-                <Link to="/usuario/edit" className="btn btn-info">Nuevo Usuario</Link>
+
 
                 
                 <Modal show={this.state.modal} onHide={this.closeModal}>
