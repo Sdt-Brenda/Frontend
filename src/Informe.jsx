@@ -260,7 +260,7 @@ renderAcciones = (rowData) => {
             <Column field="id_informe" header="id_informe" sortable style={{ width: '35%' }}></Column>
             <Column field="observaciones" header="observaciones" sortable style={{ width: '35%' }}></Column>
             <Column field="id_estudio" header="id_estudio" sortable style={{ width: '35%' }}></Column>
-            <Column field="Acciones" header="Acciones" sortable style={{ width: '35%' }} body={(rowData)  => (
+            <Column field="Acciones" header="" style={{ width: '35%' }} body={(rowData)  => (
                 <div className="btn-actions-container">
                     <Link to={`/informe/edit/${rowData.id_informe}`} className="btn btn-secondary">
                         <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>edit</span>
@@ -289,7 +289,7 @@ renderAcciones = (rowData) => {
         </Modal.Footer>
     </Modal>
 </>
-   ); }
+); }
 }
 }
 
