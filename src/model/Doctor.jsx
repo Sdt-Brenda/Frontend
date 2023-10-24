@@ -209,6 +209,7 @@ export class Doctor extends Component {
                 nombre : doctor.nombre+ " " + doctor.apellido ,
                 especialidad: doctor.especialidad,
                 dias_trabaja: doctor.dias_trabaja,
+                horario: doctor.primer_horario + "~" + doctor.ultimo_horario
             };
         });
 
@@ -219,11 +220,11 @@ export class Doctor extends Component {
                 <div className="card2">
                     <DataTable value={dataForDataTable} removableSort paginator rows={10} rowsPerPageOptions={[10, 25, 50]} dataKey="id" filters={this.state.filters}
                         globalFilterFields={['id_doctor', 'especialidad', 'dias_trabaja']} header={header} emptyMessage="Nada Encontrado" tableStyle={{ minWidth: '50rem' }}>
-                        <Column field="id_doctor" header="id_doctor" sortable style={{ width: '40%' }}></Column>
-                        <Column field="nombre" header="Apellido y Nombre" sortable style={{ width: '40%' }}></Column>
-                        <Column field="especialidad" header="especialidad" sortable style={{ width: '40%' }}></Column>
-                        <Column field="dias_trabaja" header="dias_trabaja" sortable style={{ width: '40%' }}></Column>
-                        <Column field="Acciones" header=""  style={{ width: '40%' }} body={(rowData) => (
+                        <Column field="nombre" header="Nombre Y Apellido" sortable style={{ width: '25%' }}></Column>
+                        <Column field="especialidad" header="especialidad" sortable style={{ width: '25%' }}></Column>
+                        <Column field="dias_trabaja" header="dias_trabaja" sortable style={{ width: '25%' }}></Column>
+                        <Column field="horario" header="Horarios" sortable style={{ width: '25%' }}></Column>
+                        <Column field="Acciones" header=""  style={{ width: '25%' }} body={(rowData) => (
                             <div className="btn-actions-container">
                                 <Link to={`/doctor/edit/${rowData.id_doctor}`} title="Editar Doctor" rel="tooltip" className="btn btn-secondary">
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>edit</span>
