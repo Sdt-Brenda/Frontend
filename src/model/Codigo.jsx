@@ -218,7 +218,7 @@ renderAcciones = (rowData) => {
                         <Column field="nombre" header="nombre" sortable style={{ width: '35%' }}></Column>
                         <Column field="codigo" header="codigo" sortable style={{ width: '35%' }}></Column>
                         <Column field="descripcion" header="descripcion" sortable style={{ width: '35%' }}></Column>
-                        <Column field="Acciones" header="Acciones" sortable style={{ width: '35%' }} body={(rowData)  => (
+                        <Column field="Acciones" header="" style={{ width: '35%' }} body={(rowData)  => (
                             <div className="btn-actions-container">
                                 <Link to={`/codigo_estudio/edit/${rowData.codigo}`} title="Editar Estudio" className="btn btn-secondary">
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>edit</span>
