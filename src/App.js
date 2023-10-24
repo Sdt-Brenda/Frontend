@@ -15,7 +15,6 @@ import Registrarse from './Registrarse';
 import Paciente_Edit from './model/Paciente_Edit';
 import Paciente from './model/Paciente';
 import Paciente_Create from './model/Paciente_Create';
-import Paciente_Admin from './Paciente_Admin';
 import Doctor from './model/Doctor';
 import Doctor_Edit from './model/Doctor_Edit';
 import Doctores from './Doctores';
@@ -37,6 +36,7 @@ import jwt_decode from 'jwt-decode';
 import Home from "./Home";
 import Turno_Edit from "./model/Turno_Edit";
 import Calendario from "./Calendario";
+
 
 
 function App() {
@@ -105,8 +105,6 @@ function App() {
               <Route path="/informe/edit/:id_informe" element={userRole === 1 || userRole === 2 ? <Informe_Edit /> : <Navigate to="/" />} />
 
               <Route path="/historia_clinica" element={userRole === 1 || userRole === 2 || userRole === 3 ? <Historia_Clinica /> : <Navigate to="/" />} />
-
-              <Route path="/paciente_admin" element={userRole === 1 ? <Paciente_Admin /> : <Navigate to="/" />} />
             </Routes>
           </main>
         </div>
