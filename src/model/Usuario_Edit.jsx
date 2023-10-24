@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import es from 'date-fns/locale/es';
 
 export class InternalUsuarioEdit extends Component {
     constructor(props) {
@@ -43,14 +46,14 @@ export class InternalUsuarioEdit extends Component {
                 }).then(
                     result => {
                         if (result.ok) {
-                            const parsedDate = new Date(result.body.detail.fecha_nacimiento);
-                            const formattedDate = `${parsedDate.getFullYear()}-${String(parsedDate.getMonth() + 1).padStart(2, '0')}-${String(parsedDate.getDate()).padStart(2, '0')}`;
+                            //const parsedDate = new Date(result.body.detail.fecha_nacimiento);
+                            //const formattedDate = `${parsedDate.getFullYear()}-${String(parsedDate.getMonth() + 1).padStart(2, '0')}-${String(parsedDate.getDate()).padStart(2, '0')}`;
 
                             this.setState({
                                 nombre: result.body.detail.nombre,
                                 apellido: result.body.detail.apellido,
                                 dni: result.body.detail.dni,
-                                fecha_nacimiento: formattedDate,
+                                //fecha_nacimiento: formattedDate,
                                 genero: result.body.detail.genero,
                                 email: result.body.detail.email,
                                 password: result.body.detail.password,
@@ -171,7 +174,7 @@ export class InternalUsuarioEdit extends Component {
             <div className='container'>
                 <div className='row'>
                     <div className='col'>
-                        <h1>{this.props.params.id_usuario ? `Editar Usuario ${this.props.params.id_usuario}` : "Crear nuevo Usuario"}</h1>
+                        <h1>{this.props.params.id_usuario ? `Editar Admin ${this.state.apellido} ${this.state.nombre}` : "Crear nuevo Admin"}</h1>
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-floating">
                                 <input
@@ -210,15 +213,24 @@ export class InternalUsuarioEdit extends Component {
                             </div>
                             <br />
                             <div className="form-floating">
-                                <input
-                                    required
-                                    type="date"
-                                    className="form-control"
-                                    id='floatingFecha_Nacimiento'
-                                    value={this.state.fecha_nacimiento}
-                                    name='fecha_nacimiento'
-                                    onChange={this.handleChange} />
-                                <label htmlFor="floatingFecha_Nacimiento">Fecha de Nacimiento</label>
+                                <div>
+                                    <label>Fecha de Nacimiento</label>
+                                    <DatePicker style={{ width: '400px' }}
+                                        required
+                                        dateFormat="dd/MM/yyyy"
+                                        className="form-control"
+                                        showMonthDropdown
+                                        scrollableMonthDropdown
+                                        showYearDropdown
+                                        scrollableYearDropdown
+                                        yearDropdownItemNumber={150}
+                                        selected={this.state.fecha_nacimiento}
+                                        onChange={this.handleDateChange}
+                                        maxDate={new Date()}
+                                        minDate={new Date('1900-01-01')}
+                                        locale={es}
+                                    />
+                                </div>
                             </div>
                             <br />
                             <div className="mb-3">
@@ -252,7 +264,8 @@ export class InternalUsuarioEdit extends Component {
                             </div>
                             <br />
                             <div className="form-floating">
-                                <input required
+                                <input
+                                    required
                                     type="password"
                                     className="form-control"
                                     id='floatingPassword'
