@@ -98,7 +98,7 @@ export class InternalInformeEdit extends Component {
                                 progress: undefined,
                                 theme: "light",
                             });
-                            this.props.navigate("/informe");
+                            this.props.navigate("/usuario") //Que vaya a Home quizas? como sea que se llame el Hub de los informees
                         } else {
                             toast.error(result.body.message, {
                                 position: "bottom-center",
@@ -130,6 +130,7 @@ export class InternalInformeEdit extends Component {
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-floating">
                                 <input
+                                required
                                     type="text"
                                     className="form-control"
                                     id='floatingObservaciones'

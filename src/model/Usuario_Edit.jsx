@@ -6,6 +6,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import es from 'date-fns/locale/es';
 
+
 export class InternalUsuarioEdit extends Component {
     constructor(props) {
         super(props);

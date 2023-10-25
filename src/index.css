@@ -14,14 +14,25 @@ body,
   -webkit-text-size-adjust: 100%;
 }
 
-
+.carousel{
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
 
 
 .content {
   width: -webkit-fill-available;
   height: 100%;
   font-weight: 400;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
 }
+
+
 
 .pro-sidebar {
   height: 150% !important;
@@ -175,4 +186,66 @@ tbody,td,tfoot,th,thead,tr {
 
 ol, ul {
   padding-left: 0rem;
+}
+
+
+
+
+
+
+#tooltip {
+  text-align: center;
+  color: #fff;
+  background: #333;
+  position: absolute;
+  z-index: 10000;
+  padding: 10px;
+  border-radius: 5px;
+  -webkit-transition: 100ms ease;
+  -moz-transition: 100ms ease;
+  -o-transition: 100ms ease;
+  -ms-transition: 100ms ease;
+  transition: 100ms ease;
+}
+#tooltip:after /* triangle decoration */ {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #333;
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  margin-left: -10px;
+}
+#tooltip.top:after {
+  border-top-color: transparent;
+  border-bottom: 10px solid #111;
+  top: -20px;
+  bottom: auto;
+}
+#tooltip.left:after {
+  left: 10px;
+  margin: 0;
+}
+#tooltip.right:after {
+  right: 10px;
+  left: auto;
+  margin: 0;
+}
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 1400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+
+.Calendario {
+  font-family: sans-serif;
+  text-align: center;
 }

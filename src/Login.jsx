@@ -111,6 +111,7 @@ function Login() {
 
                                 <div className="form-floating">
                                     <input
+                                    required
                                         type="text"
                                         className="form-control"
                                         id='floatingDNI'
@@ -123,6 +124,7 @@ function Login() {
                                 <br />
                                 <div className="form-floating">
                                     <input
+                                    required
                                         type="password"
                                         className="form-control"
                                         id='floatingPassword'

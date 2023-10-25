@@ -5,9 +5,6 @@ import Login from "./Login";
 import Titulo from "./components/Titulo";
 import styles from "./styles/Home.module.css";
 import jwt_decode from 'jwt-decode';
-import { toast } from 'react-toastify';
-
-
 
 
 export class Home extends Component {

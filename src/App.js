@@ -38,7 +38,6 @@ import Turno_Edit from "./model/Turno_Edit";
 import Calendario from "./Calendario";
 
 
-
 function App() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
@@ -67,8 +66,8 @@ function App() {
               <Route path="/registrarse" element={userRole === 1 || userRole === 2 || userRole === 3 ? <Navigate to="/" /> : <Registrarse />} />
 
               <Route path="/usuario" element={userRole === 1 || userRole === 2 ? <Usuario /> : <Navigate to="/" />} />
-              <Route path="/usuario/edit" element={userRole === 1 ? <Usuario_Edit /> : <Navigate to="/" />} />
-              <Route path="/usuario/edit/:id_usuario" element={userRole === 1 ? <Usuario_Edit /> : <Navigate to="/" />} />
+              <Route path="/usuario/edit" element={userRole === 1 ?  <Usuario_Edit /> : <Navigate to="/" />} />
+              <Route path="/usuario/edit/:id_usuario" element={userRole === 1 || userRole === 2 ? <Usuario_Edit /> : <Navigate to="/" />} />
               <Route path="/usuario/turno/:id_usuario" element={userRole === 1 || userRole === 2 || userRole === 3 ? <Turno_Edit /> : <Navigate to="/" />} />
 
 
@@ -76,6 +75,7 @@ function App() {
               <Route path="/doctores" element={userRole === 1 || userRole === 2 ? <Doctores /> : <Navigate to="/" />} />
               <Route path="/doctor/edit/:id_doctor" element={userRole === 1 || userRole === 2 ? <Doctor_Edit /> : <Navigate to="/" />} />
               <Route path="/doctor/create/:id_usuario" element={userRole === 1 || userRole === 2 ? <Doctor_Edit /> : <Navigate to="/" />} />
+              <Route path="/doctor/create/" element={userRole === 1 || userRole === 2 ? <Doctor_Edit /> : <Navigate to="/" />} />
               <Route path="/doctor/nuevo_horario/:id_doctor" element={userRole === 1 ? <Horario_Doctor_Edit /> : <Navigate to="/" />} />
               <Route path="/doctor/public" element={<DoctorPublic />} />
               <Route path="/calendario" element={<Calendario />} />
@@ -84,6 +84,7 @@ function App() {
               <Route path="/paciente" element={userRole === 1 || userRole === 2 ? <Paciente /> : <Navigate to="/" />} />
               <Route path="/paciente/edit/:id_paciente" element={userRole === 1 || userRole === 3 ? <Paciente_Edit /> : <Navigate to="/" />} />
               <Route path="/paciente/create/:id_usuario" element={<Paciente_Create />}></Route> {/*Se decidio separar por cuestiones de seguridad*/}
+              <Route path="/paciente/create/" element={<Paciente_Create />}></Route> {/*Se decidio separar por cuestiones de seguridad*/}
               <Route path="/paciente/estudio/:id_paciente" element={userRole === 1 || userRole === 3 ? <Estudio_Edit /> : <Navigate to="/" />}></Route> {/*Se decidio separar por cuestiones de seguridad*/}
               <Route path="/paciente/historia_clinica/:id_paciente" element={userRole === 1 ? <Historia_Clinica /> : <Navigate to="/" />}></Route> {/*Se decidio separar por cuestiones de seguridad*/}
               <Route path="/paciente/historia_clinica/paciente/:id_paciente" element={userRole === 3 ? <Historia_ClinicaP /> : <Navigate to="/" />}></Route> {/*Se decidio separar por cuestiones de seguridad*/}

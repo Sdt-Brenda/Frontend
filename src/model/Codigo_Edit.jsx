@@ -136,6 +136,7 @@ export class InternalCodigoEdit extends Component {
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-floating">
                                 <input
+                                required
                                     type="text"
                                     className="form-control"
                                     id='floatingNombre'
@@ -147,6 +148,7 @@ export class InternalCodigoEdit extends Component {
                             <br />
                             <div className="form-floating">
                                 <input
+                                required
                                     type="text"
                                     className="form-control"
                                     id='floatingDescripcion'

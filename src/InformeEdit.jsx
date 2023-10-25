@@ -8,7 +8,7 @@ export class InformeE extends Component {
         super(props);
 
         this.state = {
-            id_informe:'',
+            id_informe: '',
             observaciones: '',
             id_estudio: '',
             id_historia_clinica: '',
@@ -43,7 +43,7 @@ export class InformeE extends Component {
                     if (result.ok) {
                         this.setState({
                             datosextras: result.body,
-                            });
+                        });
                     } else {
                         toast.error(result.body.message, {
                             position: "bottom-center",
@@ -82,7 +82,6 @@ export class InformeE extends Component {
         const url = `http://localhost:8080/api/informe/${this.props.params.id_informe}`
 
 
-      
         fetch(url, parametros)
             .then(res => {
                 console.log('Response:', res);
@@ -108,7 +107,7 @@ export class InformeE extends Component {
                                 progress: undefined,
                                 theme: "light",
                             });
-                        this.props.navigate("/informe")
+                            this.props.navigate("/informe")
                         } else {
                             toast.error(result.body.message, {
                                 position: "bottom-center",
@@ -125,7 +124,7 @@ export class InformeE extends Component {
             })
             .catch((error) => {
                 console.log('Error:', error);
-        });
+            });
     };
 
     handleChange = (event) => {
@@ -138,50 +137,53 @@ export class InformeE extends Component {
             <div className='container'>
                 <div className='row'>
                     <div className='col'>
-                        <h1>{ `Editar Informe: ${this.props.params.id_informe}`}</h1>
+                        <h1>{`Editar Informe: ${this.props.params.id_informe}`}</h1>
                         {datosextras.map(datosextras => (
-                        <form onSubmit={this.handleSubmit}>
-                            <p>Observaciones</p>
-                            <div className="form-floating">
+                            <form onSubmit={this.handleSubmit}>
+                                <p>Observaciones</p>
+                                <div className="form-floating">
+                                    <input
+                                        required
+                                        type="text"
+                                        className="form-control"
+                                        id='floatingobservaciones'
+                                        value={this.state.observaciones}
+                                        name='observaciones'
+                                        onChange={this.handleChange} />
+                                    <label htmlFor="floatingobservaciones">{datosextras.observaciones}</label>
+                                </div>
+                                <br />
+                                <p>Id estudio</p>
+                                <div className="form-floating">
+                                    <input
+                                        required
+                                        type="text"
+                                        className="form-control"
+                                        id='floatingid_estudio'
+                                        value={this.state.id_estudio}
+                                        name='id_estudio'
+                                        onChange={this.handleChange} />
+                                    <label htmlFor="floatingid_estudio">{datosextras.id_estudio}</label>
+                                </div>
+                                <br />
+                                <p>Historia clinica</p><div className="form-floating">
+                                    <input
+                                        required
+                                        type="text"
+                                        className="form-control"
+                                        id='floatingid_historia_clinica'
+                                        value={this.state.id_historia_clinica}
+                                        name='id_historia_clinica'
+                                        onChange={this.handleChange} />
+                                    <label htmlFor="floatingid_historia_clinica">{datosextras.id_historia_clinica}</label>
+                                </div>
+                                <br />
                                 <input
-                                    type="text"
-                                    className="form-control"
-                                    id='floatingobservaciones'
-                                    value={this.state.observaciones}
-                                    name='observaciones'
-                                    onChange={this.handleChange} />
-                                <label htmlFor="floatingobservaciones">{datosextras.observaciones}</label>
-                            </div>
-                            <br />
-                            <p>Id estudio</p>
-                            <div className="form-floating">
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    id='floatingid_estudio'
-                                    value={this.state.id_estudio}
-                                    name='id_estudio'
-                                    onChange={this.handleChange} />
-                                <label htmlFor="floatingid_estudio">{datosextras.id_estudio}</label>
-                            </div>
-                            <br />
-                            <p>Historia clinica</p><div className="form-floating">
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    id='floatingid_historia_clinica'
-                                    value={this.state.id_historia_clinica}
-                                    name='id_historia_clinica'
-                                    onChange={this.handleChange} />
-                                <label htmlFor="floatingid_historia_clinica">{datosextras.id_historia_clinica}</label>
-                            </div>
-                            <br />
-                            <input
-                                className='btn btn-primary'
-                                type='submit'
-                                value='Guardar'
-                            />
-                        </form>
+                                    className='btn btn-primary'
+                                    type='submit'
+                                    value='Guardar'
+                                />
+                            </form>
                         ))}</div>
                 </div>
             </div>

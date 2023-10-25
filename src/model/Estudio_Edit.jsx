@@ -146,7 +146,7 @@ export class InternalEstudioEdit extends Component {
                                 progress: undefined,
                                 theme: "light",
                             });
-                            this.props.navigate("/estudio")
+                            this.props.navigate("/usuario")
                         } else {
                             toast.error(result.body.message, {
                                 position: "bottom-center",
@@ -219,6 +219,7 @@ export class InternalEstudioEdit extends Component {
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-floating">
                                 <select
+                                required
                                     className="form-select"
                                     id='floatingCodigo'
                                     value={this.state.selectedCodigo}
@@ -271,6 +272,7 @@ export class InternalEstudioEdit extends Component {
                             <br />
                             <div className="form-floating">
                                 <input
+                                required
                                     type="text"
                                     className="form-control"
                                     id='floatingValoresReferencia'

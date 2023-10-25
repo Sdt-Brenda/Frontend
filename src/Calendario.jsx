@@ -56,7 +56,7 @@ class Calendario extends Component {
             return {
                 title: turnos.horario,
                 start: turnos.fecha.slice(0,-14),
-                url: "http://localhost:3000/turnos/" + turnos.id_turnos,
+                url: "http://localhost:3000/turnos/" + turnos.id_turno,
             };
 
         });

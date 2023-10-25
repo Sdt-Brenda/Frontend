@@ -260,7 +260,7 @@ renderAcciones = (rowData) => {
                         )} />
                     </DataTable>
                 </div>
-                <Link to="/usuario/edit" className="btn btn-info">Nuevo Paciente</Link>
+                <Link to="/paciente/create" className="btn btn-info">Nuevo Paciente</Link>
 
                 <Modal show={this.state.modal} onHide={this.closeModal}>
                     <Modal.Header closeButton>

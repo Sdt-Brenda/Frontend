@@ -28,7 +28,7 @@ export class InternalPacienteCreate extends Component {
 
     toastConfig = {
         position: "bottom-center",
-        autoClose: 5000,
+        autoClose: 500,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

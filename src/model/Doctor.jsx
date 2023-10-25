@@ -238,6 +238,8 @@ export class Doctor extends Component {
                 </div>
 
                 <Link to="/doctores" className="btn btn-info">Especialidades</Link>
+                <br />
+                <Link to="/doctor/create/" className="btn btn-info">Nuevo Doctor</Link>
 
                 <Modal show={this.state.modal} onHide={this.closeModal}>
                     <Modal.Header closeButton>

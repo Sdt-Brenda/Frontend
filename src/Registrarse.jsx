@@ -139,6 +139,7 @@ export class InternalRegistrarse extends Component {
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-floating">
                                 <input
+                                required
                                     type="text"
                                     className="form-control"
                                     id='floatingNombre'
@@ -150,6 +151,7 @@ export class InternalRegistrarse extends Component {
 
                             <div className="form-floating">
                                 <input
+                                required
                                     type="text"
                                     className="form-control"
                                     id='floatingApellido'
@@ -161,6 +163,7 @@ export class InternalRegistrarse extends Component {
 
                             <div className="form-floating">
                                 <input
+                                required
                                     type="text"
                                     className="form-control"
                                     id='floatingDNI'
@@ -174,6 +177,7 @@ export class InternalRegistrarse extends Component {
                                 <div className={styles.date_picker_container}>
                                     <label>Fecha de Nacimiento</label>
                                     <DatePicker style={{ width: '400px' }}
+                                    required
                                         dateFormat="dd/MM/yyyy"
                                         className="form-control"
                                         showMonthDropdown
@@ -209,6 +213,7 @@ export class InternalRegistrarse extends Component {
 
                             <div className="form-floating">
                                 <input
+                                required
                                     type="text"
                                     className="form-control"
                                     id='floatingEmail'
@@ -220,6 +225,7 @@ export class InternalRegistrarse extends Component {
 
                             <div className="form-floating">
                                 <input
+                                required
                                     type="password"
                                     className="form-control"
                                     id='floatingPassword'
