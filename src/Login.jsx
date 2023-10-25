@@ -96,7 +96,7 @@ function Login() {
             <div className={styles.card_login}>
                 <img className={styles.img} src={imageK} alt="Klinical" />
                 {/*<Titulo style={{ color: 'black', fontSize: '2rem', textAlign: 'left', paddingLeft: '10px' }}>Inicia Sesión</Titulo>*/}
-                <Titulo style={{ color: '#848482', fontSize: '1rem', textAlign: 'left', paddingLeft: '10px', paddingBottom: '10px', fontWeight: 'lighter', fontFamily: 'Helvetica' }}>Por favor, ingresa tus datos.</Titulo>
+                <Titulo style={{ color: '#848482', fontSize: '1rem', textAlign: 'left', paddingLeft: '10px', marginBottom: '14px', fontWeight: 'lighter', fontFamily: 'Helvetica' }}>Por favor, ingresa tus datos.</Titulo>
 
                 <div className='container'>
                     <div className='row'>
@@ -111,7 +111,6 @@ function Login() {
 
                                 <div className="form-floating">
                                     <input
-                                    required
                                         type="text"
                                         className="form-control"
                                         id='floatingDNI'
@@ -124,7 +123,6 @@ function Login() {
                                 <br />
                                 <div className="form-floating">
                                     <input
-                                    required
                                         type="password"
                                         className="form-control"
                                         id='floatingPassword'
@@ -134,26 +132,19 @@ function Login() {
                                     />
                                     <label htmlFor="floatingPassword">Contraseña</label>
                                     <Titulo
-                                        style={{ fontFamily: 'Helvetica', fontSize: '1rem', fontWeight: 'lighter', textAlign: 'right', paddingTop: '5px' }}>
-                                        <a href="/" style={{ color: "#9653B8", textDecoration: "none" }}>Olvidaste tu contraseña?</a></Titulo>
+                                        style={{ fontFamily: 'Helvetica', fontSize: '1rem', fontWeight: 'lighter', textAlign: 'right', marginTop: '14px' }}>
+                                        <a href="/" style={{ color: "#B087BC", textDecoration: "none" }}>Olvidaste tu contraseña?</a></Titulo>
                                 </div>
                                 <br />
-                                <input style={{
-                                    backgroundColor: "#9653B8",
-                                    fontFamily: 'Helvetica',
-                                    color: 'white',
-                                    fontSize: "20px",
 
-                                    alignSelf: "center",
-                                    width: "100%",
-                                    border: "none",
-                                }}
-                                    className='btn btn-primary'
+                                <input
+                                    className={styles.btnPry}
                                     type='submit'
                                     value='INGRESAR'
                                 />
-                                <Titulo style={{ fontFamily: 'Helvetica', color: '#848482', fontSize: '1rem', fontWeight: 'lighter', paddingTop: '5px' }}>
-                                    Nuevo/a en la plataforma? <a href="/registrarse" style={{ color: "#9653B8", textDecoration: "none" }}>Create una cuenta</a>.
+
+                                <Titulo style={{ fontFamily: 'Helvetica', color: '#848482', fontSize: '1rem', fontWeight: 'lighter', marginTop: '14px' }}>
+                                    Nuevo/a en la plataforma? <a href="/registrarse" style={{ color: "#B087BC", textDecoration: "none" }}>Create una cuenta</a>.
                                 </Titulo>
                             </form>
                         </div>
@@ -162,7 +153,6 @@ function Login() {
 
             </div>
         </div>
-
     );
 }
 
