@@ -36,7 +36,7 @@ import jwt_decode from 'jwt-decode';
 import Home from "./Home";
 import Turno_Edit from "./model/Turno_Edit";
 import Calendario from "./Calendario";
-
+import WhatsAppButton from "./Whatsapp";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -60,6 +60,7 @@ function App() {
           <Sidebar isSidebar={isSidebar} />
           <main className="content">
             <Topbar setIsSidebar={setIsSidebar} />
+                <WhatsAppButton></WhatsAppButton>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={userRole === 1 || userRole === 2 || userRole === 3 ? <Navigate to="/" /> : <Login />} />
