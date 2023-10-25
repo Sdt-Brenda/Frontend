@@ -130,8 +130,6 @@ const Sidebar = () => {
     }
 
     return <>
-
-
       <Box
         sx={{
           "& .pro-sidebar-inner": {
@@ -152,7 +150,7 @@ const Sidebar = () => {
           },
         }}
       >
-        <ProSidebar collapsed={isCollapsed}>
+        <ProSidebar className={isCollapsed ? "collapsed" : ""}>
           <Menu iconShape="square">
             <MenuItem
               onClick={() => setIsCollapsed(!isCollapsed)}

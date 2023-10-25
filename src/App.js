@@ -11,7 +11,6 @@ import './index.css';
 import Login from './Login';
 import Usuario from './model/usuario';
 import Usuario_Edit from './model/Usuario_Edit';
-import Registrarse from './Registrarse';
 import Paciente_Edit from './model/Paciente_Edit';
 import Paciente from './model/Paciente';
 import Paciente_Create from './model/Paciente_Create';

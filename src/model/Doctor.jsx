@@ -10,7 +10,7 @@ import { InputText } from 'primereact/inputtext';
 import { FilterMatchMode } from 'primereact/api';
 
 
-
+import styles from "../styles/Components.module.css";
 
 export class Doctor extends Component {
     constructor(props) {
@@ -216,8 +216,15 @@ export class Doctor extends Component {
 
         return (
             <>
-
                 <div className="card2">
+                <div className={styles.table_buttons}>
+                <Link to="/doctor/create/">
+                    <button className={styles.nuevo_button}>+ Doctor</button>
+                </Link>
+                <Link to="/doctores">
+                    <button className={styles.nuevo_button}>Especialidades</button>
+                </Link>
+                </div>
                     <DataTable value={dataForDataTable} removableSort paginator rows={10} rowsPerPageOptions={[10, 25, 50]} dataKey="id" filters={this.state.filters}
                         globalFilterFields={['id_doctor', 'especialidad', 'dias_trabaja']} header={header} emptyMessage="Nada Encontrado" tableStyle={{ minWidth: '50rem' }}>
                         <Column field="nombre" header="Nombre Y Apellido" sortable style={{ width: '25%' }}></Column>
@@ -236,10 +243,7 @@ export class Doctor extends Component {
                         )} />
                     </DataTable>
                 </div>
-
-                <Link to="/doctores" className="btn btn-info">Especialidades</Link>
                 <br />
-                <Link to="/doctor/create/" className="btn btn-info">Nuevo Doctor</Link>
 
                 <Modal show={this.state.modal} onHide={this.closeModal}>
                     <Modal.Header closeButton>

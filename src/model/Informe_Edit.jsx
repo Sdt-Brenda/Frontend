@@ -91,7 +91,7 @@ export class InternalInformeEdit extends Component {
                     result => {
                         if (result.ok) {
                             toast.success(result.body.message, this.toastConfig);
-                            this.props.navigate("/usuario") //Que vaya a Home quizas? como sea que se llame el Hub de los informees
+                            this.props.navigate("/informe")
                         } else {
                             toast.error(result.body.message, this.toastConfig);
                         }

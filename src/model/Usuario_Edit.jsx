@@ -6,6 +6,9 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import es from 'date-fns/locale/es';
 
+import styles from "../styles/Form.module.css";
+import Titulo from "../components/Titulo";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 export class InternalUsuarioEdit extends Component {
     constructor(props) {
@@ -92,7 +95,6 @@ export class InternalUsuarioEdit extends Component {
             genero: this.state.genero,
             email: this.state.email,
             password: this.state.password,
-            rol: this.state.rol
         }
 
         let parametros = {
@@ -130,15 +132,7 @@ export class InternalUsuarioEdit extends Component {
                         }
                     })
                         .then(res => res.json())
-                        .then(userData => {
-                            if (userData && usuario.rol === "3") {
-                                this.props.navigate(`/paciente/create/${userData}`);
-                            } else if (userData && usuario.rol === "2") {
-                                this.props.navigate(`/doctor/create/${userData}`);
-                            } else {
-                                this.props.navigate(`/usuario`);
-                            }
-                        })
+                                this.props.navigate(`/usuario`)
                         .catch(error => {
                             console.error('Fetch user data error:', error);
                         });
@@ -154,12 +148,27 @@ export class InternalUsuarioEdit extends Component {
         this.setState({ [event.target.name]: event.target.value });
     };
 
+    handleDateChange = (date) => {
+        this.setState({ fecha_nacimiento: date });
+    };
+
     render() {
         return (
+<div clssName={styles.Bground}>
+    <div className={styles.container}>
+        <div className={styles.card_register}>
+
+                        <a href="/" className={styles.homeButton}>
+                            <ArrowBackIcon></ArrowBackIcon>
+                        </a>
+
+                        <Titulo style={{ fontFamily: 'Helvetica', color: 'black', fontSize: '2rem', fontWeight: 'bold', textAlign: 'left', paddingLeft: '10px', paddingTop: '10px' }}>
+                            {this.props.params.id_usuario
+                                ? `Editar Admin ${this.state.apellido} ${this.state.nombre}`
+                                : "Crear nuevo Admin"}</Titulo>
+
             <div className='container'>
-                <div className='row'>
-                    <div className='col'>
-                        <h1>{this.props.params.id_usuario ? `Editar Admin ${this.state.apellido} ${this.state.nombre}` : "Crear nuevo Admin"}</h1>
+
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-floating">
                                 <input
@@ -172,7 +181,7 @@ export class InternalUsuarioEdit extends Component {
                                     onChange={this.handleChange} />
                                 <label htmlFor="floatingNombre">Nombre</label>
                             </div>
-                            <br />
+
                             <div className="form-floating">
                                 <input
                                     required
@@ -184,7 +193,7 @@ export class InternalUsuarioEdit extends Component {
                                     onChange={this.handleChange} />
                                 <label htmlFor="floatingApellido">Apellido</label>
                             </div>
-                            <br />
+
                             <div className="form-floating">
                                 <input
                                     required
@@ -196,7 +205,7 @@ export class InternalUsuarioEdit extends Component {
                                     onChange={this.handleChange} />
                                 <label htmlFor="floatingDNI">DNI</label>
                             </div>
-                            <br />
+
                             <div className="form-floating">
                                 <div>
                                     <label>Fecha de Nacimiento</label>
@@ -217,8 +226,8 @@ export class InternalUsuarioEdit extends Component {
                                     />
                                 </div>
                             </div>
-                            <br />
-                            <div className="mb-3">
+
+                            <div className={styles.mb3}>
                                 <select
                                     required
                                     className="form-select"
@@ -235,7 +244,7 @@ export class InternalUsuarioEdit extends Component {
                                     <option value="3">Otros</option>
                                 </select>
                             </div>
-                            <br />
+
                             <div className="form-floating">
                                 <input
                                     required
@@ -247,7 +256,7 @@ export class InternalUsuarioEdit extends Component {
                                     onChange={this.handleChange} />
                                 <label htmlFor="floatingEmail">Email</label>
                             </div>
-                            <br />
+
                             <div className="form-floating">
                                 <input
                                     required
@@ -259,34 +268,19 @@ export class InternalUsuarioEdit extends Component {
                                     onChange={this.handleChange} />
                                 <label htmlFor="floatingPassword">Password</label>
                             </div>
-                            <br />
-                            <div className="mb-3">
-                                <select
-                                    required
-                                    className="form-select"
-                                    id="rol_id"
-                                    onChange={this.handleChange}
-                                    value={this.state.rol}
-                                    name="rol"
-                                    aria-label="Default select example">
-                                    <option value="" disabled>
-                                        Rol
-                                    </option>
-                                    <option value="1">Administrador</option>
-                                    <option value="2">Doctor</option>
-                                    <option value="3">Paciente</option>
-                                </select>
-                            </div>
-                            <br />
+
                             <input
-                                className='btn btn-primary'
+                                className={styles.btnPry}
                                 type='submit'
                                 value='Guardar'
                             />
                         </form>
-                    </div>
-                </div>
+                    
+                
             </div>
+        </div>
+    </div>
+</div>
         );
     }
 }

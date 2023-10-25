@@ -9,6 +9,8 @@ import { Column } from 'primereact/column';
 import { InputText } from 'primereact/inputtext';
 import { FilterMatchMode } from 'primereact/api';
 
+import styles from "../styles/Components.module.css";
+
 export class Paciente extends Component {
     constructor(props) {
         super(props)
@@ -190,7 +192,7 @@ renderAcciones = (rowData) => {
                 <Link to={`/paciente/edit/${rowData.id_paciente}`} title="Editar Paciente" className="btn btn-secondary">
                     <span className="material-symbols-outlined">edit</span>
                 </Link>
-                <Link to={`/usuario/turno/${rowData.id_usuario}`} title="Obtener Turno" className="btn btn-info">
+                <Link to={`/usuario/turno/${rowData.id_usuario}`} title="Obtener Turno" className="btn btn-warning">
                         <span className="material-symbols-outlined">calendar_add_on</span>
                     </Link>
                 <Link to={`/paciente/estudio/${rowData.id_paciente}`} title="Crear cita para Estudio" className="btn btn-primary">
@@ -230,6 +232,11 @@ renderAcciones = (rowData) => {
         return (
             <>
                 <div className="card2">
+                <div className={styles.table_buttons}>
+                <Link to="/paciente/create">
+                    <button className={styles.nuevo_button}>+ Paciente</button>
+                </Link>
+                </div>
                     <DataTable value={dataForDataTable} removableSort paginator rows={10} rowsPerPageOptions={[10, 25, 50]} dataKey="id"  filters={this.state.filters} 
                     globalFilterFields={['obra_social', 'pais', 'provincia', 'localidad', "direccion", "id_paciente","id_usuario"]} header={header} emptyMessage="Nada Encontrado" tableStyle={{ minWidth: '50rem' }}>
                         <Column field="id_paciente" header="Id Paciente" sortable style={{ width: '25%' }}></Column>
@@ -244,7 +251,7 @@ renderAcciones = (rowData) => {
                                 <Link to={`/paciente/edit/${rowData.id_paciente}`} title="Editar Paciente" className="btn btn-secondary">
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>edit</span>
                                 </Link>
-                                <Link to={`/usuario/turno/${rowData.id_usuario}`} title="Obtener Turno" className="btn btn-info">
+                                <Link to={`/usuario/turno/${rowData.id_usuario}`} title="Obtener Turno" className="btn btn-warning">
                                     <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>calendar_add_on</span>
                                 </Link>
                                 <Link to={`/paciente/estudio/${rowData.id_paciente}`} title="Crear cita para Estudio" className="btn btn-info">
@@ -260,7 +267,6 @@ renderAcciones = (rowData) => {
                         )} />
                     </DataTable>
                 </div>
-                <Link to="/paciente/create" className="btn btn-info">Nuevo Paciente</Link>
 
                 <Modal show={this.state.modal} onHide={this.closeModal}>
                     <Modal.Header closeButton>

@@ -261,7 +261,6 @@ export class Turnos_Internal extends Component {
                                         <p className="card-text">Fecha {turnos.fecha.slice(0, -14)}</p>
                                         <p className="card-text">Hora {turnos.horario}</p>
                                         <p className="card-text">Tiempo restante: {this.calculateTimeToTurn(turnos)}</p>
-                                        <p className="card-text">Sintomas: {turnos.sintomas}</p>
                                     </div>
                                 </div>
                             ))}

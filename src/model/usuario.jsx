@@ -10,6 +10,8 @@ import { Column } from 'primereact/column';
 import { InputText } from 'primereact/inputtext';
 import { FilterMatchMode } from 'primereact/api';
 
+import styles from "../styles/Components.module.css";
+
 export class Usuario extends Component {
     constructor(props) {
         super(props)
@@ -234,33 +236,38 @@ export class Usuario extends Component {
 
         });
         return (
-            <>                <Link to="/usuario/edit" className="material-symbols-outlined">add</Link>
-                <div className="card2">
-                    <DataTable value={dataForDataTable} removableSort paginator rows={10} rowsPerPageOptions={[10, 25, 50]} dataKey="id"  filters={this.state.filters} 
-                    globalFilterFields={['nombre', 'apellido', 'dni', 'formattedDate', 'genero', "email", "rol","id_usuario"]} header={header}  emptyMessage="Nada Encontrado" tableStyle={{ minWidth: '50rem' }}>
-                        <Column field="nombre" header="Nombre" sortable style={{ width: '15%' }}></Column>
-                        <Column field="apellido" header="Apellido" sortable style={{ width: '15%' }}></Column>
-                        <Column field="dni" header="Dni" sortable style={{ width: '15%' }}></Column>
-                        <Column field="formattedDate" header="Fecha de Nacimiento" sortable style={{ width: '15%' }}></Column>
-                        <Column field="genero" header="Genero" sortable style={{ width: '15%' }}></Column>
-                        <Column field="email" header="Email" sortable style={{ width: '15%' }}></Column>
-                        <Column field="rol" header="Rol" sortable style={{ width: '15%' }}></Column>
-                        <Column field="id_usuario" header="Id" sortable style={{ width: '15%' }}></Column>
-                        <Column field="Acciones" header="" style={{ width: '15%' }} body={(rowData)  => (
-                            <div className="btn-actions-container">
-                                <Link to={`/usuario/edit/${rowData.id_usuario}`} title="Editar Usuario" className="btn btn-secondary">
-                                    <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>edit</span>
-                                </Link>                                
-                                <button className="btn btn-danger"  title="Eliminar usuario" onClick={() => this.showModal(rowData.id_usuario)}>
-                                    <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>delete</span>
-                                </button>
-                            </div>
-                        )} />
-                    </DataTable>
+
+            <div className="card2">
+                <div className={styles.table_buttons}>
+                <Link to="/usuario/edit/">
+                    <button className={styles.nuevo_button}>+ Admin</button>
+                </Link>
                 </div>
+                <DataTable value={dataForDataTable} removableSort paginator rows={10} rowsPerPageOptions={[10, 25, 50]} dataKey="id" filters={this.state.filters}
+                    globalFilterFields={['nombre', 'apellido', 'dni', 'formattedDate', 'genero', "email", "rol", "id_usuario"]} header={header} emptyMessage="Nada Encontrado" tableStyle={{ minWidth: '50rem' }}>
+                    <Column field="nombre" header="Nombre" sortable style={{ width: '15%' }}></Column>
+                    <Column field="apellido" header="Apellido" sortable style={{ width: '15%' }}></Column>
+                    <Column field="dni" header="Dni" sortable style={{ width: '15%' }}></Column>
+                    <Column field="formattedDate" header="Fecha de Nacimiento" sortable style={{ width: '15%' }}></Column>
+                    <Column field="genero" header="Genero" sortable style={{ width: '15%' }}></Column>
+                    <Column field="email" header="Email" sortable style={{ width: '15%' }}></Column>
+                    <Column field="rol" header="Rol" sortable style={{ width: '15%' }}></Column>
+                    <Column field="id_usuario" header="Id" sortable style={{ width: '15%' }}></Column>
+                    <Column field="Acciones" header="" style={{ width: '15%' }} body={(rowData) => (
+                        <div className="btn-actions-container">
+                            <Link to={`/usuario/edit/${rowData.id_usuario}`} title="Editar Usuario" className="btn btn-secondary">
+                                <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>edit</span>
+                            </Link>
+                            <button className="btn btn-danger" title="Eliminar usuario" onClick={() => this.showModal(rowData.id_usuario)}>
+                                <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>delete</span>
+                            </button>
+                        </div>
+                    )} />
+                </DataTable>
 
 
-                
+
+
                 <Modal show={this.state.modal} onHide={this.closeModal}>
                     <Modal.Header closeButton>
                         <Modal.Title>Confirmar</Modal.Title>
@@ -275,7 +282,8 @@ export class Usuario extends Component {
                         </Button>
                     </Modal.Footer>
                 </Modal>
-            </>
+            </div>
+
         );
     }
 }
