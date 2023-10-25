@@ -14,30 +14,33 @@ body,
   -webkit-text-size-adjust: 100%;
 }
 
-.carousel{
-  height: 100%;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-}
-
-
 .content {
   width: -webkit-fill-available;
   height: 100%;
   font-weight: 400;
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.7);
+  margin-left: 75px;
 }
 
-
-
 .pro-sidebar {
-  height: 150% !important;
+  /*height: 100%;*/
+  /*height: 150% !important;*/
   /* border-style: dashed; */
-  text-shadow: 0 0 black;
+  /*text-shadow: 0 0 black;*/
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px; /* Ancho de tu navbar */
+    height: 100vh; /* 100% de la altura de la ventana */
+
+}
+
+.pro-sidebar.collapsed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  
 }
 
 
