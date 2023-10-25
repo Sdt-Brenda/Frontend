@@ -63,7 +63,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={userRole === 1 || userRole === 2 || userRole === 3 ? <Navigate to="/" /> : <Login />} />
-              <Route path="/registrarse" element={userRole === 1 || userRole === 2 || userRole === 3 ? <Navigate to="/" /> : <Registrarse />} />
+              {/* <Route path="/registrarse" element={userRole === 1 || userRole === 2 || userRole === 3 ? <Navigate to="/" /> : <Registrarse />} /> */}
+              <Route path="/registrarse" element={userRole === 1 || userRole === 2 || userRole === 3 ? <Navigate to="/" /> : <Paciente_Create />} />
 
               <Route path="/usuario" element={userRole === 1 || userRole === 2 ? <Usuario /> : <Navigate to="/" />} />
               <Route path="/usuario/edit" element={userRole === 1 ?  <Usuario_Edit /> : <Navigate to="/" />} />
