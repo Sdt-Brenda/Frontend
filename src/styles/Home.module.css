@@ -1,68 +1,122 @@
 /* LOGOUT */
 
+.Bground {
+  background-image: url("../assets/BgKlinical_00.jpg");
+  /*display: flex;*/
+  background-size: cover;
+  background-position: center;
+
+  z-index: -1;
+}
+
 .container {
-    height: 100%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-  
-    background-image: url("../assets/BgKlinical_02.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center right;
-  }
-  
-  .text {
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    align-items: left;
-    margin-left: 50px;
-  }
-  
-  .log {
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    align-items: center;
-    margin-left: 50px;
-  }
-  
-  /* LOGIN */
-  
-  .containerX {
-    height: 100%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-  
-    background-image: url("../assets/BgKlinical_02.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center right;
-  }
-  
-  .textX {
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    align-items: left;
-    margin-right: 20px;
-  }
-  
-  /*.image {
-    width: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    align-items: center;
-    margin-left: 50px;
-  }*/
-  
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*padding: 2rem;*/
+}
+
+.text {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  margin-left: 50px;
+}
+
+.log {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+  margin-left: 50px;
+}
+
+.buttonNavigate button {
+  background-color: #B087BC;
+  box-shadow: 0 3px 14px rgba(132, 132, 130, 0.5); /* Cambia la sombra */
+  font-family: 'Helvetica';
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+  max-width: 100%;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 14px;
+  display: inline-block;
+
+  text-align: center;
+}
+
+.buttonNavigate button:hover {
+  background-color: #72448A;
+  color: #fff;
+}
+
+/* LOGIN */
+
+.containerX {
+  position: relative;
+  height: 100%;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.carrusel {
+  max-width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  z-index: 0; /* Asegura que el carrusel esté en un nivel inferior */
+  position: relative;
+}
+
+.textX {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row;
+  z-index: 1;
+}
+
+.button-link {
+  text-decoration: none;
+}
+
+.buttonLink button {
+  background-color: #B087BC;
+  box-shadow: 0 3px 14px rgba(132, 132, 130, 0.5);
+  font-family: 'Helvetica';
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+  width: 250px;
+  height: 100px;
+  border-radius: 10px;
+  border: none;
+  margin-right: 20px;
+  margin-top: 80px;
+  /*display: inline-block;*/
+  /*text-align: justify;*/
+  /*line-height: 1.5;*/
+  margin-bottom: 20px;
+  text-align: center;
+  /*z-index: 2;*/
+}
+
+.buttonLink button:hover {
+  background-color: #72448A;
+}
+
+.buttonLink button svg {
+  font-size: 30px;
+  margin: 10px;
+}

@@ -1,0 +1,29 @@
+.table_buttons {
+    display: flex;
+    justify-content: right;
+    /*align-items: left;*/
+    margin-bottom: 14px;
+}
+
+.nuevo_button {
+    background-color: #B087BC;
+    font-family: 'Helvetica';
+    color: #fff;
+    font-size: 20px;
+    font-weight: 200;
+    max-width: 15%;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 14px;
+    margin-left: 14px;
+    display: inline-block;
+  
+    text-align: center;
+}
+
+.nuevo_button:hover {
+    background-color: #72448A;
+    color: #fff;
+}

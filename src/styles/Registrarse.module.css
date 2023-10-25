@@ -1,97 +1,127 @@
+.Bground {
+  background-image: url("../assets/BgKlinical_00.jpg");
+  display: flex;
+  background-size: 100%;
+  background-position: center;
+
+  z-index: -1;
+  /*background-attachment: fixed;*/
+  /*background-repeat: no-repeat;*/
+}
+
 .container {
-    height: 100%;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    color: #848482;
-    font-size: larger;
-  
-    background-image: url("../assets/BgKlinical_02.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center right;
-  }
-  
-  .card_register {
-    display: flex;
-    gap: 10px;
-    flex-direction: column;
-    justify-content: space-around;
-    max-width: 400px;
-    width: 100%;
-    max-height: 650px;
-    height: 600%;
-    padding: 10px;
-    border-radius: 10px;
-  
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 #848482;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    /*overflow-y: scroll;
-        overflow-x: hidden;*/
-  }
-  
-  .homeButton {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #9653B8;
-    color: white;
-    font-family: 'Helvetica';
-    font-size: 20px;
-    font-weight: bold;
-    padding: 10px 20px;
-    text-decoration: none;
-    border: none;
-    border-radius: 10px;
-  }
-  
-  .homeButton:hover {
-    background-color: #764f9e;
-    cursor: pointer;
-  }
-  
-  .card_register input,
-  .card_register select {
-    border: 1px solid #d4d4d4;
-    border-radius: 5px;
-    padding: 10px;
-    border-radius: 10px;
-    width: 100%;
-    margin-bottom: 10px;
-  }
-  
-  .card_register input:focus {
-    outline: none;
-  }
-  
-  .card_register select:focus {
-    outline: none;
-  }
-  
-  .card_register::-webkit-scrollbar {
-    width: 3px;
-  }
-  
-  .card_register::-webkit-scrollbar-track {
-    background: #9653B8;
-  }
-  
-  .card_register::-webkit-scrollbar-thumb {
-    background: #9653B8;
-  }
-  
-  .card_register::-webkit-scrollbar-thumb:hover {
-    background: #9653B8;
-  }
-  
-  .card_register::-webkit-scrollbar {
-    height: 2px;
-  }
+  height: 100%;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #848482;
+  font-size: larger;
+}
+
+.card_register {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: space-around;
+  max-width: 400px;
+  width: 100%;
+  max-height: 650px;
+  height: 600%;
+  padding: 10px;
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 #848482;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  /*overflow-y: scroll;
+      overflow-x: hidden;*/
+}
+
+.date_picker_container {
+  max-width: 100%;
+}
+
+.btnPry {
+  background-color: #B087BC;
+  font-family: 'Helvetica';
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+  max-width: 100%;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 14px;
+  display: inline-block;
+
+  text-align: center;
+}
+
+.btnPry:hover {
+  background-color: #72448A;
+  color: #fff;
+}
+
+.homeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #B087BC;
+  color: white;
+  font-family: 'Helvetica';
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 20px;
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+}
+
+.homeButton:hover {
+  background-color: #72448A;
+  color: #fff;
+  cursor: pointer;
+}
+
+.card_register input,
+.card_register select {
+  border: 1px solid #d4d4d4;
+  border-radius: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.card_register input:focus {
+  outline: none;
+}
+
+.card_register select:focus {
+  outline: none;
+}
+
+.card_register::-webkit-scrollbar {
+  width: 3px;
+}
+
+.card_register::-webkit-scrollbar-track {
+  background: #9653B8;
+}
+
+.card_register::-webkit-scrollbar-thumb {
+  background: #9653B8;
+}
+
+.card_register::-webkit-scrollbar-thumb:hover {
+  background: #9653B8;
+}
+
+.card_register::-webkit-scrollbar {
+  height: 2px;
+}

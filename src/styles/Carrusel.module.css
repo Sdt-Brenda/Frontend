@@ -1,0 +1,7 @@
+/* Aplica el radio a las imágenes dentro del carrusel */
+.w100dblock {
+    width: 100%;
+    max-height: 400px; /* Ajusta la altura deseada */
+    object-fit: cover; /* Mantiene la relación de aspecto y recorta la imagen si es necesario */
+    border-radius: 50px; /* Ajusta el valor según tus preferencias */
+  }
