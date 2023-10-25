@@ -29,6 +29,18 @@ export class InternalEditTurno extends Component {
         };
     }
 
+    toastConfig = {
+        position: "bottom-center",
+        autoClose: 500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+    };
+
+
 
     componentDidMount() {
         if (this.props.params.id_usuario) {
@@ -111,28 +123,10 @@ export class InternalEditTurno extends Component {
                 ).then(
                     result => {
                         if (result.ok) {
-                            toast.success(result.body.message, {
-                                position: "bottom-center",
-                                autoClose: 500,
-                                hideProgressBar: false,
-                                closeOnClick: true,
-                                pauseOnHover: true,
-                                draggable: true,
-                                progress: undefined,
-                                theme: "light",
-                            });
+                            toast.success(result.body.message, this.toastConfig);
                             this.props.navigate("/turnos")
                         } else {
-                            toast.error(result.body.message, {
-                                position: "bottom-center",
-                                autoClose: 500,
-                                hideProgressBar: false,
-                                closeOnClick: true,
-                                pauseOnHover: true,
-                                draggable: true,
-                                progress: undefined,
-                                theme: "light",
-                            });
+                            toast.error(result.body.message, this.toastConfig);
                         }
                     });
             })
@@ -327,7 +321,7 @@ export class InternalEditTurno extends Component {
                             </div>
                             <div className="form-floating">
                                 <input
-                                required
+                                    required
                                     type="text"
                                     className="form-control"
                                     id='floatingSintomas'

@@ -12,6 +12,17 @@ export class InternalInformeEdit extends Component {
         };
     }
 
+    toastConfig = {
+        position: "bottom-center",
+        autoClose: 500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+    };
+
     componentDidMount() {
         if (this.props.params.id_informe) {
             let parametros = {
@@ -40,16 +51,7 @@ export class InternalInformeEdit extends Component {
                                 informe: result.body.detail.informe
                             });
                         } else {
-                            toast.error(result.body.message, {
-                                position: "bottom-center",
-                                autoClose: 500,
-                                hideProgressBar: false,
-                                closeOnClick: true,
-                                pauseOnHover: true,
-                                draggable: true,
-                                progress: undefined,
-                                theme: "light",
-                            });
+                            toast.error(result.body.message, this.toastConfig);
                         }
                     })
                 .catch(error => {
@@ -88,28 +90,10 @@ export class InternalInformeEdit extends Component {
                 ).then(
                     result => {
                         if (result.ok) {
-                            toast.success(result.body.message, {
-                                position: "bottom-center",
-                                autoClose: 500,
-                                hideProgressBar: false,
-                                closeOnClick: true,
-                                pauseOnHover: true,
-                                draggable: true,
-                                progress: undefined,
-                                theme: "light",
-                            });
+                            toast.success(result.body.message, this.toastConfig);
                             this.props.navigate("/usuario") //Que vaya a Home quizas? como sea que se llame el Hub de los informees
                         } else {
-                            toast.error(result.body.message, {
-                                position: "bottom-center",
-                                autoClose: 500,
-                                hideProgressBar: false,
-                                closeOnClick: true,
-                                pauseOnHover: true,
-                                draggable: true,
-                                progress: undefined,
-                                theme: "light",
-                            });
+                            toast.error(result.body.message, this.toastConfig);
                         }
                     });
             })
@@ -126,11 +110,11 @@ export class InternalInformeEdit extends Component {
             <div className='container'>
                 <div className='row'>
                     <div className='col'>
-                        <h1>{this.props.params.id_informe ?  `Cargar Informe para el Estudio ${this.props.params.id_informe}` : `Editar Informe para el estudio: ${this.props.params.id_estudio}`}</h1>
+                        <h1>{this.props.params.id_informe ? `Cargar Informe para el Estudio ${this.props.params.id_informe}` : `Editar Informe para el estudio: ${this.props.params.id_estudio}`}</h1>
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-floating">
                                 <input
-                                required
+                                    required
                                     type="text"
                                     className="form-control"
                                     id='floatingObservaciones'

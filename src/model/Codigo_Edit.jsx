@@ -13,6 +13,17 @@ export class InternalCodigoEdit extends Component {
         };
     }
 
+    toastConfig = {
+        position: "bottom-center",
+        autoClose: 500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+    };
+
     componentDidMount() {
         if (this.props.params.codigo) {
             let parametros = {
@@ -43,16 +54,7 @@ export class InternalCodigoEdit extends Component {
                                 descripcion: result.body.detail.descripcion
                             });
                         } else {
-                            toast.error(result.body.message, {
-                                position: "bottom-center",
-                                autoClose: 500,
-                                hideProgressBar: false,
-                                closeOnClick: true,
-                                pauseOnHover: true,
-                                draggable: true,
-                                progress: undefined,
-                                theme: "light",
-                            });
+                            toast.error(result.body.message, this.toastConfig);
                         }
                     })
                 .catch(error => {
@@ -94,28 +96,10 @@ export class InternalCodigoEdit extends Component {
             })
             .then(result => {
                 if (result.ok) {
-                    toast.success(result.body.message, {
-                        position: "bottom-center",
-                        autoClose: 500,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "light",
-                    });
+                    toast.success(result.body.message, this.toastConfig);
                     this.props.navigate("/codigo_estudio")
                 } else {
-                    toast.error(result.body.message, {
-                        position: "bottom-center",
-                        autoClose: 500,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "light",
-                    });
+                    toast.error(result.body.message, this.toastConfig);
                 }
             })
             .catch((error) => {
@@ -136,7 +120,7 @@ export class InternalCodigoEdit extends Component {
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-floating">
                                 <input
-                                required
+                                    required
                                     type="text"
                                     className="form-control"
                                     id='floatingNombre'
@@ -148,7 +132,7 @@ export class InternalCodigoEdit extends Component {
                             <br />
                             <div className="form-floating">
                                 <input
-                                required
+                                    required
                                     type="text"
                                     className="form-control"
                                     id='floatingDescripcion'

@@ -22,6 +22,17 @@ export class InternalEstudioEdit extends Component {
         };
     }
 
+    toastConfig = {
+        position: "bottom-center",
+        autoClose: 500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+    };
+
     componentDidMount() {
         let codigoParams = {
             method: 'GET',
@@ -85,16 +96,7 @@ export class InternalEstudioEdit extends Component {
                                 codigo: result.body.codigo
                             });
                         } else {
-                            toast.error(result.body.message, {
-                                position: "bottom-center",
-                                autoClose: 500,
-                                hideProgressBar: false,
-                                closeOnClick: true,
-                                pauseOnHover: true,
-                                draggable: true,
-                                progress: undefined,
-                                theme: "light",
-                            });
+                            toast.error(result.body.message, this.toastConfig);
                         }
                     })
                 .catch(error => {
@@ -136,28 +138,10 @@ export class InternalEstudioEdit extends Component {
                 ).then(
                     result => {
                         if (result.ok) {
-                            toast.success(result.body.message, {
-                                position: "bottom-center",
-                                autoClose: 500,
-                                hideProgressBar: false,
-                                closeOnClick: true,
-                                pauseOnHover: true,
-                                draggable: true,
-                                progress: undefined,
-                                theme: "light",
-                            });
+                            toast.success(result.body.message, this.toastConfig);
                             this.props.navigate("/estudio")
                         } else {
-                            toast.error(result.body.message, {
-                                position: "bottom-center",
-                                autoClose: 500,
-                                hideProgressBar: false,
-                                closeOnClick: true,
-                                pauseOnHover: true,
-                                draggable: true,
-                                progress: undefined,
-                                theme: "light",
-                            });
+                            toast.error(result.body.message, this.toastConfig);
                         }
                     });
             })
@@ -219,7 +203,7 @@ export class InternalEstudioEdit extends Component {
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-floating">
                                 <select
-                                required
+                                    required
                                     className="form-select"
                                     id='floatingCodigo'
                                     value={this.state.selectedCodigo}
@@ -272,7 +256,7 @@ export class InternalEstudioEdit extends Component {
                             <br />
                             <div className="form-floating">
                                 <input
-                                required
+                                    required
                                     type="text"
                                     className="form-control"
                                     id='floatingValoresReferencia'

@@ -23,6 +23,17 @@ export class InternalUsuarioEdit extends Component {
         };
     }
 
+    toastConfig = {
+        position: "bottom-center",
+        autoClose: 500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+    };
+
     componentDidMount() {
         if (this.props.params.id_usuario) {
             let parametros = {
@@ -61,16 +72,7 @@ export class InternalUsuarioEdit extends Component {
                                 rol: result.body.detail.rol
                             });
                         } else {
-                            toast.error(result.body.message, {
-                                position: "bottom-center",
-                                autoClose: 500,
-                                hideProgressBar: false,
-                                closeOnClick: true,
-                                pauseOnHover: true,
-                                draggable: true,
-                                progress: undefined,
-                                theme: "light",
-                            });
+                            toast.error(result.body.message, this.toastConfig);
                         }
                     })
                 .catch(error => {
@@ -118,16 +120,7 @@ export class InternalUsuarioEdit extends Component {
             })
             .then(result => {
                 if (result.ok) {
-                    toast.success(result.body.message, {
-                        position: "bottom-center",
-                        autoClose: 500,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "light",
-                    });
+                    toast.success(result.body.message, this.toastConfig);
                     fetch(`http://localhost:8080/api/usuario/email/${usuario.email}`, {
                         method: 'GET',
                         headers: {
@@ -150,16 +143,7 @@ export class InternalUsuarioEdit extends Component {
                             console.error('Fetch user data error:', error);
                         });
                 } else {
-                    toast.error(result.body.message, {
-                        position: "bottom-center",
-                        autoClose: 500,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "light",
-                    });
+                    toast.error(result.body.message, this.toastConfig);
                 }
             })
             .catch((error) => {
