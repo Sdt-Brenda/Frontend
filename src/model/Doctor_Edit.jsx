@@ -28,9 +28,12 @@ export class InternalDoctorEdit extends Component {
             id_horario: '',
             especialidadOptions: [],
             selectedOption: '',
-            horarioOptions: []
+            horarioOptions: [],
+            selectedDias: [],
+            DiasOptions: [],
         };
     }
+
 
     toastConfig = {
         position: "bottom-center",
@@ -198,15 +201,16 @@ export class InternalDoctorEdit extends Component {
                             }));
                         }).then((data) => {
                             if (data.ok) {
+                                debugger
                                 const idUsuario = data.body.id_usuario;
                                 this.setState({ id_usuario: idUsuario });
 
                                 let doctor = {
                                     id_especialidad: this.state.id_especialidad,
-                                    dias_trabaja: this.state.dias_trabaja,
+                                    dias_trabaja: this.state.selectedDias.join(' , '),
                                     id_usuario: idUsuario
                                 }
-                                debugger
+
                                 let parametrosD = {
                                     method: this.props.params.id_doctor ? 'PUT' : 'POST',
                                     body: JSON.stringify(doctor),
@@ -267,7 +271,6 @@ export class InternalDoctorEdit extends Component {
                                                                         'token': localStorage.getItem('token')
                                                                     }
                                                                 }
-                                                                debugger
                                                                 fetch(`http://localhost:8080/api/horario_doctor/`, parametrosH)
                                                                     .then(res => {
                                                                         return res.json().then(
@@ -363,9 +366,26 @@ export class InternalDoctorEdit extends Component {
     };
 
 
+    handleDiasChange = (selectedOptions) => {
+        const selectedDias = selectedOptions.map(option => option.value);
+        this.setState({ selectedDias });
+    };
+
+
+
+
 
     render() {
         const animatedComponents = makeAnimated();
+
+        const dias2 = [
+            { dias: 'lunes' },
+            { dias: 'martes' },
+            { dias: 'miércoles' },
+            { dias: 'jueves' },
+            { dias: 'viernes' },
+        ];
+
         return (
             <div className='container'>
                 <div className='row'>
@@ -483,15 +503,19 @@ export class InternalDoctorEdit extends Component {
                             </div>
                             <br />
                             <div className="form-floating">
-                                <input
+                                <label htmlFor="floatingHorario"></label>
+                                <Select
                                     required
-                                    type="text"
-                                    className="form-control"
-                                    id='floatingDias_Trabaja'
-                                    value={this.state.dias_trabaja}
-                                    name='dias_trabaja'
-                                    onChange={this.handleChange} />
-                                <label htmlFor="floatingDias_Trabaja">Días de Atención</label>
+                                    value={this.state.selectedOptions}
+                                    isMulti
+                                    options={dias2.map((dias2) => ({
+                                        value: dias2.dias,
+                                        label: dias2.dias,
+                                    }))}
+                                    onChange={this.handleDiasChange}
+                                    components={animatedComponents}
+                                    closeMenuOnSelect={false}
+                                />
                             </div>
                             <br />
                             <div className="form-floating">
